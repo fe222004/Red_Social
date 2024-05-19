@@ -4,9 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = 
 [
   {
+    path:'customer-support',
+    loadChildren: () => import('./pages/customer-support/customer-support.module').then(m => m.CustomerSupportModule)
+  },
+  {
     path:'',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   }
+
 ];
 
 @NgModule({
