@@ -1,10 +1,7 @@
-.odd-row {
-    background-color: #f8f9fa; /* Color de fondo para filas impares */
-  }
-  .highlight {
-    color: red; /* Color rojo para resaltar el texto */
-  }
-  .profile-img {
-    max-width: 50px; /* Ancho máximo de la imagen de perfil */
-    height: auto; /* Altura automática para mantener la proporción */
+
+.rounded-circle {
+    width: 50px; /* Ajustează dimensiunea butonului după preferințe */
+    height: 50px; /* Ajustează dimensiunea butonului după preferințe */
+    border: 2px solid green; /* Schimbă culoarea și grosimea încădrării după preferințe */
+    background-color: white; /* Schimbă culoarea de fundal după preferințe */
   }

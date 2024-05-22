@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CustomerSupportRoutingModule } from './customer-support-routing.module';
 import { CustomerCreateComponent } from './customer-create/customer-create.component';
-
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,8 @@ import { CustomerCreateComponent } from './customer-create/customer-create.compo
   ],
   imports: [
     CommonModule,
-    CustomerSupportRoutingModule
+    CustomerSupportRoutingModule,
+    ButtonModule
   ]
 })
 export class CustomerSupportModule { }

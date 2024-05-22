@@ -1,70 +1,126 @@
-<div class="container mt-5">
-  <h1 class="mb-4">Revisión de Quejas de Usuarios</h1>
+<div class="container mt-4">
   <div class="row">
     <div class="col-md-12">
-      <table class="table">
+      <h1 style="margin-left: 400px; margin-top: 30px;">Administración de Quejas</h1>
+      <br>
+      <table id="complaintsTable" class="table table-bordered table-hover">
         <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Usuario</th>
-            <th>Correo</th>
-            <th>Imagen</th>
-            <th>Acciones</th>
+          <tr class="text-center">
+            <th style="width:15%; background-color: rgb(147, 147, 147);">Usuario</th>
+            <th style="width:15%; background-color: rgb(147, 147, 147);">Problema</th>
+            <th style="width:10%; background-color: rgb(147, 147, 147);">Fecha</th>
+            <th style="width:10%; background-color: rgb(147, 147, 147);">Estado</th>
+            <th style="width:15%; background-color: rgb(147, 147, 147);">Solución</th>
+            <th style="width:15%; background-color: rgb(147, 147, 147);">Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Juan Pérez</td>
-            <td>juanperez</td>
-            <td>juanperezexample.com</td>
-            <td><img src="https://via.placeholder.com/50" alt="Imagen de perfil" class="img-thumbnail"></td>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
             <td>
-              <button type="button" class="btn btn-primary" style="margin-right: 20px">Ver</button>
-              <button type="button" class="btn btn-danger">Rechazar</button>
+              <span class="badge bg-primary">En proceso</span>
+            </td>
+            <td>
+              <input type="text" class="form-control" placeholder="Ingrese la solución">
+            </td>
+            <td>
+              <p-button icon="pi pi-check" [rounded]="true" [text]="true" />
+              <button pButton type="button" icon="pi pi-times"
+                class="p-button-rounded p-button-text p-button-danger"></button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-warning">Pendiente</span>
+            </td>
+            <td>
+              <input type="text" class="form-control" placeholder="Ingrese la solución">
+            </td>
+            <td>
+              <p-button icon="pi pi-check" [rounded]="true" [text]="true" />
+              <button pButton type="button" icon="pi pi-times"
+                class="p-button-rounded p-button-text p-button-danger"></button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-primary">En proceso</span>
+            </td>
+            <td>
+              <input type="text" class="form-control" placeholder="Ingrese la solución">
+            </td>
+            <td>
+              <p-button icon="pi pi-check" [rounded]="true" [text]="true" />
+              <button pButton type="button" icon="pi pi-times"
+                class="p-button-rounded p-button-text p-button-danger"></button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-primary">En proceso</span>
+            </td>
+            <td>
+              <input type="text" class="form-control" placeholder="Ingrese la solución">
+            </td>
+            <td>
+              <p-button icon="pi pi-check" [rounded]="true" [text]="true" />
+              <button pButton type="button" icon="pi pi-times"
+                class="p-button-rounded p-button-text p-button-danger"></button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-success">Resuelto</span>
+            </td>
+            <td>
+              <input type="text" class="form-control" placeholder="Ingrese la solución">
+            </td>
+            <td>
+              <p-button icon="pi pi-check" [rounded]="true" [text]="true" />
+              <button pButton type="button" icon="pi pi-times"
+                class="p-button-rounded p-button-text p-button-danger"></button>
             </td>
           </tr>
           <tr>
-            <td>Juan Pérez</td>
-            <td>juanperez</td>
-            <td>juanperezexample.com</td>
-            <td><img src="https://via.placeholder.com/50" alt="Imagen de perfil" class="img-thumbnail"></td>
-            <td>
-              <button type="button" class="btn btn-primary" style="margin-right: 20px">Ver</button>
-              <button type="button" class="btn btn-danger">Rechazar</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Juan Pérez</td>
-            <td>juanperez</td>
-            <td>juanperezexample.com</td>
-            <td><img src="https://via.placeholder.com/50" alt="Imagen de perfil" class="img-thumbnail"></td>
-            <td>
-              <button type="button" class="btn btn-primary"  style="margin-right: 20px" >Ver</button>
-              <button type="button" class="btn btn-danger">Rechazar</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Juan Pérez</td>
-            <td>juanperez</td>
-            <td>juanperezexample.com</td>
-            <td><img src="https://via.placeholder.com/50" alt="Imagen de perfil" class="img-thumbnail"></td>
-            <td>
-              <button type="button" class="btn btn-primary" style="margin-right: 20px" >Ver</button>
-              <button type="button" class="btn btn-danger">Rechazar</button>
-            </td>
-          </tr>
-          <tr>
-            <td>Juan Pérez</td>
-            <td>juanperez</td>
-            <td>juanperezexample.com</td>
-            <td><img src="https://via.placeholder.com/50" alt="Imagen de perfil" class="img-thumbnail"></td>
-            <td>
-              <button type="button" class="btn btn-primary" style="margin-right: 20px;">Ver</button>
-              <button type="button" class="btn btn-danger">Rechazar</button>
-            </td>
+            <td colspan="6" class="text-center">No se encontraron más quejas.</td>
           </tr>
         </tbody>
       </table>
+      
+      <nav>
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#complaintsTable" tabindex="-1">Anterior</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#complaintsTable">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#complaintsTable">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#complaintsTable">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#complaintsTable">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+      
     </div>
   </div>
 </div>
