@@ -22,6 +22,7 @@ import { NavarComponent } from './pages/components/navar/navar.component';
     MenuComponent,
     CreatorComponent,
     NavarComponent
+
   ],
   imports: [
     BrowserModule,

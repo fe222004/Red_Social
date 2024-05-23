@@ -7,17 +7,19 @@ const routes: Routes =
 [
   
   {
-    path:'p',
+
+    path:'customer-support',
+    loadChildren: () => import('./pages/customer-support/customer-support.module').then(m => m.CustomerSupportModule)
+  },
+  {
+    path:'stories',
+    loadChildren: () => import('./pages/stories/stories.module').then(m => m.StoriesModule)
+  },
+  {
+     path:'p',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
-  },
-  {
-    path:'creator',
-    component: CreatorComponent
-  },
-  {
-    path:'d',
-    component: DashboardComponent
   }
+
 ];
 
 @NgModule({
