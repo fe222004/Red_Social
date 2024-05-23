@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss'
+  selector: 'app-navar',
+  templateUrl: './navar.component.html',
+  styleUrl: './navar.component.scss'
 })
-export class MenuComponent {
+export class NavarComponent {
 
   private allSideMenu!: NodeListOf<HTMLAnchorElement>;
   private menuBar!: HTMLElement | null;
@@ -94,4 +94,5 @@ export class MenuComponent {
       }
     });
   }
+
 }
