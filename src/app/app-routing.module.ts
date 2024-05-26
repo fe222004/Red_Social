@@ -18,7 +18,15 @@ const routes: Routes =
   {
      path:'p',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule)
-  }
+  },
+  {
+    path:'creator',
+    component: CreatorComponent
+  },
+  {
+    path:'',
+    component: DashboardComponent
+}
 
 ];
 

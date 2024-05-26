@@ -14,6 +14,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { MenuComponent } from './pages/components/menu/menu.component';
 import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
 import { NavarComponent } from './pages/components/navar/navar.component';
+import { CustomerCreateComponent } from './pages/customer-support/customer-create/customer-create.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NavarComponent } from './pages/components/navar/navar.component';
     DashboardComponent,
     MenuComponent,
     CreatorComponent,
-    NavarComponent
+    NavarComponent,
+    CustomerCreateComponent
 
   ],
   imports: [

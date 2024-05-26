@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard.component';
         {
             path:'',
             component: DashboardComponent
-          }
+        }
     ])],
     exports: [RouterModule]
 })
