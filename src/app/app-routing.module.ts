@@ -5,10 +5,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = 
 [
-  
   {
 
-    path:'customer-support',
+    path:'customer',
     loadChildren: () => import('./pages/customer-support/customer-support.module').then(m => m.CustomerSupportModule)
   },
   {
