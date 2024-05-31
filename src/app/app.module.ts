@@ -15,6 +15,8 @@ import { MenuComponent } from './pages/components/menu/menu.component';
 import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
 import { NavarComponent } from './pages/components/navar/navar.component';
 import { CustomerCreateComponent } from './pages/customer-support/customer-create/customer-create.component';
+import { PasswordModule } from 'primeng/password';
+import { CheckboxModule } from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { CustomerCreateComponent } from './pages/customer-support/customer-creat
     ButtonModule,
     SidebarModule,
     MenubarModule,
+    PasswordModule,
+    CheckboxModule
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
