@@ -3,14 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-  },
-  {
-    path:'contentCreator',
+    path: 'c',
     loadChildren: () => import('./contentCreator/page-creator.module').then(m => m.PageCreatorModule)
-  },
-
+  }
 ];
 
 @NgModule({
