@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -6,6 +7,28 @@ import { Component } from '@angular/core';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-margin: any;
+
+  private formBuilder: FormBuilder = inject(FormBuilder);
+
+    protected comentForm: FormGroup;
+
+    constructor() {
+      this.comentForm = this.builForm
+    }
+        get builForm(): FormGroup{
+          return this.formBuilder.group({
+            id: 0,
+            coment:['', Validators.required, Validators.minLength(30)],
+          });
+        }
+
+        get id(): AbstractControl {
+          return this.comentForm.controls['id']
+        }
+
+        get coment(): AbstractControl {
+          return this.comentForm.controls['coment']
+        }
+
 
 }

@@ -4,8 +4,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { CardModule } from 'primeng/card';
-import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   declarations: [
@@ -15,9 +14,6 @@ import { ButtonModule } from 'primeng/button';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CardModule,
-    ButtonModule
-
   ],
   providers: [
     provideClientHydration()
