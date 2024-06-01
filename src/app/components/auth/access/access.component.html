@@ -1,18 +1,12 @@
-<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
-    <div class="flex flex-column align-items-center justify-content-center">
-        <img src="assets/demo/images/access/logo-orange.svg" alt="Sakai logo" class="mb-5 w-6rem flex-shrink-0">
-        <div style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, rgba(247, 149, 48, 0.4) 10%, rgba(247, 149, 48, 0) 30%);">
-            <div class="w-full surface-card py-8 px-5 sm:px-8 flex flex-column align-items-center" style="border-radius:53px">
-                <div class="grid flex flex-column align-items-center">
-                    <div class="flex justify-content-center align-items-center bg-orange-500 border-circle" style="width:3.2rem; height:3.2rem;">
-                        <i class="text-50 pi pi-fw pi-lock text-2xl"></i>
-                    </div>
-                    <h1 class="text-900 font-bold text-4xl lg:text-5xl mb-2">Access Denied</h1>
-                    <span class="text-600 mb-5">You do not have the necessary permisions. Please contact admins.</span>
-                    <img src="assets/demo/images/access/asset-access.svg" alt="Access denied" class="mb-5" width="80%">
-                    <button pButton pRipple icon="pi pi-arrow-left" label="Go to Dashboard" class="p-button-text" ></button>
-                </div>
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+    <div class="d-flex flex-column align-items-center justify-content-center bg-white p-5 shadow-lg w-75" style="border-radius: 20px; border: 5px solid #F79530;">
+        <div class="text-center mb-4">
+            <div class="d-flex justify-content-center align-items-center bg-orange-500 rounded-circle mb-3" style="width: 3.5rem; height: 3.5rem;">
+                <i class="bi bi-lock-fill text-white" style="font-size: 1.5rem;"></i>
             </div>
+            <h1 class="text-900 font-bold text-4xl lg:text-5xl mb-2">Access Denied</h1>
+            <div class="text-600 mb-5">You do not have the necessary permissions. Please contact admins.</div>
         </div>
+        <a href="/dashboard" class="btn btn-primary w-100 py-3 h5" style="background-color: #F79530; border-color: #F79530;">Go to Dashboard</a>
     </div>
 </div>
