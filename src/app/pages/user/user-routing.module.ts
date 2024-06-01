@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+
 
 const routes: Routes = [
   
   {
     path:'profile',
-    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+    component: ProfileComponent
+  },
+  {
+    path:'edit',
+    component: EditProfileComponent
   }
 ];
 
