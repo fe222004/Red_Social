@@ -17,6 +17,7 @@ import { NavarComponent } from './pages/components/navar/navar.component';
 import { CustomerCreateComponent } from './pages/customer-support/customer-create/customer-create.component';
 import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
+import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     MenuComponent,
     CreatorComponent,
     NavarComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    FormSuscriptorComponent
 
   ],
   imports: [

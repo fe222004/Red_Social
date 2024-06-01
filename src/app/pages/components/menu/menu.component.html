@@ -1,43 +1,43 @@
 <section id="sidebar">
-    <a href="#" class="brand">
+    <a routerLink="/" class="brand">
         <i class='bx bxs-dish'></i>
-        <span class="text">UTalkMenu</span>
+        <span class="text">Dream Catcher</span>
     </a>
     <ul class="side-menu top">
-        <li class="active">
-            <a href="#">
-                <i class='bx bxs-dashboard' ></i>
-                <span class="text">Dashboard</span>
+        <li>
+            <a routerLink="/pages/dashboard">
+                <i class='bx bxs-dashboard'></i>
+                <span class="text">Inicio</span>
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bxs-cylinder'></i> <!--revisar icono-->
-                <span class="text">Platillos</span>
+            <a routerLink="/pages/c">
+                <i class='bx bxs-cylinder'></i> 
+                <span class="text">Explorar</span>
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bx-table' ></i>
-                <span class="text">Mesas</span>
-            </a>
-        </li>
-        <li>
-            <a href="./adminUTM-notificaciones">
-                <i class='bx bxs-message-dots' ></i>
+            <a routerLink="/pages/notificaciones">
+                <i class='bx bx-table'></i>
                 <span class="text">Notificaciones</span>
             </a>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bxs-group' ></i>
+            <a routerLink="/pages/comunidad">
+                <i class='bx bxs-group'></i>
                 <span class="text">Comunidad</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/pages/c/creator">
+                <i class='bx bxs-group'></i>
+                <span class="text">Creador</span>
             </a>
         </li>
     </ul>
     <ul class="side-menu">
         <li>
-            <a href="#" class="logout">
+            <a routerLink="/login" class="logout">
                 <i class='bx bx-log-out-circle'></i>
                 <span class="text">Salir</span>
             </a>
