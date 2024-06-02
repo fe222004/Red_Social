@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { StoriesCarouselComponent } from './stories-carousel/stories-carousel.component';
+import { ComplaintComponent } from './complaint/complaint.component';
 
 const routes: Routes = [
   {
-    path: 'stories-carousel',
-    component: StoriesCarouselComponent
+    path: 'complaint',
+    component: ComplaintComponent
+
+
   }
 ];
 
@@ -13,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class StoriesRoutingModule { }
+export class InspectorRoutingModule { }

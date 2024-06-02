@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './customer-create.component.scss'
 })
 export class CustomerCreateComponent {
+  ostrarFormularioQuejas = false;
+  mostrarFormularioQuejas: any;
 
-
+  mostrarFormulario() {
+    this.mostrarFormularioQuejas = true;
+  }
 }
