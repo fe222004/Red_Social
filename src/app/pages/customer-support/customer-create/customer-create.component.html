@@ -1,0 +1,179 @@
+
+<app-menu></app-menu>
+<app-navar></app-navar>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 style="margin-left: 400px; margin-top: 30px;">Administración de Quejas</h1>
+      <br>
+      <div style="margin-left: 200px; width: 90%;">
+      <table id="complaintsTable" class="table table-bordered table-hover"  style="width: 100%;">
+        <thead>
+          <tr class="text-center">
+            <th style="width:15%; background-color: rgb(147, 147, 147);">Usuario</th>
+            <th style="width:15%; background-color: rgb(147, 147, 147);">Problema</th>
+            <th style="width:10%; background-color: rgb(147, 147, 147);">Fecha</th>
+            <th style="width:10%; background-color: rgb(147, 147, 147);">Estado</th>
+            <th style="width:15%; background-color: rgb(147, 147, 147);">Solución</th>
+            <th style="width:15%; background-color: rgb(147, 147, 147);">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-primary">En proceso</span>
+            </td>
+             <td>
+              <select class="form-select">
+                <option value="">Ingrese una opción</option>
+                <option value="1">Gestión de Crisis</option>
+                <option value="2">Comunicación Empática</option>
+                <option value="3">Atención al Cliente</option>
+                <option value="4">Seguridad y Protección</option>
+              </select>
+            </td>  
+            <td>
+              <button type="button" class="btn btn-success" style="margin-right: 12px;">
+                 <i class="bi bi-check icono-grande"></i>
+              </button>
+              <button type="button" class="btn btn-danger">
+                 <i class="bi bi-x icono-grande"></i>
+              </button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-primary">En proceso</span>
+            </td>
+            <td>
+              <select class="form-select">
+                <option value="">Ingrese una opción</option>
+                <option value="1">Gestión de Crisis</option>
+                <option value="2">Comunicación Empática</option>
+                <option value="3">Atención al Cliente</option>
+                <option value="4">Seguridad y Protección</option>
+              </select>
+            </td>   
+            <td>
+              <button type="button" class="btn btn-success" style="margin-right: 12px;">
+                 <i class="bi bi-check icono-grande"></i>
+              </button>
+              <button type="button" class="btn btn-danger">
+                 <i class="bi bi-x icono-grande"></i>
+              </button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-warning">Pendiente</span>
+            </td>
+            <td>
+              <select class="form-select">
+                <option value="">Ingrese una opción</option>
+                <option value="1">Gestión de Crisis</option>
+                <option value="2">Comunicación Empática</option>
+                <option value="3">Atención al Cliente</option>
+                <option value="4">Seguridad y Protección</option>
+              </select>
+            </td>            
+            <td>
+              <button type="button" class="btn btn-success" style="margin-right: 12px;">
+                 <i class="bi bi-check icono-grande"></i>
+              </button>
+              <button type="button" class="btn btn-danger">
+                 <i class="bi bi-x icono-grande"></i>
+              </button>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-primary">En proceso</span>
+            </td>
+            <td>
+              <select class="form-select">
+                <option value="">Ingrese una opción</option>
+                <option value="1">Gestión de Crisis</option>
+                <option value="2">Comunicación Empática</option>
+                <option value="3">Atención al Cliente</option>
+                <option value="4">Seguridad y Protección</option>
+              </select>
+            </td>   
+            <td>
+              <button type="button" class="btn btn-success" style="margin-right: 12px;">
+                 <i class="bi bi-check icono-grande"></i>
+              </button>
+              <button type="button" class="btn btn-danger">
+                 <i class="bi bi-x icono-grande"></i>
+              </button>
+            </td>
+          </tr>
+
+          <tr class="text-center">
+            <td>Pedro López</td>
+            <td>Falta de Privacidad</td>
+            <td>2024-05-01</td>
+            <td>
+              <span class="badge bg-success">Resuelto</span>
+            </td>
+            <td>
+              <select class="form-select">
+                <option value="">Ingrese una opción</option>
+                <option value="1">Gestión de Crisis</option>
+                <option value="2">Comunicación Empática</option>
+                <option value="3">Atención al Cliente</option>
+                <option value="4">Seguridad y Protección</option>
+              </select>
+            </td>   
+            <td>
+              <button type="button" class="btn btn-success" style="margin-right: 12px;">
+                 <i class="bi bi-check icono-grande"></i>
+              </button>
+              <button type="button" class="btn btn-danger">
+                 <i class="bi bi-x icono-grande"></i>
+              </button>
+            </td>
+            
+          </tr>
+          <tr>
+            <td colspan="6" class="text-center">No se encontraron más quejas.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      
+      <nav>
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#complaintsTable" tabindex="-1">Anterior</a>
+          </li>
+          <li class="page-item active">
+            <a class="page-link" href="#complaintsTable">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#complaintsTable">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#complaintsTable">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#complaintsTable">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+

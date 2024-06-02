@@ -1,80 +1,60 @@
 <body>
     <header>
-        <!-- Stories -->
-        <div class="stories-container">
-            <div class="story">
-                <div class="story-image">
-                    <img src="https://via.placeholder.com/150" alt="Story 1">
-                </div>
-                <div class="story-overlay">
-                    <i class="fas fa-camera"></i>
-                </div>
-            </div>
-            <div class="story">
-                <div class="story-image">
-                    <img src="https://via.placeholder.com/150" alt="Story 2">
-                </div>
-                <div class="story-overlay">
-                    <i class="fas fa-camera"></i>
-                </div>
-            </div>
-            <div class="story">
-                <div class="story-image">
-                    <img src="https://via.placeholder.com/150" alt="Story 3">
-                </div>
-                <div class="story-overlay">
-                    <i class="fas fa-camera"></i>
-                </div>
-            </div>
-            <!-- Add more stories here -->
-        </div>
-        <!-- /Stories -->
+        <!-- place navbar here -->
+        <app-menu></app-menu>
+
     </header>
-
     <main>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <!-- Tarjeta sin imagen -->
-                    <div class="p-card mb-4" style="max-width: 40rem; max-height: 560px; background-color: transparent; border: none; height: auto;">
-                        <div class="p-card-body d-flex align-items-center justify-content-between">
-                            <div class="text-body-secondary d-flex align-items-center">
-                                <img src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
-                                <!-- Cambiado el texto "What happening?!" por un input -->
-                                <input type="text" pInputTextarea class="form-control border-0 no-animation" style="width: 100%;" placeholder="What's happening?" aria-label="Post" aria-describedby="button-addon2">
-                            </div>
-                            <!-- Cambiado el botón "Publicar" por uno que simula enviar el formulario -->
-                            <button type="submit" class="btn btn-primary rounded-pill mt-2" disabled>Post</button>
-                        </div>
-                    </div>
-                    <!-- /Tarjeta sin imagen -->
-                    <div class="p-card mb-4" style="max-width: 40rem;">
-                        <div class="p-card-body">
-                            <div class="text-body-secondary d-flex align-items-center">
-                                <img src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
-                                <p class="m-0">Fernanda Andrade fe_2004</p>
-                            </div>
-                            <p class="card-text">"¿Amante de la cocina? ¡No te pierdas nuestra receta exclusiva de la semana! Desde platos tradicionales hasta sabores innovadores, ¡tenemos algo para todos los paladares!"</p>
-                            <img src="https://i.pinimg.com/564x/bd/7c/69/bd7c6963cd2ea6e7b06d7895c1a145f0.jpg" class="p-card-img-top" alt="..." style="max-width: 100%; height: auto;">
-                        </div>
-                    </div>
-                    <div class="p-card mb-4" style="max-width: 40rem;">
-                        <div class="p-card-body">
-                            <div class="text-body-secondary d-flex align-items-center">
-                                <img src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
-                                <p class="m-0">Fernanda Andrade fe_2004</p>
-                            </div>
-                            <p class="card-text">"¿Amante de la cocina? ¡No te pierdas nuestra receta exclusiva de la semana! Desde platos tradicionales hasta sabores innovadores, ¡tenemos algo para todos los paladares!"</p>
-                            <img src="https://i.pinimg.com/564x/bd/7c/69/bd7c6963cd2ea6e7b06d7895c1a145f0.jpg" class="p-card-img-top" alt="..." style="max-width: 100%; height: auto;">
-                        </div>
+        <app-navar></app-navar>
+
+
+        <section id="content">
+
+            <!-- MAIN -->
+            <main>
+                <div class="table-data">
+                    <div class="order">
+
+                        <p class="text-body-secondary"> <img
+                                src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg"
+                                class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
+                            What happening?!
+                        </p>
+                        <button type="button" class="btn btn-primary position-absolute bottom-0 end-0 rounded-pill"
+                            style="margin-right: 10px; margin-bottom: 4px;" disabled>Primary</button>
+
                     </div>
                 </div>
-            </div>
-        </div>
+            
+
+                <div class="table-data">
+                    <div class="order">
+                        <p class="text-body-secondary" style="margin-top: 5px; margin-left: 5px;"> <img
+                                src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg"
+                                class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
+                            Fernanda Andrade fe_2004<br>
+                        <p class="text" style="margin-left: 5px;"> "¿Amante de la cocina? ¡No te pierdas nuestra receta
+                            exclusiva de la semana! Desde platos tradicionales hasta sabores innovadores, ¡tenemos algo
+                            para
+                            todos los paladares!</p>
+
+                        <img src="https://i.pinimg.com/564x/bd/7c/69/bd7c6963cd2ea6e7b06d7895c1a145f0.jpg"
+                            class="card-img-top" alt="..." style="width: 400px; height: 400px; margin-left: 50px;">
+                    </div>
+                    
+                    <div class="todo">
+                        <p class="fw-bold">Go ad free</p>
+                        <p class="fw-normal" style="margin-bottom: 20px;">Enjoy ad-free For You and Following timelines
+                            with
+                            Premium+</p>
+                        <button type="button" class="btn btn-dark" (click)="toggleSubscriptionForm()">Subscribe</button>
+                    </div>
+                    <div *ngIf="showSubscriptionForm" class="subscription-form">
+                    <app-form-suscriptor></app-form-suscriptor>
+                    </div>
+                </div>
+            </main>
+            <!-- MAIN -->
+        </section>
     </main>
-
-    <footer>
-        <!-- Footer content -->
-    </footer>
-
 </body>
