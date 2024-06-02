@@ -1,0 +1,117 @@
+<body>
+    <div>
+        <!-- SIDEBAR -->
+        <app-menu></app-menu>
+        <!-- SIDEBAR -->
+    </div>
+    <app-navar></app-navar>
+    <app-stories></app-stories>
+    <!-- CONTENT -->
+    <section id="content">
+        <!--<app-stories></app-stories>--> 
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1 style="margin-left: 350px; margin-top: 30px;">Administración de Quejas</h1>
+                </div>
+            </div>
+
+            <div class="table-data">
+                <div class="order">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead class="table-light-gray">
+                            <tr class="campos">
+                                <th scope="col" class="move-left">#</th>
+                                <th scope="col" class="move-left">Usuario</th>
+                                <th scope="col" class="move-left">Dirigido a</th>
+                                <th scope="col" class="move-left">Problema</th>
+                                <th scope="col" class="move-left">Fecha de Queja</th>
+                                <th scope="col" class="move-left">Hora de Queja</th>
+                                <th scope="col" class="move-left">Estado</th>
+                                <th scope="col" class="move-left">Solución</th>
+                                <th scope="col" class="move-left">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>Pedro López</td>
+                                <td>Maria López</td>
+                                <td>Acoso</td>
+                                <td>2024-05-01</td>
+                                <td>12:00</td>
+                                <td>
+                                    <select class="status-select form-select">
+                                        <option value="" disabled selected></option>
+                                        <option value="pending">Pendiente</option>
+                                        <option value="process">En proceso</option>
+                                        <option value="resolved">Resuelto</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" placeholder="Ingrese una opción">
+                                </td>
+
+                                <!--FORMULARIO DE ACCEPTAR-->
+                                <td>
+                                    <button type="button" class="btn btn-success me-2" (click)="mostrarFormulario()">
+                                        <i class="bi bi-check icono-grande"></i>
+                                    </button>
+
+                                    <div class="form-quejas" [ngClass]="{'show': mostrarFormularioQuejas}">
+                                        <h2>Registrar Queja</h2>
+                                        <form class="row shadow p-3 mb-5 bg-body-tertiary rounded">
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+
+
+
+                                            <div class="col-12" style="margin-top: 30px">
+                                                <button type="submit" class="btn btn-success">Registrarse</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    style="margin-left: 4px;">Cancelar</button>
+                                            </div>
+
+                                            <div class="col-12" style="margin-top: 30px">
+                                                <button type="button" class="btn btn-primary">Editar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script src="script.js"></script>
+</body>
