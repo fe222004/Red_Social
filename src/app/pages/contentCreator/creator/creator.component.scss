@@ -535,3 +535,25 @@ body {
 		min-width: 420px;
 	}
 }
+
+.publication-form {
+    margin-top: 20px;
+}
+
+.publication-form .form-group {
+    margin-bottom: 20px;
+}
+
+.publication-form label {
+    font-weight: bold;
+}
+
+.publication-form textarea {
+    resize: vertical;
+}
+
+.publication-form button {
+    display: block;
+    width: 100%;
+}
+
