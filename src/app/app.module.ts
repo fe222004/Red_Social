@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import {
-  BrowserModule,
-  provideClientHydration,
-} from '@angular/platform-browser';
+import {BrowserModule,provideClientHydration,} from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,10 +8,11 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
-import { MenuComponent } from './pages/components/menu/menu.component';
 import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
-import { NavarComponent } from './pages/components/navar/navar.component';
 import { CustomerCreateComponent } from './pages/customer-support/customer-create/customer-create.component';
+import { NavarComponent } from './pages/components/navar/navar.component';
+import { MenuComponent } from './pages/components/menu/menu.component';
+import { StoriesComponent } from './pages/components/stories/stories.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +21,8 @@ import { CustomerCreateComponent } from './pages/customer-support/customer-creat
     MenuComponent,
     CreatorComponent,
     NavarComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    StoriesComponent,
 
   ],
   imports: [
