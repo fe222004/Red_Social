@@ -38,13 +38,15 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+
+                "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
-
             ],
             "scripts": [
-              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js"
+
             ],
             "server": "src/main.server.ts",
             "prerender": true,
@@ -119,6 +121,8 @@
     }
   },
   "cli": {
-    "analytics": "a6c1ee70-eacc-416b-8380-287008e7f01f"
+
+    "analytics": "d4f61b94-86ab-4b85-8d14-203d0d6d000c"
+
   }
 }
