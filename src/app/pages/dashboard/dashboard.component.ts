@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  menuVisible: boolean = false;
+  showSubscriptionForm: boolean = false;
+
+  toggleSubscriptionForm() {
+    this.showSubscriptionForm = !this.showSubscriptionForm;
+  }
 }

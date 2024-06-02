@@ -19,6 +19,10 @@ const routes: Routes =
     component: CreatorComponent
   },
   {
+    path:'',
+    component: DashboardComponent
+  },
+  {
     path:'stories',
     component: StoriesComponent
   }

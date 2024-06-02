@@ -14,6 +14,12 @@ import { NavarComponent } from './pages/components/navar/navar.component';
 import { MenuComponent } from './pages/components/menu/menu.component';
 import { StoriesComponent } from './pages/components/stories/stories.component';
 
+import { PasswordModule } from 'primeng/password';
+import { CheckboxModule } from 'primeng/checkbox';
+import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
+import { PagesModule } from './pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +29,7 @@ import { StoriesComponent } from './pages/components/stories/stories.component';
     NavarComponent,
     CustomerCreateComponent,
     StoriesComponent,
+    FormSuscriptorComponent,
 
   ],
   imports: [
@@ -32,6 +39,12 @@ import { StoriesComponent } from './pages/components/stories/stories.component';
     ButtonModule,
     SidebarModule,
     MenubarModule,
+    PasswordModule,
+    CheckboxModule,
+    PagesModule,
+    BrowserAnimationsModule,
+    
+   
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
