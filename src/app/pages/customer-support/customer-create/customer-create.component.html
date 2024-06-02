@@ -1,179 +1,117 @@
-
-<app-menu></app-menu>
-<app-navar></app-navar>
-
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-12">
-      <h1 style="margin-left: 400px; margin-top: 30px;">Administración de Quejas</h1>
-      <br>
-      <div style="margin-left: 200px; width: 90%;">
-      <table id="complaintsTable" class="table table-bordered table-hover"  style="width: 100%;">
-        <thead>
-          <tr class="text-center">
-            <th style="width:15%; background-color: rgb(147, 147, 147);">Usuario</th>
-            <th style="width:15%; background-color: rgb(147, 147, 147);">Problema</th>
-            <th style="width:10%; background-color: rgb(147, 147, 147);">Fecha</th>
-            <th style="width:10%; background-color: rgb(147, 147, 147);">Estado</th>
-            <th style="width:15%; background-color: rgb(147, 147, 147);">Solución</th>
-            <th style="width:15%; background-color: rgb(147, 147, 147);">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-primary">En proceso</span>
-            </td>
-             <td>
-              <select class="form-select">
-                <option value="">Ingrese una opción</option>
-                <option value="1">Gestión de Crisis</option>
-                <option value="2">Comunicación Empática</option>
-                <option value="3">Atención al Cliente</option>
-                <option value="4">Seguridad y Protección</option>
-              </select>
-            </td>  
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                 <i class="bi bi-check icono-grande"></i>
-              </button>
-              <button type="button" class="btn btn-danger">
-                 <i class="bi bi-x icono-grande"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-primary">En proceso</span>
-            </td>
-            <td>
-              <select class="form-select">
-                <option value="">Ingrese una opción</option>
-                <option value="1">Gestión de Crisis</option>
-                <option value="2">Comunicación Empática</option>
-                <option value="3">Atención al Cliente</option>
-                <option value="4">Seguridad y Protección</option>
-              </select>
-            </td>   
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                 <i class="bi bi-check icono-grande"></i>
-              </button>
-              <button type="button" class="btn btn-danger">
-                 <i class="bi bi-x icono-grande"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-warning">Pendiente</span>
-            </td>
-            <td>
-              <select class="form-select">
-                <option value="">Ingrese una opción</option>
-                <option value="1">Gestión de Crisis</option>
-                <option value="2">Comunicación Empática</option>
-                <option value="3">Atención al Cliente</option>
-                <option value="4">Seguridad y Protección</option>
-              </select>
-            </td>            
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                 <i class="bi bi-check icono-grande"></i>
-              </button>
-              <button type="button" class="btn btn-danger">
-                 <i class="bi bi-x icono-grande"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-primary">En proceso</span>
-            </td>
-            <td>
-              <select class="form-select">
-                <option value="">Ingrese una opción</option>
-                <option value="1">Gestión de Crisis</option>
-                <option value="2">Comunicación Empática</option>
-                <option value="3">Atención al Cliente</option>
-                <option value="4">Seguridad y Protección</option>
-              </select>
-            </td>   
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                 <i class="bi bi-check icono-grande"></i>
-              </button>
-              <button type="button" class="btn btn-danger">
-                 <i class="bi bi-x icono-grande"></i>
-              </button>
-            </td>
-          </tr>
-
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-success">Resuelto</span>
-            </td>
-            <td>
-              <select class="form-select">
-                <option value="">Ingrese una opción</option>
-                <option value="1">Gestión de Crisis</option>
-                <option value="2">Comunicación Empática</option>
-                <option value="3">Atención al Cliente</option>
-                <option value="4">Seguridad y Protección</option>
-              </select>
-            </td>   
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                 <i class="bi bi-check icono-grande"></i>
-              </button>
-              <button type="button" class="btn btn-danger">
-                 <i class="bi bi-x icono-grande"></i>
-              </button>
-            </td>
-            
-          </tr>
-          <tr>
-            <td colspan="6" class="text-center">No se encontraron más quejas.</td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-      
-      <nav>
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#complaintsTable" tabindex="-1">Anterior</a>
-          </li>
-          <li class="page-item active">
-            <a class="page-link" href="#complaintsTable">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#complaintsTable">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#complaintsTable">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#complaintsTable">Siguiente</a>
-          </li>
-        </ul>
-      </nav>
+<body>
+    
+    <div>
+        <!-- SIDEBAR -->
+        <app-menu></app-menu>
+        <!-- SIDEBAR -->
     </div>
-  </div>
-</div>
+    <app-navar></app-navar><app-stories></app-stories>
+    <!-- CONTENT -->
+    <section id="content">
+        <!--<app-stories></app-stories>--> 
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1 style="margin-left: 350px; margin-top: 30px;">Administración de Quejas</h1>
+                </div>
+            </div>
 
+            <div class="table-data">
+                <div class="order">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead class="table-light-gray">
+                            <tr class="campos">
+                                <th scope="col" class="move-left">#</th>
+                                <th scope="col" class="move-left">Usuario</th>
+                                <th scope="col" class="move-left">Dirigido a</th>
+                                <th scope="col" class="move-left">Problema</th>
+                                <th scope="col" class="move-left">Fecha de Queja</th>
+                                <th scope="col" class="move-left">Hora de Queja</th>
+                                <th scope="col" class="move-left">Estado</th>
+                                <th scope="col" class="move-left">Solución</th>
+                                <th scope="col" class="move-left">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>Pedro López</td>
+                                <td>Maria López</td>
+                                <td>Acoso</td>
+                                <td>2024-05-01</td>
+                                <td>12:00</td>
+                                <td>
+                                    <select class="status-select form-select">
+                                        <option value="" disabled selected></option>
+                                        <option value="pending">Pendiente</option>
+                                        <option value="process">En proceso</option>
+                                        <option value="resolved">Resuelto</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" placeholder="Ingrese una opción">
+                                </td>
+
+                                <!--FORMULARIO DE ACCEPTAR-->
+                                <td>
+                                    <button type="button" class="btn btn-success me-2" (click)="mostrarFormulario()">
+                                        <i class="bi bi-check icono-grande"></i>
+                                    </button>
+
+                                    <div class="form-quejas" [ngClass]="{'show': mostrarFormularioQuejas}">
+                                        <h2>Registrar Queja</h2>
+                                        <form class="row shadow p-3 mb-5 bg-body-tertiary rounded">
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+                                            <div class="col-6 me-auto" style="margin-top: 20px">
+                                                <label for="nombre" class="form-label">Nombre</label>
+                                                <input type="text" id="nombre" class="form-control"
+                                                    formControlName="nombre" />
+                                            </div>
+
+
+
+                                            <div class="col-12" style="margin-top: 30px">
+                                                <button type="submit" class="btn btn-success">Registrarse</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    style="margin-left: 4px;">Cancelar</button>
+                                            </div>
+
+                                            <div class="col-12" style="margin-top: 30px">
+                                                <button type="button" class="btn btn-primary">Editar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+
+    <script src="script.js"></script>
+</body>
