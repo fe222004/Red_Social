@@ -18,6 +18,8 @@ import { CustomerCreateComponent } from './pages/customer-support/customer-creat
 import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
+import { PagesModule } from './pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form
     CreatorComponent,
     NavarComponent,
     CustomerCreateComponent,
-    FormSuscriptorComponent
+    FormSuscriptorComponent,
+   
 
   ],
   imports: [
@@ -38,7 +41,11 @@ import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form
     SidebarModule,
     MenubarModule,
     PasswordModule,
-    CheckboxModule
+    CheckboxModule,
+    PagesModule,
+    BrowserAnimationsModule,
+    
+   
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

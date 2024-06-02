@@ -8,39 +8,13 @@ import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form
 
 const routes: Routes = [
   {
-    path: 'formulario',
-    component: FormSuscriptorComponent
+    path:'',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
-  {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'pages',
-    loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
-    //canActivate: [AuthGuard]
-  },
-  {
-    path: 'error',
-    component: ErrorComponent
-  },
-  {
-    path: 'access',
-    component: AccessComponent
-  },
-  {
-    path: 'notfound',
-    component: NotfoundComponent
-  },
-  {
-    path: '**',
-    redirectTo: '/notfound'
-  }
+ {
+  path:'pages',
+  loadChildren:() => import ('./pages/pages.module').then(m => m.PagesModule)
+ },
 ];
 
 @NgModule({

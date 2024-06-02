@@ -12,6 +12,14 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
+  {
+    path: 'content',
+    loadChildren:() => import('./contents/contents.module').then(m => m.ContentsModule)
+  },
+ {
+  path: 'inspector',
+  loadChildren:() => import('./inspector/inspector.module').then(m => m.InspectorModule)
+ }
 ];
 
 @NgModule({
