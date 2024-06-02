@@ -2,9 +2,12 @@
     <header>
         <!-- place navbar here -->
         <app-menu></app-menu>
+
     </header>
     <main>
         <app-navar></app-navar>
+
+
         <section id="content">
 
             <!-- MAIN -->
@@ -38,16 +41,12 @@
                         <img src="https://i.pinimg.com/564x/bd/7c/69/bd7c6963cd2ea6e7b06d7895c1a145f0.jpg"
                             class="card-img-top" alt="..." style="width: 400px; height: 400px; margin-left: 50px;">
                     </div>
-                    
                     <div class="todo">
                         <p class="fw-bold">Go ad free</p>
                         <p class="fw-normal" style="margin-bottom: 20px;">Enjoy ad-free For You and Following timelines
                             with
                             Premium+</p>
-                        <button type="button" class="btn btn-dark" (click)="toggleSubscriptionForm()">Subscribe</button>
-                    </div>
-                    <div *ngIf="showSubscriptionForm" class="subscription-form">
-                    <app-form-suscriptor></app-form-suscriptor>
+                        <button type="button" class="btn btn-dark">Subscribe</button>
                     </div>
                 </div>
             </main>
