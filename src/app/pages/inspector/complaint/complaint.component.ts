@@ -6,11 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './complaint.component.scss'
 })
 export class ComplaintComponent {
-  visible: boolean = false;
-
-    showDialog() {
-        this.visible = true;
-    }
  
 }
 

@@ -7,7 +7,7 @@ import { ExplorersComponent } from './explorers/explorers.component';
 
 @NgModule({
   declarations: [
-    ExplorersComponent,
+    
    
   ],
   imports: [

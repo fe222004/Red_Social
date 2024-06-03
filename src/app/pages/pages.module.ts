@@ -14,7 +14,7 @@ import { InspectorModule } from './inspector/inspector.module';
     CommonModule,
     PagesRoutingModule,
    ContentsModule,
-   InspectorModule,
+
   ]
 })
 export class PagesModule { }

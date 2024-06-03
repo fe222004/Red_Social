@@ -1,6 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ComplaintComponent } from './inspector/complaint/complaint.component';
+import { ExplorersComponent } from './contents/explorers/explorers.component';
 
 const routes: Routes = [
 
@@ -13,13 +15,19 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
+    path: 'complaint',
+   component: ComplaintComponent,
+   },
+{
+ path:'explorer',
+   component: ExplorersComponent
+},
+  
+  {
     path: 'content',
     loadChildren:() => import('./contents/contents.module').then(m => m.ContentsModule)
   },
- {
-  path: 'inspector',
-  loadChildren:() => import('./inspector/inspector.module').then(m => m.InspectorModule)
- }
+
 ];
 
 @NgModule({

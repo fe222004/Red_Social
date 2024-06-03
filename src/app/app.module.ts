@@ -20,6 +20,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComplaintComponent } from './pages/inspector/complaint/complaint.component';
+import { InspectorModule } from './pages/inspector/inspector.module';
+import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavarComponent,
     CustomerCreateComponent,
     FormSuscriptorComponent,
+  ComplaintComponent,
+  ExplorersComponent,
+   
    
 
   ],
@@ -42,7 +48,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MenubarModule,
     PasswordModule,
     CheckboxModule,
-    PagesModule,
+ 
     BrowserAnimationsModule,
     
    
