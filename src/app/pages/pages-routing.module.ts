@@ -5,14 +5,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StoriesComponent } from './components/stories/stories.component';
 
 const routes: Routes = [
-
-  {
-    path: 'c',
-    loadChildren: () => import('./contentCreator/page-creator.module').then(m => m.PageCreatorModule)
-  },
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'contenent',
+    loadChildren: () => import('./contents/contents.module').then(m => m.ContentsModule)
+  },
+  {
+    path: 'c',
+    loadChildren: () => import('./contentCreator/page-creator.module').then(m => m.PageCreatorModule)
   },
   {
     path: 'content',
@@ -25,6 +28,10 @@ const routes: Routes = [
   {
     path:'customer',
     loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule)
+  },
+  {
+    path:'user',
+    loadChildren: () => import('./user/user-routing.module').then(m => m.UserRoutingModule)
   }
 ];
 

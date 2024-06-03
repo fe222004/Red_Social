@@ -6,22 +6,16 @@
     </header>
     <main>
         <app-navar></app-navar>
-        <app-stories></app-stories>
+        
         <section id="content">
-
             <!-- MAIN -->
             <main>
+                <app-stories></app-stories>
+
                 <div class="table-data">
                     <div class="order">
 
-                        <p class="text-body-secondary"> <img
-                                src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg"
-                                class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
-                            What happening?!
-                        </p>
-                        <button type="button" class="btn btn-primary position-absolute bottom-0 end-0 rounded-pill"
-                            style="margin-right: 10px; margin-bottom: 4px;" disabled>Primary</button>
-
+                        <app-post></app-post>
                     </div>
                 </div>
             
@@ -52,4 +46,5 @@
             <!-- MAIN -->
         </section>
     </main>
+    <app-footer></app-footer>
 </body>
