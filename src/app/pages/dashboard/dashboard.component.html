@@ -1,50 +1,50 @@
 <body>
     <header>
-        <!-- place navbar here -->
-        <app-menu></app-menu>
-
+      <app-menu></app-menu>
     </header>
     <main>
-        <app-navar></app-navar>
-        
-        <section id="content">
-            <!-- MAIN -->
-            <main>
-                <app-stories></app-stories>
-
-                <div class="table-data">
-                    <div class="order">
-
-                        <app-post></app-post>
-                    </div>
-                </div>
-            
-
-                <div class="table-data">
-                    <div class="order">
-                        <p class="text-body-secondary" style="margin-top: 5px; margin-left: 5px;"> <img
-                                src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg"
-                                class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
-                            Fernanda Andrade fe_2004<br>
-                        <p class="text" style="margin-left: 5px;"> "¿Amante de la cocina? ¡No te pierdas nuestra receta
-                            exclusiva de la semana! Desde platos tradicionales hasta sabores innovadores, ¡tenemos algo
-                            para
-                            todos los paladares!</p>
-
-                        <img src="https://i.pinimg.com/564x/bd/7c/69/bd7c6963cd2ea6e7b06d7895c1a145f0.jpg"
-                            class="card-img-top" alt="..." style="width: 400px; height: 400px; margin-left: 50px;">
-                    </div>
-                    <div class="todo">
-                        <p class="fw-bold">Go ad free</p>
-                        <p class="fw-normal" style="margin-bottom: 20px;">Enjoy ad-free For You and Following timelines
-                            with
-                            Premium+</p>
-                        <button type="button" class="btn btn-dark">Subscribe</button>
-                    </div>
-                </div>
-            </main>
-            <!-- MAIN -->
-        </section>
+      <app-navar></app-navar>
+      <section id="content">
+        <main>
+          <app-stories></app-stories>
+          <div class="table-data">
+            <div class="order">
+              <app-post></app-post>
+            </div>
+          </div>
+          <div class="table-data">
+            <div class="order">
+              <p class="text-body-secondary" style="margin-top: 5px; margin-left: 5px;">
+                <img src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg"
+                  class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
+                Fernanda Andrade fe_2004<br>
+                <p class="text" style="margin-left: 5px;">
+                  "¿Amante de la cocina? ¡No te pierdas nuestra receta exclusiva de la semana! Desde platos tradicionales hasta sabores innovadores, ¡tenemos algo para todos los paladares!"
+                </p>
+                <img src="https://i.pinimg.com/564x/bd/7c/69/bd7c6963cd2ea6e7b06d7895c1a145f0.jpg"
+                  class="card-img-top" alt="..." style="width: 400px; height: 400px; margin-left: 50px;">
+              
+            </div>
+            <div class="todo">
+              <p class="fw-bold">Go ad free</p>
+              <p class="fw-normal" style="margin-bottom: 20px;">Enjoy ad-free For You and Following timelines with Premium+</p>
+              <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#subscribeModal">Subscribe</button>
+            </div>
+          </div>
+        </main>
+      </section>
     </main>
     <app-footer></app-footer>
-</body>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <app-form-suscriptor></app-form-suscriptor>
+           
+          </div>
+        </div>
+      </div>
+  </body>
+  

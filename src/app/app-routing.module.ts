@@ -7,8 +7,12 @@ import { AccessComponent } from './components/auth/access/access.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ComplaintComponent } from './pages/inspector/complaint/complaint.component';
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
+import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 
 const routes: Routes = [
+  {
+    path: 'f',
+  component: FormSuscriptorComponent  },
   {
     path: '',
     redirectTo: '/login',
@@ -38,7 +42,8 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: '/notfound'
-  }
+  },
+  
 ];
 
 @NgModule({
