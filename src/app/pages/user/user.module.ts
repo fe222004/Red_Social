@@ -8,16 +8,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
+
+
 @NgModule({
   declarations: [
-    PostComponent,
-    ProfileComponent,
-    EditProfileComponent
+ 
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    ReactiveFormsModule
   ]
 })
 export class UserModule { }

@@ -1,382 +1,402 @@
 <body>
-  <main style="display: flex;">
-    <section style="margin-left: 330px;">
-      <!-- Usuario -->
-      <div class="card" style="width: 650px; margin-top: 60px;">
-        <div class="card-body" style="display: flex;">
-          <div class="profile-image">
-            <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg" class="card-img-top1"
-              alt="...">
-          </div>
-          <div class="usuario" style="margin-left: 20px;">
-            <div class="header" style="display: flex;">
-              <h3>Joss Balarezo</h3>
-              <div class="option" style="margin-left: 160px;">
-                <button type="submit" class="btn btn-outline-info">
-                  <a class="edit" routerLink='/user/edit' style="color: black; text-decoration: none;">
-                    Editar Perfil
-                  </a>
-                </button>
+  <header>
+    <!-- Menu -->
+    <app-menu></app-menu>
+  </header>
+  <main>
+    <app-navar></app-navar>
+    <section id="content">
+      <main style="display: flex;">
+        <section>
+          <!-- Usuario -->
+          <div class="card" style="width: 700px;">
+            <div class="card-body" style="display: flex;">
+              <div class="profile-image">
+                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg" class="card-img-top1"
+                  alt="...">
               </div>
-            </div>
-            <p class="card-text"><small class="text-body-secondary">jossy.balarezo21</small></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nemo.</p>
-            <p class="card-text"><small class="text-body-secondary">Comenzaste en 2013</small></p>
-            <div class="detalles" style="display: flex;">
-              <!--Seguidores-->
-              <p style="margin-top: 20px;">220</p>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                style="border: none; background-color: transparent; color: black; margin-right: 35px;">
-                Seguidores
-              </button>
+              <div class="usuario" style="margin-left: 20px;">
+                <div class="header" style="display: flex;">
+                  <h3>Joss Balarezo</h3>
+                  <div class="option" style="margin-left: 160px;">
+                    <button type="submit" class="btn btn-outline-info">
+                      <a class="edit" routerLink='/user/edit' style="color: black; text-decoration: none;">
+                        Editar Perfil
+                      </a>
+                    </button>
+                  </div>
+                </div>
+                <p class="card-text"><small class="text-body-secondary">jossy.balarezo21</small></p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nemo.</p>
+                <p class="card-text"><small class="text-body-secondary">Comenzaste en 2013</small></p>
+                <div class="detalles" style="display: flex;">
+                  <!--Seguidores-->
+                  <p style="margin-top: 20px;">220</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    style="border: none; background-color: transparent; color: black; margin-right: 35px;">
+                    Seguidores
+                  </button>
 
-              <!--Lista Seguidores-->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" style="width: 400px;">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Seguidores</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <!--Lista Seguidores-->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" style="width: 450px;">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Seguidores</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="list-group list-group-flush">
+                            <li class="list-group-item" style="display: flex;">
+                              <div class="profile-image">
+                                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                                  style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                              </div>
+                              <div class="user" style="margin-left: 20px;">
+                                <h6>Joss Balarezo</h6>
+                                <p class="card-text" style="font-size: 15px;"><small
+                                    class="text-body-secondary">jossy.balarezo21</small>
+                                </p>
+                              </div>
+                              <div class="follow" style="margin-left: 90px;">
+                                <button type="button" class="btn btn-outline-info"
+                                  style=" border-radius: 50px; margin-top: 10px;">Remove</button>
+                              </div>
+                            </li>
+                            <li class="list-group-item" style="display: flex;">
+                              <div class="profile-image">
+                                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                                  style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                              </div>
+                              <div class="user" style="margin-left: 20px;">
+                                <h6>Joss Balarezo</h6>
+                                <p class="card-text" style="font-size: 15px;"><small
+                                    class="text-body-secondary">jossy.balarezo21</small>
+                                </p>
+                              </div>
+                              <div class="follow" style="margin-left: 90px;">
+                                <button type="button" class="btn btn-outline-info"
+                                  style=" border-radius: 50px; margin-top: 10px;">Remove</button>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
-                    <div class="modal-body">
-                      <ul class="list-group list-group-flush">
-                        <li class="list-group-item" style="display: flex;">
-                          <div class="profile-image">
-                            <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                              style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                          </div>
-                          <div class="user" style="margin-left: 20px;">
-                            <h6>Joss Balarezo</h6>
-                            <p class="card-text" style="font-size: 15px;"><small
-                                class="text-body-secondary">jossy.balarezo21</small>
-                            </p>
-                          </div>
-                          <div class="follow" style="margin-left: 90px;">
-                            <button type="button" class="btn btn-outline-info"
-                              style=" border-radius: 50px; margin-top: 10px;">Remove</button>
-                          </div>
-                        </li>
-                        <li class="list-group-item" style="display: flex;">
-                          <div class="profile-image">
-                            <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                              style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                          </div>
-                          <div class="user" style="margin-left: 20px;">
-                            <h6>Joss Balarezo</h6>
-                            <p class="card-text" style="font-size: 15px;"><small
-                                class="text-body-secondary">jossy.balarezo21</small>
-                            </p>
-                          </div>
-                          <div class="follow" style="margin-left: 90px;">
-                            <button type="button" class="btn btn-outline-info"
-                              style=" border-radius: 50px; margin-top: 10px;">Remove</button>
-                          </div>
-                        </li>
-                      </ul>
+                  </div>
+
+                  <!--Seguidos-->
+                  <p style="margin-top: 20px;">20</p>
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                    style="border: none; background-color: transparent; color: black;">
+                    Seguidos
+                  </button>
+
+                  <!--Lista Seguidos-->
+                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Seguidos</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          ...
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <!--Seguidos-->
-              <p style="margin-top: 20px;">20</p>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                style="border: none; background-color: transparent; color: black;">
-                Seguidos
-              </button>
-
-              <!--Lista Seguidos-->
-              <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Seguidos</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      ...
-                    </div>
+            </div>
+          </div>
+          <!-- Post -->
+          <h3 style="margin-top: 40px; margin-bottom: 20px;">Publicaciones</h3>
+          <div class="post">
+            <div class="card" style="width: 700px;">
+              <div class="card-header" style="display: flex;">
+                <div class="profile-image">
+                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                </div>
+                <div class="user" style="margin-left: 20px;">
+                  <h6>Joss Balarezo</h6>
+                  <p class="card-text" style="font-size: 15px;"><small
+                      class="text-body-secondary">jossy.balarezo21</small>
+                  </p>
+                </div>
+                <div class="edit" style="margin-left: 350px;">
+                  <button type="button" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;">Editar
+                    Post</button>
+                </div>
+              </div>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure
+                    voluptatum
+                    a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod
+                    unde
+                    perferendis ad vero?</p>
+                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
+                  </footer>
+                </blockquote>
+              </div>
+              <div class="card-footer">
+                <div class="option" style="display: flex; margin-left: 140px;">
+                  <div class="like" style="display: flex; font-size: 20px;">
+                    <i class="bi bi-heart"></i>
+                    <p style="margin-left: 10px;">Like</p>
+                  </div>
+                  <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
+                    <i class="bi bi-chat"></i>
+                    <p style="margin-left: 10px;">Comentarios</p>
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="coment" style="display: flex;">
+                  <div class="photo">
+                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                      style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
+                  </div>
+                  <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
+                    <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
+                      placeholder="Agrega un comentario" style="height: 45px;">
+                  </div>
+                  <div class="comentsave" style="margin-left: 10px;">
+                    <button type="button" class="btn btn-outline-info"
+                      style=" border-radius: 50px; margin-top: 10px;">Comentar</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <!-- Post -->
-      <h3 style="margin-top: 40px; margin-bottom: 20px;">Publicaciones</h3>
-      <div class="post">
-        <div class="card" style="width: 650px;">
-          <div class="card-header" style="display: flex;">
-            <div class="profile-image">
-              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-            </div>
-            <div class="user" style="margin-left: 20px;">
-              <h6>Joss Balarezo</h6>
-              <p class="card-text" style="font-size: 15px;"><small class="text-body-secondary">jossy.balarezo21</small>
-              </p>
-            </div>
-            <div class="edit" style="margin-left: 350px;">
-              <button type="button" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;">Editar
-                Post</button>
-            </div>
-          </div>
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure voluptatum
-                a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod unde
-                perferendis ad vero?</p>
-              <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="card-footer">
-            <div class="option" style="display: flex; margin-left: 140px;">
-              <div class="like" style="display: flex; font-size: 20px;">
-                <i class="bi bi-heart"></i>
-                <p style="margin-left: 10px;">Like</p>
+          <div class="post">
+            <div class="card" style="width: 700px;">
+              <div class="card-header" style="display: flex;">
+                <div class="profile-image">
+                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                </div>
+                <div class="user" style="margin-left: 20px;">
+                  <h6>Joss Balarezo</h6>
+                  <p class="card-text" style="font-size: 15px;"><small
+                      class="text-body-secondary">jossy.balarezo21</small>
+                  </p>
+                </div>
+                <div class="edit" style="margin-left: 350px;">
+                  <button type="button" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;">Editar
+                    Post</button>
+                </div>
               </div>
-              <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
-                <i class="bi bi-chat"></i>
-                <p style="margin-left: 10px;">Comentarios</p>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure
+                    voluptatum
+                    a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod
+                    unde
+                    perferendis ad vero?</p>
+                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
+                  </footer>
+                </blockquote>
               </div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="coment" style="display: flex;">
-              <div class="photo">
-                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                  style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
+              <div class="card-footer">
+                <div class="option" style="display: flex; margin-left: 140px;">
+                  <div class="like" style="display: flex; font-size: 20px;">
+                    <i class="bi bi-heart"></i>
+                    <p style="margin-left: 10px;">Like</p>
+                  </div>
+                  <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
+                    <i class="bi bi-chat"></i>
+                    <p style="margin-left: 10px;">Comentarios</p>
+                  </div>
+                </div>
               </div>
-              <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
-                <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
-                  placeholder="Agrega un comentario" style="height: 45px;">
-              </div>
-              <div class="comentsave" style="margin-left: 10px;">
-                <button type="button" class="btn btn-outline-info"
-                  style=" border-radius: 50px; margin-top: 10px;">Comentar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="post">
-        <div class="card" style="width: 650px;">
-          <div class="card-header" style="display: flex;">
-            <div class="profile-image">
-              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-            </div>
-            <div class="user" style="margin-left: 20px;">
-              <h6>Joss Balarezo</h6>
-              <p class="card-text" style="font-size: 15px;"><small class="text-body-secondary">jossy.balarezo21</small>
-              </p>
-            </div>
-            <div class="edit" style="margin-left: 350px;">
-              <button type="button" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;">Editar
-                Post</button>
-            </div>
-          </div>
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure voluptatum
-                a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod unde
-                perferendis ad vero?</p>
-              <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="card-footer">
-            <div class="option" style="display: flex; margin-left: 140px;">
-              <div class="like" style="display: flex; font-size: 20px;">
-                <i class="bi bi-heart"></i>
-                <p style="margin-left: 10px;">Like</p>
-              </div>
-              <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
-                <i class="bi bi-chat"></i>
-                <p style="margin-left: 10px;">Comentarios</p>
+              <div class="card-footer">
+                <div class="coment" style="display: flex;">
+                  <div class="photo">
+                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                      style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
+                  </div>
+                  <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
+                    <form [formGroup]="comentForm">
+                      <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
+                        placeholder="Agrega un comentario" style="height: 45px;">
+                    </form>
+                  </div>
+                  <div class="comentsave" style="margin-left: 10px;">
+                    <button type="button" class="btn btn-outline-info"
+                      style=" border-radius: 50px; margin-top: 10px;">Comentar</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="card-footer">
-            <div class="coment" style="display: flex;">
-              <div class="photo">
-                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                  style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
+          <div class="post">
+            <div class="card" style="width: 700px;">
+              <div class="card-header" style="display: flex;">
+                <div class="profile-image">
+                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                </div>
+                <div class="user" style="margin-left: 20px;">
+                  <h6>Joss Balarezo</h6>
+                  <p class="card-text" style="font-size: 15px;"><small
+                      class="text-body-secondary">jossy.balarezo21</small>
+                  </p>
+                </div>
+                <div class="edit" style="margin-left: 350px;">
+                  <button type="button" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;">Editar
+                    Post</button>
+                </div>
               </div>
-              <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
-                <form [formGroup]="comentForm">
-                <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
-                  placeholder="Agrega un comentario" style="height: 45px;">
-                </form>
+              <div class="card-body">
+                <blockquote class="blockquote mb-0">
+                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure
+                    voluptatum
+                    a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod
+                    unde
+                    perferendis ad vero?</p>
+                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
+                  </footer>
+                </blockquote>
               </div>
-              <div class="comentsave" style="margin-left: 10px;">
-                <button type="button" class="btn btn-outline-info"
-                  style=" border-radius: 50px; margin-top: 10px;">Comentar</button>
+              <div class="card-footer">
+                <div class="option" style="display: flex; margin-left: 140px;">
+                  <div class="like" style="display: flex; font-size: 20px;">
+                    <i class="bi bi-heart"></i>
+                    <p style="margin-left: 10px;">Like</p>
+                  </div>
+                  <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
+                    <i class="bi bi-chat"></i>
+                    <p style="margin-left: 10px;">Comentarios</p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="post">
-        <div class="card" style="width: 650px;">
-          <div class="card-header" style="display: flex;">
-            <div class="profile-image">
-              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-            </div>
-            <div class="user" style="margin-left: 20px;">
-              <h6>Joss Balarezo</h6>
-              <p class="card-text" style="font-size: 15px;"><small class="text-body-secondary">jossy.balarezo21</small>
-              </p>
-            </div>
-            <div class="edit" style="margin-left: 350px;">
-              <button type="button" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;">Editar
-                Post</button>
-            </div>
-          </div>
-          <div class="card-body">
-            <blockquote class="blockquote mb-0">
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure voluptatum
-                a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod unde
-                perferendis ad vero?</p>
-              <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="card-footer">
-            <div class="option" style="display: flex; margin-left: 140px;">
-              <div class="like" style="display: flex; font-size: 20px;">
-                <i class="bi bi-heart"></i>
-                <p style="margin-left: 10px;">Like</p>
-              </div>
-              <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
-                <i class="bi bi-chat"></i>
-                <p style="margin-left: 10px;">Comentarios</p>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="coment" style="display: flex;">
-              <div class="photo">
-                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                  style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
-              </div>
-              <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
-                <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
-                  placeholder="Agrega un comentario" style="height: 45px;">
-              </div>
-              <div class="comentsave" style="margin-left: 10px;">
-                <button type="button" class="btn btn-outline-info"
-                  style=" border-radius: 50px; margin-top: 10px;">Comentar</button>
+              <div class="card-footer">
+                <div class="coment" style="display: flex;">
+                  <div class="photo">
+                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                      style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
+                  </div>
+                  <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
+                    <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
+                      placeholder="Agrega un comentario" style="height: 45px;">
+                  </div>
+                  <div class="comentsave" style="margin-left: 10px;">
+                    <button type="button" class="btn btn-outline-info"
+                      style=" border-radius: 50px; margin-top: 10px;">Comentar</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-    </section>
+        </section>
 
-    <section style="margin-left: 30px;">
-      <div class="card" style="width: 350px; margin-top: 60px;">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Sugerencias</li>
-          <li class="list-group-item" style="display: flex;">
-            <div class="profile-image">
-              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-            </div>
-            <div class="user" style="margin-left: 20px;">
-              <h6>Joss Balarezo</h6>
-              <p class="card-text" style="font-size: 15px;"><small class="text-body-secondary">jossy.balarezo21</small>
-              </p>
-            </div>
-            <div class="follow" style="margin-left: 80px;">
-              <button type="button" class="btn btn-outline-info"
-                style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-            </div>
-          </li>
-          <li class="list-group-item" style="display: flex;">
-            <div class="profile-image">
-              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-            </div>
-            <div class="user" style="margin-left: 20px;">
-              <h6>Joss Balarezo</h6>
-              <p class="card-text" style="font-size: 15px;"><small class="text-body-secondary">jossy.balarezo21</small>
-              </p>
-            </div>
-            <div class="follow" style="margin-left: 80px;">
-              <button type="button" class="btn btn-outline-info"
-                style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-            </div>
-          </li>
-          <li class="list-group-item" style="display: flex;">
-            <div class="profile-image">
-              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-            </div>
-            <div class="user" style="margin-left: 20px;">
-              <h6>Joss Balarezo</h6>
-              <p class="card-text" style="font-size: 15px;"><small class="text-body-secondary">jossy.balarezo21</small>
-              </p>
-            </div>
-            <div class="follow" style="margin-left: 80px;">
-              <button type="button" class="btn btn-outline-info"
-                style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-            </div>
-          </li>
-          <li class="list-group-item" style="display: flex;">
-            <div class="profile-image">
-              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-            </div>
-            <div class="user" style="margin-left: 20px;">
-              <h6>Joss Balarezo</h6>
-              <p class="card-text" style="font-size: 15px;"><small class="text-body-secondary">jossy.balarezo21</small>
-              </p>
-            </div>
-            <div class="follow" style="margin-left: 80px;">
-              <button type="button" class="btn btn-outline-info"
-                style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-            </div>
-          </li>
-          <li class="list-group-item" style="display: flex;">
-            <div class="profile-image">
-              <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-            </div>
-            <div class="user" style="margin-left: 20px;">
-              <h6>Joss Balarezo</h6>
-              <p class="card-text" style="font-size: 15px;"><small class="text-body-secondary">jossy.balarezo21</small>
-              </p>
-            </div>
-            <div class="follow" style="margin-left: 80px;">
-              <button type="button" class="btn btn-outline-info"
-                style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-            </div>
-          </li>
+        <section style="margin-left: 30px;">
+          <div class="card" style="width: 370px; position: fixed;">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Sugerencias</li>
+              <li class="list-group-item" style="display: flex;">
+                <div class="profile-image">
+                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                </div>
+                <div class="user" style="margin-left: 20px;">
+                  <h6>Joss Balarezo</h6>
+                  <p class="card-text" style="font-size: 15px;"><small
+                      class="text-body-secondary">jossy.balarezo21</small>
+                  </p>
+                </div>
+                <div class="follow" style="margin-left: 80px;">
+                  <button type="button" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
+                </div>
+              </li>
+              <li class="list-group-item" style="display: flex;">
+                <div class="profile-image">
+                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                </div>
+                <div class="user" style="margin-left: 20px;">
+                  <h6>Joss Balarezo</h6>
+                  <p class="card-text" style="font-size: 15px;"><small
+                      class="text-body-secondary">jossy.balarezo21</small>
+                  </p>
+                </div>
+                <div class="follow" style="margin-left: 80px;">
+                  <button type="button" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
+                </div>
+              </li>
+              <li class="list-group-item" style="display: flex;">
+                <div class="profile-image">
+                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                </div>
+                <div class="user" style="margin-left: 20px;">
+                  <h6>Joss Balarezo</h6>
+                  <p class="card-text" style="font-size: 15px;"><small
+                      class="text-body-secondary">jossy.balarezo21</small>
+                  </p>
+                </div>
+                <div class="follow" style="margin-left: 80px;">
+                  <button type="button" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
+                </div>
+              </li>
+              <li class="list-group-item" style="display: flex;">
+                <div class="profile-image">
+                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                </div>
+                <div class="user" style="margin-left: 20px;">
+                  <h6>Joss Balarezo</h6>
+                  <p class="card-text" style="font-size: 15px;"><small
+                      class="text-body-secondary">jossy.balarezo21</small>
+                  </p>
+                </div>
+                <div class="follow" style="margin-left: 80px;">
+                  <button type="button" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
+                </div>
+              </li>
+              <li class="list-group-item" style="display: flex;">
+                <div class="profile-image">
+                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
+                </div>
+                <div class="user" style="margin-left: 20px;">
+                  <h6>Joss Balarezo</h6>
+                  <p class="card-text" style="font-size: 15px;"><small
+                      class="text-body-secondary">jossy.balarezo21</small>
+                  </p>
+                </div>
+                <div class="follow" style="margin-left: 80px;">
+                  <button type="button" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
+                </div>
+              </li>
 
-        </ul>
-      </div>
-      <div class="card" style="width: 350px;">
-        <div class="card-body">
-          <h5 class="card-title">Tendencias</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
-          <p class="card-text">Some quick example text to build on the card </p>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
-          <p class="card-text">Some quick example text to build on the card</p>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
-          <p class="card-text">Some quick example text to build on the card </p>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
-          <p class="card-text">Some quick example text to build on the </p>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
-          <p class="card-text">Some quick example text to build on the card </p>
-        </div>
-      </div>
+            </ul>
+          </div>
+          <div class="card" style="width: 370px; margin-top: 400px; position: fixed; height: auto;">
+            <div class="card-body">
+              <h5 class="card-title">Tendencias</h5>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
+              <p class="card-text">Some quick example text to build on the card </p>
+              <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
+              <p class="card-text">Some quick example text to build on the card</p>
+            </div>
+          </div>
+        </section>
+      </main>
     </section>
   </main>
 </body>

@@ -5,10 +5,13 @@ import { PagesRoutingModule } from './pages-routing.module';
 
 import { ContentsModule } from './contents/contents.module';
 import { InspectorModule } from './inspector/inspector.module';
+import { MenuComponent } from './components/menu/menu.component';
+import { NavarComponent } from './components/navar/navar.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     PagesRoutingModule,

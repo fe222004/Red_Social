@@ -20,6 +20,11 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { promisify } from 'util';
+import { ProfileComponent } from './pages/user/profile/profile.component';
+import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
+import { PostComponent } from './pages/user/post/post.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -32,6 +37,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CustomerCreateComponent,
     StoriesComponent,
     FormSuscriptorComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    PostComponent
 
   ],
   imports: [
@@ -46,7 +54,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CheckboxModule,
     PagesModule,
     BrowserAnimationsModule,
-    
+    ReactiveFormsModule,
    
 
   ],
