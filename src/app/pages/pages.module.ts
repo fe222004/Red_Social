@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PagesRoutingModule } from './pages-routing.module';
 
 import { InspectorModule } from './inspector/inspector.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { InspectorModule } from './inspector/inspector.module';
     CommonModule,
     PagesRoutingModule,
    InspectorModule,
+   RouterModule
 
   ]
 })

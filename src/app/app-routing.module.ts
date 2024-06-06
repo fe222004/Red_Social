@@ -11,9 +11,6 @@ import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form
 
 const routes: Routes = [
   {
-    path: 'f',
-  component: FormSuscriptorComponent  },
-  {
     path: '',
     redirectTo: '/login',
     pathMatch: 'full'

@@ -24,6 +24,8 @@ import { ProfileComponent } from './pages/user/profile/profile.component';
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
 import { FooterComponent } from './pages/components/footer/footer.component';
 import { PostComponent } from './pages/components/post/post.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -39,10 +41,12 @@ import { PostComponent } from './pages/components/post/post.component';
     ProfileComponent,
     ExplorersComponent,
     FooterComponent,
-    PostComponent
+    PostComponent,
+    RegisterComponent
 
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
 

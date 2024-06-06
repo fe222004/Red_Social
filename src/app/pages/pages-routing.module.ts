@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StoriesComponent } from './components/stories/stories.component';
+import { RegisterComponent } from '../components/auth/register/register.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'contenent',
