@@ -7,42 +7,70 @@
         <app-navar></app-navar>
         <section id="content">
             <form
-                style="width: 600px; background-color: rgba(227, 225, 225, 0.237); padding: 20px; margin-top: 10px; border-radius: 30px;">
-                <h3 style="margin-left: 200px;">Editar Perfil</h3>
-                <div class="text-center">
-                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg" class="rounded"
-                        alt="..."
-                        style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 30px; margin-top: 30px;">
+                style="width: 600px; padding: 20px; margin-top: 10px; border-radius: 30px;">
+                <h3 style="margin-left: 400px;">Editar Perfil</h3>
+                <div class="formulario" style="display: flex; width: 1100px; height: 515px;">
+                    <div class="container">
+                        <div class="text-center">
+                            <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                                class="rounded" alt="..."
+                                style="width: 150px; height: 150px; border-radius: 100px; margin-bottom: 30px; margin-top: 20px;">
+                        </div>
+                        <div class="mb-3" style="margin-top: 30px;">
+                            <input type="text" class="form-control" id="exampleInputName" placeholder="Nombre"
+                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                        </div>
+                        <div class="mb-3" style="margin-top: 30px;">
+                            <input type="text" class="form-control" id="exampleInputLastname" placeholder="Apellido"
+                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                        </div>
+                        <div class="mb-3" style="margin-top: 30px;">
+                            <input type="email" class="form-control" id="exampleUser" placeholder="Usuario"
+                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                        </div>
+                        <div class="mb-3" style="margin-top: 30px;">
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Correo Electronico"
+                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                        </div>
+                    </div>
+
+                    <div class="container" style="margin-left: 70px; margin-top: 40px;">
+                        <div class="mb-3" style="margin-top: 40px;">
+                            <input type="text" class="form-control" id="exampleInputDescription" placeholder="Descripcion"
+                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                        </div>
+                        <div class="mb-3" style="margin-top: 40px;">
+                            <label class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" class="form-control" id="exampleInputbirthday"
+                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                        </div>
+                        <div class="mb-3" style="margin-top: 40px;">
+                            <select class="form-select" aria-label="Default select example"style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                                <option selected>Pais</option>
+                                <option value="1">Ecuador</option>
+                                <option value="2">Colombia</option>
+                                <option value="3">Estados unidos</option>
+                              </select>
+                        </div>
+                        <div class="mb-3" style="margin-top: 40px;">
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Cambiar Contraseña"
+                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                        </div>
+                        <div class="mb-3" style="margin-top: 40px;">
+                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repetir Contraseña"
+                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                        </div>
+                        
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp">
+                <div class="buttons" style="display: flex; margin-left: 470px;">
+                    <button type="submit" class="btn btn-outline-info" style="width: 130px;">Guardar</button>
+                    <button type="submit" class="btn btn-outline-success" style="width: 130px; margin-left: 20px;">
+                        <a class="edit" routerLink='/user/profile' style="color: black; text-decoration: none;">
+                          Cancelar
+                        </a>
+                    </button>
                 </div>
-                <div class="mb-3">
-                    <label for="lastname" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="exampleInputLastname" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Usuario</label>
-                    <input type="email" class="form-control" id="exampleUser" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="descrption" class="form-label">Descripcion</label>
-                    <input type="text" class="form-control" id="exampleInputDescription" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="birthday" class="form-label">Fecha de Nacimiento</label>
-                    <input type="date" class="form-control" id="exampleInputbirthday">
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <button type="submit" class="btn btn-primary" style="margin-left: 190px; width: 130px;">Guardar</button>
             </form>
         </section>
     </main>
