@@ -1,145 +1,199 @@
-<!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">!-->
-
-<div class="container mt-4">
-  <div class="row">
-    <div class="col-md-12">
-      <h1 style="margin-left: 400px; margin-top: 30px;">Administración de Quejas</h1>
-      <br>
-      <table id="complaintsTable" class="table table-bordered table-hover">
-        <thead>
-          <tr class="text-center">
-            <th style="width:15%; background-color: rgb(147, 147, 147);">Usuario</th>
-            <th style="width:15%; background-color: rgb(147, 147, 147);">Problema</th>
-            <th style="width:10%; background-color: rgb(147, 147, 147);">Fecha</th>
-            <th style="width:10%; background-color: rgb(147, 147, 147);">Estado</th>
-            <th style="width:15%; background-color: rgb(147, 147, 147);">Solución</th>
-            <th style="width:15%; background-color: rgb(147, 147, 147);">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-primary">En proceso</span>
-            </td>
-            <td>
-              <input type="text" class="form-control" placeholder="Ingrese la solución">
-            </td>
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                <i class="pi pi-check"></i> 
-              </button>
-              <button type="button" class="btn btn-danger">
-                <i class="pi pi-times"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-primary">En proceso</span>
-            </td>
-            <td>
-              <input type="text" class="form-control" placeholder="Ingrese la solución">
-            </td>
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                <i class="pi pi-check"></i> 
-              </button>
-              <button type="button" class="btn btn-danger">
-                <i class="pi pi-times"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-warning">Pendiente</span>
-            </td>
-            <td>
-              <input type="text" class="form-control" placeholder="Ingrese la solución">
-            </td>
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                <i class="pi pi-check"></i> 
-              </button>
-              <button type="button" class="btn btn-danger">
-                <i class="pi pi-times"></i>
-              </button>
-            </td>
-          </tr>
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-primary">En proceso</span>
-            </td>
-            <td>
-              <input type="text" class="form-control" placeholder="Ingrese la solución">
-            </td>
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                <i class="pi pi-check"></i> 
-              </button>
-              <button type="button" class="btn btn-danger">
-                <i class="pi pi-times"></i>
-              </button>
-            </td>
-          </tr>
-
-          <tr class="text-center">
-            <td>Pedro López</td>
-            <td>Falta de Privacidad</td>
-            <td>2024-05-01</td>
-            <td>
-              <span class="badge bg-success">Resuelto</span>
-            </td>
-            <td>
-              <input type="text" class="form-control" placeholder="Ingrese la solución">
-            </td>
-            <td>
-              <button type="button" class="btn btn-success" style="margin-right: 12px;">
-                <i class="pi pi-check"></i> 
-              </button>
-              <button type="button" class="btn btn-danger">
-                <i class="pi pi-times"></i>
-              </button>
-            </td>
-            
-          </tr>
-          <tr>
-            <td colspan="6" class="text-center">No se encontraron más quejas.</td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <nav>
-        <ul class="pagination justify-content-center">
-          <li class="page-item disabled">
-            <a class="page-link" href="#complaintsTable" tabindex="-1">Anterior</a>
-          </li>
-          <li class="page-item active">
-            <a class="page-link" href="#complaintsTable">1</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#complaintsTable">2</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#complaintsTable">3</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#complaintsTable">Siguiente</a>
-          </li>
-        </ul>
-      </nav>
-      
+<body>
+    <div>
+        <!-- SIDEBAR -->
+        <app-menu></app-menu>
+        <!-- SIDEBAR -->
     </div>
-  </div>
-</div>
+    <app-navar></app-navar>
+    <!-- CONTENT -->
+    <section id="content">
+        <!--<app-stories></app-stories> -->
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1 style="margin-left: 350px; margin-top: 30px">
+                        Administración de Quejas
+                    </h1>
+                </div>
+            </div>
+
+            <div class="table-data">
+                <div class="order">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead class="table-light-gray">
+                            <tr class="campos">
+                                <th scope="col" class="move-left">#</th>
+                                <th scope="col" class="move-left">Infractor</th>
+                                <th scope="col" class="move-left">Problema</th>
+                                <th scope="col" class="move-left">Fecha de Queja</th>
+                                <th scope="col" class="move-left">Hora de Queja</th>
+                                <th scope="col" class="move-left">Estado</th>
+                                <th scope="col" class="move-left">Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Maria López Perez</td>
+                                <td>Desconfianza en los medios de comunicación</td>
+                                <td>2024-05-01</td>
+                                <td>12:00</td>
+                                <td>
+                                    <select class="status-select form-select">
+                                        <option value="" disabled selected></option>
+                                        <option value="pending">Pendiente</option>
+                                        <option value="process">En proceso</option>
+                                        <option value="resolved">Resuelto</option>
+                                    </select>
+                                </td>
+                                <!--FORMULARIO REGISTRO QUEJAS-->
+                                <td>
+                                    <button type="button" class="btn btn-success me-2" (click)="mostrarFormulario()">
+                                        <i class="bi bi-check icono-grande"></i>
+                                    </button>
+                                    <div class="form-quejas" [ngClass]="{ show: mostrarFormularioQuejas }">
+                                        <div class="form-container">
+                                            <h2 style="color: black; margin-top: -10px">
+                                                Registrar Queja
+                                            </h2>
+                                            <br />
+                                            <form [formGroup]="form"
+                                                class="row shadow p-3 mb-5 bg-body-tertiary rounded"
+                                                (ngSubmit)="onSubmit()">
+                                                <div class="row">
+                                                    <div class="col-6 mb-3"
+                                                        style="margin-top: 5px; padding-right: 15px">
+                                                        <label for="nombre" class="form-label">Nombre</label>
+                                                        <input type="text" id="nombre" class="form-control"
+                                                            formControlName="name" />
+                                                        <div style="font-size: smaller; text-align: center">
+                                                            @if(name.errors){ @if(name.touched){
+                                                            @if(name.errors['required']){
+                                                            <span class="p-error">Este campo es requerido</span>
+                                                            } @if(name.errors['minlength']){
+                                                            <span class="p-error">El campo debe contener al menos 5
+                                                                caracteres</span>
+                                                            } } }
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 mb-3" style="margin-top: 5px; padding-left: 15px">
+                                                        <label for="apellido" class="form-label">Apellido</label>
+                                                        <input type="text" id="apellido" class="form-control"
+                                                            formControlName="lastname" />
+                                                        <div style="font-size: smaller; text-align: center">
+                                                            @if(lastname.errors){ @if(lastname.touched){
+                                                            @if(lastname.errors['required']){
+                                                            <span class="p-error">Este campo es requerido</span>
+                                                            } @if(lastname.errors['minlength']){
+                                                            <span class="p-error">El campo apellido debe contener al
+                                                                menos 5
+                                                                caracteres</span>
+                                                            } } }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6 mb-3"
+                                                        style="margin-top: 5px; padding-right: 15px">
+                                                        <label for="correo" class="form-label">Correo</label>
+                                                        <input type="email" id="correo" class="form-control"
+                                                            formControlName="email" />
+                                                        <div style="font-size: smaller; text-align: center">
+                                                            @if(email.errors){ @if(email.touched){
+                                                            @if(email.errors['required']){
+                                                            <span class="p-error">Este campo es requerido</span>
+                                                            } @if(email.errors['pattern']){
+                                                            <span class="p-error">Ingrese un correo electrónico
+                                                                válido</span>
+                                                            } } }
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 mb-3" style="margin-top: 5px; padding-left: 15px">
+                                                        <label for="solucion" class="form-label">Solución</label>
+                                                        <input type="text" id="solucion" class="form-control"
+                                                            formControlName="solution" />
+                                                        <div style="font-size: smaller; text-align: center">
+                                                            @if(solution.errors){ @if(solution.touched){
+                                                            @if(solution.errors['required']){
+                                                            <span class="p-error">Este campo es requerido</span>
+                                                            } @if(solution.errors['minlength']){
+                                                            <span class="p-error">Ingrese una solución</span>
+                                                            } } }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6 mb-3"
+                                                        style="margin-top: 5px; padding-right: 15px">
+                                                        <label for="fecha" class="form-label">Fecha</label>
+                                                        <input type="date" id="fecha" class="form-control"
+                                                            formControlName="date" />
+                                                        <div style="font-size: smaller; text-align: center">
+                                                            @if(date.errors){ @if(date.touched){
+                                                            @if(date.errors['required']){
+                                                            <span class="p-error">Este campo es requerido</span>
+                                                            } } }
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 mb-3" style="margin-top: 5px; padding-left: 15px">
+                                                        <label for="numeroQueja" class="form-label">Número de
+                                                            queja</label>
+                                                        <input type="number" id="numeroQueja" class="form-control"
+                                                            formControlName="complaint_number" />
+                                                        <div style="font-size: smaller; text-align: center">
+                                                            @if(complaint_number.errors){
+                                                            @if(complaint_number.touched){
+                                                            @if(complaint_number.errors['required']){
+                                                            <span class="p-error">Este campo es requerido</span>
+                                                            } @if(complaint_number.errors['min']){
+                                                            <span class="p-error">Ingrese un número válido</span>
+                                                            } } }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="margin-top: 20px">
+                                                    <label for="aceptado" class="form-label">Cuenta suspendida</label>
+                                                    <select id="aceptado" class="form-control"
+                                                        formControlName="suspended_account">
+                                                        <option value="" disabled selected></option>
+                                                        <option value="true">Sí</option>
+                                                        <option value="false">No</option>
+                                                    </select>
+                                                </div>
+                                                <div style="font-size: smaller; text-align: center">
+                                                    @if(suspended_account.errors){
+                                                    @if(suspended_account.touched){
+                                                    @if(suspended_account.errors['required']){
+                                                    <span class="p-error">Este campo es requerido</span>
+                                                    } } }
+                                                </div>
+                                                <div class="col-12" style="margin-top: 30px; text-align: center;">
+                                                    <button type="button" class="btn btn-outline-success" style="width: 22%;"(click)="validataForm()">Enviar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <!--REVISAR LA ADVERTENCIA-->
+                                    <!-- Botón para abrir el modal de advertencia -->
+                                    <button type="button" class="btn btn-secondary" (click)="abrirModalAdvertencia()">
+                                        <i class="bi bi-check icono-grande"></i>
+                                    </button>
+
+                                   
+                                    
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+    <script src="script.js"></script>
+</body>

@@ -20,6 +20,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CheckboxModule,
     PagesModule,
     BrowserAnimationsModule,
-    
+    ReactiveFormsModule
    
 
   ],
