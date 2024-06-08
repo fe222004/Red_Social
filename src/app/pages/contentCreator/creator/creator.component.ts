@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./creator.component.scss']
 })
 export class CreatorComponent  {
+  protect user : any = NULL;
 
   private readonly userService: UserService = inject(UserService);
 
@@ -14,7 +15,11 @@ export class CreatorComponent  {
   }
 
   findUser(){
-  this.userService.findUser()
+  this.userService.findUser().suscribe(response => {
+
+    this.user = response
+
+}
   }
   
 }
