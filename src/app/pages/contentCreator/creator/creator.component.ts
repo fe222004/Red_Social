@@ -18,6 +18,9 @@ export class CreatorComponent  {
   this.userService.findUser().suscribe(response => {
   this.user = response
   }
+  createUser(playload :any){
+  this.userService.createUser().suscribe(response => {
+
   }
   
 }
