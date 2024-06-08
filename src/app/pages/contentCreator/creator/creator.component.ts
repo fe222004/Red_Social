@@ -16,10 +16,8 @@ export class CreatorComponent  {
 
   findUser(){
   this.userService.findUser().suscribe(response => {
-
-    this.user = response
-
-}
+  this.user = response
+  }
   }
   
 }
