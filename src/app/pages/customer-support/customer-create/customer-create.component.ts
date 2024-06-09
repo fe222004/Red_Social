@@ -8,11 +8,14 @@ declare var bootstrap: any;
   styleUrl: './customer-create.component.scss'
 })
 export class CustomerCreateComponent {
-  onSubmit() {
-    throw new Error('Method not implemented.');
-  }
+onSubmit() {
+throw new Error('Method not implemented.');
+}
+  
+
   mostrarFormularioQuejas = false;
   mostrarFormularioQuejasAdvertencia = false;
+  advertenciaMensaje: string = '';
 
   private formBuilder = inject(FormBuilder);
 
@@ -64,22 +67,14 @@ export class CustomerCreateComponent {
     this.mostrarFormularioQuejas = false;
   }
 
-  mostrarFormularioAdvertencia() {
+  mostrarAdvertencia() {
     this.mostrarFormularioQuejasAdvertencia = true;
-    this.abrirModalAdvertencia(); // Llama al método para abrir el modal de advertencia
   }
 
-  ocultarFormularioAdvertencia() {
+  ocultarAdvertencia() {
     this.mostrarFormularioQuejasAdvertencia = false;
   }
 
-  abrirModalAdvertencia() {
-    const modal = new bootstrap.Modal(document.getElementById('modalAdvertencia'), {
-      backdrop: 'static', // Evita que se cierre haciendo clic fuera del modal
-      keyboard: false // Evita que se cierre al presionar la tecla Esc
-    });
-    modal.show();
-  }
 
   validataForm() {
     if (this.form.valid) {
@@ -87,6 +82,16 @@ export class CustomerCreateComponent {
       this.ocultarFormulario();
     } else {
       alert('No registrado');
+    }
+  }
+
+
+  enviarAdvertencia() {
+    if (this.advertenciaMensaje.trim() !== '') {
+      alert('Advertencia enviada: ' + this.advertenciaMensaje);
+      this.ocultarAdvertencia();
+    } else {
+      alert('El mensaje de advertencia no puede estar vacío');
     }
   }
 

@@ -20,7 +20,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
 
 
 @NgModule({
@@ -33,12 +34,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     CustomerCreateComponent,
     StoriesComponent,
     FormSuscriptorComponent,
+    CustomerListComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     CardModule,
     ButtonModule,
     SidebarModule,
@@ -47,9 +48,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CheckboxModule,
     PagesModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
-   
-
+    ReactiveFormsModule,
+    FormsModule 
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
