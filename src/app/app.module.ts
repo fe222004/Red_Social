@@ -24,6 +24,7 @@ import { FooterComponent } from './pages/components/footer/footer.component';
 import { PostComponent } from './pages/components/post/post.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RouterModule } from '@angular/router';
     FooterComponent,
     PostComponent,
     RegisterComponent,
+
   ],
   imports: [
     RouterModule,
@@ -52,6 +54,7 @@ import { RouterModule } from '@angular/router';
     CheckboxModule,
     PagesModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],

@@ -21,23 +21,23 @@
 
                     <div class="field mb-4 col-6">
                         <label for="image" class="font-medium text-900"></label>
-                        <div class="upload-container" *ngIf="!imageSrc" (drop)="onDrop($event)" (dragover)="onDragOver($event)">
-                          <label for="fileInput" class="upload-label">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            Arrastra y suelta una imagen aquí o haz clic para seleccionarla.
-                          </label>
-                          <input type="file" id="fileInput" accept="image/*" formControlName="image" (change)="getFile($event)" style="display: none;">
-                          <button type="button" pButton label="Choose File" class="p-button-outlined" (click)="chooseFile()"></button>
+                        <div class="upload-container" *ngIf="!imageSrc" (drop)="onDrop($event)"
+                            (dragover)="onDragOver($event)">
+                            <label for="fileInput" class="upload-label">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                Arrastra y suelta una imagen aquí o haz clic para seleccionarla.
+                            </label>
+                            <input type="file" id="fileInput" accept="image/*" formControlName="image"
+                                (change)="getFile($event)" style="display: none;">
+                            <button type="button" pButton label="Choose File" class="p-button-outlined"
+                                (click)="chooseFile()"></button>
                         </div>
                         <div class="uploaded-image" *ngIf="imageSrc">
-                          <img [src]="imageSrc" alt="Vista previa de la imagen">
-                          <button type="button" pButton label="Change Image" class="btn btn-warning" style="margin-top: 5px;" (click)="clearImage()">Change Image</button>
+                            <img [src]="imageSrc" alt="Vista previa de la imagen">
+                            <button type="button" pButton label="Change Image" class="btn btn-warning"
+                                style="margin-top: 5px;" (click)="clearImage()">Change Image</button>
                         </div>
-                      </div>
-                      
-
-
-
+                    </div>
                     <form class="publication-form" [formGroup]="form">
                         <div class="form-group">
                             <label for="text">Descripción</label>
