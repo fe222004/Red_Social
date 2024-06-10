@@ -557,3 +557,180 @@ body {
     width: 100%;
 }
 
+body {
+	font-family: 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f2f5;
+	color: #333;
+  }
+  
+  #content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+  }
+  
+  .head-title {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .head-title .left h1 {
+	margin: 0;
+	font-size: 24px;
+	color: #333;
+  }
+  
+  .breadcrumb {
+	list-style: none;
+	display: flex;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .breadcrumb li {
+	margin-right: 10px;
+	color: #007bff;
+  }
+  
+  .breadcrumb li a {
+	text-decoration: none;
+	color: inherit;
+  }
+  
+  .table-data {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	gap: 20px;
+	width: 100%;
+	margin-top: 20px;
+  }
+  
+  .order {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upload-container {
+	text-align: center;
+	margin-bottom: 20px;
+  }
+  
+  .upload-label {
+	display: block;
+	padding: 20px;
+	border: 2px dashed #007bff;
+	border-radius: 8px;
+	cursor: pointer;
+	color: #007bff;
+	font-size: 16px;
+  }
+  
+  .upload-label i {
+	font-size: 24px;
+	margin-bottom: 10px;
+  }
+  
+  .uploaded-image {
+	margin-top: 20px;
+  }
+  
+  .uploaded-image img {
+	max-width: 100%;
+	border-radius: 8px;
+  }
+  
+  .publication-form .form-group {
+	margin-bottom: 15px;
+  }
+  
+  .publication-form .form-group label {
+	display: block;
+	margin-bottom: 5px;
+	color: #333;
+  }
+  
+  .publication-form .form-control {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 14px;
+  }
+  
+  .publication-form .btn {
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+  
+  .publication-form .btn:hover {
+	background-color: #0056b3;
+  }
+  
+  .todo {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo .head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+  }
+  
+  .todo .head h3 {
+	margin: 0;
+	font-size: 20px;
+  }
+  
+  .todo .head i {
+	cursor: pointer;
+	font-size: 20px;
+  }
+  
+  .todo-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .todo-list li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+  }
+  
+  .todo-list li p {
+	margin: 0;
+  }
+  
+  .todo-list li.completed p {
+	text-decoration: line-through;
+	color: #999;
+  }
+  
+  .todo-list li i {
+	cursor: pointer;
+	font-size: 18px;
+  }
+  
+

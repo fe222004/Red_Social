@@ -8,6 +8,7 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ComplaintComponent } from './pages/inspector/complaint/complaint.component';
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
+import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
 
 const routes: Routes = [
   {
