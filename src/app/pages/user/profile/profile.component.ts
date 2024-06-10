@@ -31,4 +31,13 @@ export class ProfileComponent {
         }
 
 
+        validateComentForm(){
+          if (this.comentForm.valid) {
+            alert('valido');
+          } else {
+            alert('No valido');
+          }
+        }
+
+
 }

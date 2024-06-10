@@ -18,24 +18,20 @@ body{
     margin-top: 25px;
 }
 
-user {
+.user{
     margin-left: 20px;
-  }
-  .user h6 {
-    margin: 0;
-  }
+}
+.user h6 {
+	margin: 0;
+}
 
 
-/* CONTENT */
+/*barra de navegacion y header*/
 #content {
 	position: relative;
 	width: calc(100% - 280px);
 	left: 280px;
 	transition: .3s ease;
-}
-#sidebar.hide ~ #content {
-	width: calc(100% - 60px);
-	left: 60px;
 }
 
 /* NAVBAR */

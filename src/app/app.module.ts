@@ -23,8 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { promisify } from 'util';
 import { ProfileComponent } from './pages/user/profile/profile.component';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
-import { PostComponent } from './pages/user/post/post.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PostComponent } from './pages/components/post/post.component';
 
 
 @NgModule({

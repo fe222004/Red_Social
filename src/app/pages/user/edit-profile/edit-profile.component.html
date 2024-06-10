@@ -6,72 +6,90 @@
     <main>
         <app-navar></app-navar>
         <section id="content">
-            <form
-                style="width: 600px; padding: 20px; margin-top: 10px; border-radius: 30px;">
-                <h3 style="margin-left: 400px;">Editar Perfil</h3>
-                <div class="formulario" style="display: flex; width: 1100px; height: 515px;">
-                    <div class="container">
-                        <div class="text-center">
-                            <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                                class="rounded" alt="..."
-                                style="width: 150px; height: 150px; border-radius: 100px; margin-bottom: 30px; margin-top: 20px;">
+            <main>
+                <div>
+                    <div class="d-flex flex-row align-items-center justify-content-center bg-white p-5 shadow-lg w-90"
+                        style="border-radius: 20px; border: 5px solid #007bff;">
+                        <div class="d-none d-md-block w-50">
+                            <img src="https://marketing4ecommerce.net/wp-content/uploads/2024/02/imagen-generada-con-nightcafe-e1708680739301.jpg"
+                                alt="Login Image" class="img-fluid" style="border-radius: 15px;">
                         </div>
-                        <div class="mb-3" style="margin-top: 30px;">
-                            <input type="text" class="form-control" id="exampleInputName" placeholder="Nombre"
-                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
-                        </div>
-                        <div class="mb-3" style="margin-top: 30px;">
-                            <input type="text" class="form-control" id="exampleInputLastname" placeholder="Apellido"
-                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
-                        </div>
-                        <div class="mb-3" style="margin-top: 30px;">
-                            <input type="email" class="form-control" id="exampleUser" placeholder="Usuario"
-                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
-                        </div>
-                        <div class="mb-3" style="margin-top: 30px;">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Correo Electronico"
-                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
-                        </div>
-                    </div>
+                        <div class="d-flex flex-column align-items-center justify-content-center w-50 p-4">
+                            <div class="text-center mb-4">
+                                <h2 class="text-dark font-weight-bold">Hola Joss</h2>
+                                <p class="text-muted">Edita tus datos aqui:</p>
+                            </div>
 
-                    <div class="container" style="margin-left: 70px; margin-top: 40px;">
-                        <div class="mb-3" style="margin-top: 40px;">
-                            <input type="text" class="form-control" id="exampleInputDescription" placeholder="Descripcion"
-                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
+                            <div class="w-100">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3 text-center">
+                                        <label for="image"
+                                            class="form-label text-dark h5 font-weight-medium">Foto de perfil</label>
+                                        <input id="image" type="file" class="form-control"
+                                            style="padding: 0.75rem; display: inline-block; width: auto;">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstname" class="form-label text-dark h5 font-weight-medium">Nombre</label>
+                                        <input id="firstname" type="text" placeholder="First Name" class="form-control"
+                                            style="padding: 0.75rem;">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastname" class="form-label text-dark h5 font-weight-medium">Apellido</label>
+                                        <input id="lastname" type="text" placeholder="Last Name" class="form-control"
+                                            style="padding: 0.75rem;">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email1"
+                                            class="form-label text-dark h5 font-weight-medium">Correo Electronico</label>
+                                        <input id="email1" type="text" placeholder="Email address" class="form-control"
+                                            style="padding: 0.75rem;">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="password1"
+                                            class="form-label text-dark h5 font-weight-medium">Contraseña</label>
+                                        <input id="password1" type="password" placeholder="Password"
+                                            class="form-control" style="padding: 0.75rem;">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="city"
+                                            class="form-label text-dark h5 font-weight-medium">Pais</label>
+                                        <select id="city" class="form-control" style="padding: 0.75rem;">
+                                            <option value="1">Ecuador</option>
+                                            <option value="2">Colombia</option>
+                                            <option value="3">Mexico</option>
+                                            <!-- Agrega más opciones según sea necesario -->
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="countryId"
+                                            class="form-label text-dark h5 font-weight-medium">Ciudad</label>
+                                        <select id="countryId" class="form-control" style="padding: 0.75rem;">
+                                            <option value="1">Quito</option>
+                                            <option value="2">Bogota</option>
+                                            <option value="3">Ciudad de Mexico</option>
+                                            <!-- Agrega más opciones según sea necesario -->
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="rolId"
+                                            class="form-label text-dark h5 font-weight-medium">Role</label>
+                                        <input id="rolId" type="text" placeholder="Role" class="form-control"
+                                            style="padding: 0.75rem;">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="description"
+                                            class="form-label text-dark h5 font-weight-medium">Descripción</label>
+                                        <input id="description" type="text" placeholder="Description"
+                                            class="form-control" style="padding: 0.75rem;">
+                                    </div>
+
+                                </div>
+                                <button class="btn btn-primary w-100 py-3 h5" routerLink="/">Editar</button>
+                            </div>
                         </div>
-                        <div class="mb-3" style="margin-top: 40px;">
-                            <label class="form-label">Fecha de Nacimiento</label>
-                            <input type="date" class="form-control" id="exampleInputbirthday"
-                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
-                        </div>
-                        <div class="mb-3" style="margin-top: 40px;">
-                            <select class="form-select" aria-label="Default select example"style="background-color: transparent; border: none; border-bottom: 1px solid black;">
-                                <option selected>Pais</option>
-                                <option value="1">Ecuador</option>
-                                <option value="2">Colombia</option>
-                                <option value="3">Estados unidos</option>
-                              </select>
-                        </div>
-                        <div class="mb-3" style="margin-top: 40px;">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Cambiar Contraseña"
-                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
-                        </div>
-                        <div class="mb-3" style="margin-top: 40px;">
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repetir Contraseña"
-                            style="background-color: transparent; border: none; border-bottom: 1px solid black;">
-                        </div>
-                        
                     </div>
                 </div>
-                <div class="buttons" style="display: flex; margin-left: 470px;">
-                    <button type="submit" class="btn btn-outline-info" style="width: 130px;">Guardar</button>
-                    <button type="submit" class="btn btn-outline-success" style="width: 130px; margin-left: 20px;">
-                        <a class="edit" routerLink='/user/profile' style="color: black; text-decoration: none;">
-                          Cancelar
-                        </a>
-                    </button>
-                </div>
-            </form>
+            </main>
         </section>
     </main>
 </body>
