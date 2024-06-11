@@ -18,6 +18,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { ProfileComponent } from './pages/user/profile/profile.component';
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
 import { FooterComponent } from './pages/components/footer/footer.component';
@@ -25,6 +26,9 @@ import { PostComponent } from './pages/components/post/post.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
+
 
 @NgModule({
   declarations: [
@@ -35,11 +39,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     CustomerCreateComponent,
     StoriesComponent,
     FormSuscriptorComponent,
+
     ProfileComponent,
     ExplorersComponent,
     FooterComponent,
     PostComponent,
     RegisterComponent,
+    CustomerListComponent
+
 
   ],
   imports: [
@@ -55,6 +62,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PagesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule 
+
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
