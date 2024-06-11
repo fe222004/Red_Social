@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 
-import { ContentsModule } from './contents/contents.module';
 import { InspectorModule } from './inspector/inspector.module';
-
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PageCreatorModule } from './contentCreator/page-creator.module'; 
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     PagesRoutingModule,
-   ContentsModule,
-   InspectorModule,
-
+    InspectorModule,
+    RouterModule,
+    ReactiveFormsModule,
+    PageCreatorModule 
   ]
 })
 export class PagesModule { }

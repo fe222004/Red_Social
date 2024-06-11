@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import {BrowserModule,provideClientHydration,} from '@angular/platform-browser';
-
+import {BrowserModule, provideClientHydration} from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -9,7 +8,6 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
-import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
 import { CustomerCreateComponent } from './pages/customer-support/customer-create/customer-create.component';
 import { NavarComponent } from './pages/components/navar/navar.component';
 import { MenuComponent } from './pages/components/menu/menu.component';
@@ -20,6 +18,14 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ProfileComponent } from './pages/user/profile/profile.component';
+import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
+import { FooterComponent } from './pages/components/footer/footer.component';
+import { PostComponent } from './pages/components/post/post.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
 
@@ -29,15 +35,22 @@ import { CustomerListComponent } from './pages/customer-support/customer-list/cu
     AppComponent,
     DashboardComponent,
     MenuComponent,
-    CreatorComponent,
     NavarComponent,
     CustomerCreateComponent,
     StoriesComponent,
     FormSuscriptorComponent,
+
+    ProfileComponent,
+    ExplorersComponent,
+    FooterComponent,
+    PostComponent,
+    RegisterComponent,
     CustomerListComponent
+
 
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
     CardModule,
@@ -50,6 +63,7 @@ import { CustomerListComponent } from './pages/customer-support/customer-list/cu
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule 
+
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
