@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
+import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
 
 const routes: Routes = [
 
@@ -24,7 +26,16 @@ const routes: Routes = [
   {
     path:'customer',
     loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule)
-  }
+  },
+  //Navegación componente create y list
+  {
+    path: 'customer-create',
+    component: CustomerCreateComponent
+  },
+  {
+    path: 'customer-list',
+    component: CustomerListComponent
+  },
 ];
 
 

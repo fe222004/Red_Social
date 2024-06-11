@@ -10,7 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     CustomerSupportRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     
   ]
 })

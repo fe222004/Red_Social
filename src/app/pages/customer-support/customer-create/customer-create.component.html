@@ -47,6 +47,7 @@
                                         <option value="resolved">Resuelto</option>
                                     </select>
                                 </td>
+
                                 <!--FORMULARIO REGISTRO QUEJAS-->
                                 <td>
                                     <button type="button" class="btn btn-success me-2" (click)="mostrarFormulario()">
@@ -54,6 +55,9 @@
                                     </button>
                                     <button type="button" class="btn btn-warning me-2" (click)="mostrarAdvertencia()">
                                         <i class="bi bi-exclamation-circle icono-grande" style="color: white;"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-info me-2" (click)="navigateToCustomerList()">
+                                        <i class="bi bi-card-checklist icono-grande" style="color: white;"></i>
                                     </button>
                                     <div class="form-quejas" [ngClass]="{ show: mostrarFormularioQuejas }">
                                         <div class="form-container">
@@ -179,7 +183,6 @@
                                             </form>
                                         </div>
                                     </div>
-
                                     
                                     <!--ADVERTENCIAS-->
                                     <div class="form-quejas-advertencia" [ngClass]="{ show: mostrarFormularioQuejasAdvertencia }">
@@ -200,13 +203,9 @@
                                           </form>
                                         </div>
                                       </div>
-                                    
-
-                                   
-                                    
-
                                 </td>
                             </tr>
+                            <!--Añadir más usuarios-->
                         </tbody>
                     </table>
                 </div>

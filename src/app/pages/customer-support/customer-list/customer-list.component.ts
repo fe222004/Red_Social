@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-customer-list',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './customer-list.component.scss'
 })
 export class CustomerListComponent {
+
+  constructor(private router: Router) {}
+
+  navigateToCustomerCreate() {
+    this.router.navigate(['/customer-create']);
+  }
 
 }
