@@ -12,7 +12,7 @@ export class CustomerListComponent {
   constructor(private router: Router) {}
 
   navigateToCustomerCreate() {
-    this.router.navigate(['/customer-create']);
+    this.router.navigate(['/pages/customer-create']);
   }
 
 }

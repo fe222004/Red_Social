@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
+import { SurveyComponent } from './components/survey/survey.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,10 @@ const routes: Routes = [
   {
     path: 'customer-list',
     component: CustomerListComponent
+  },
+  {
+    path: 'form',
+    component: SurveyComponent
   }
 
 ];

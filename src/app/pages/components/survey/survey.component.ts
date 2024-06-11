@@ -1,32 +1,29 @@
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-survey',
   templateUrl: './survey.component.html',
-  styleUrl: './survey.component.scss'
+  styleUrls: ['./survey.component.scss']
 })
 export class SurveyComponent {
-  mostrarFormularioencuesta = false;
- 
-
+  mostrarFormularioencuesta = true;
   private formBuilder = inject(FormBuilder);
-
   protected form: FormGroup;
 
-  constructor() {
+  constructor(private router: Router) {
     this.form = this.buildForm;
-
   }
 
   get buildForm(): FormGroup {
-    return (this.form = this.formBuilder.group({
-      categoriasFavoritas:['', Validators.required],
+    return this.formBuilder.group({
+      categoriasFavoritas: ['', Validators.required],
       tipoContenido: ['', Validators.required],
       metodoNotificacion: ['', Validators.required],
       idioma: ['', Validators.required],
       horariosNotificaciones: ['', Validators.required]
-    }));
+    });
   }
 
   get categoriasFavoritas(): AbstractControl {
@@ -46,24 +43,29 @@ export class SurveyComponent {
   }
   
   mostrarFormulario() {
-    this.mostrarFormularioencuesta = true;
-  }
-
-  ocultarFormulario() {
-    this.mostrarFormularioencuesta = false;
+    this.mostrarFormularioencuesta = !this.mostrarFormularioencuesta;
   }
 
   onSubmit() {
-    this.validataFormulario();
-  }
-
-  validataFormulario() {
     if (this.form.valid) {
+      // Procesar los datos del formulario
+      console.log(this.form.value);
+      this.mostrarFormularioencuesta = false;  // Ocultar formulario después de enviar
       alert('Enviado');
-      this.ocultarFormulario();
+      this.navigateToDashboard()
+
     } else {
+      // Marcar todos los campos como tocados para activar validaciones
+      this.form.markAllAsTouched();
       alert('No enviado');
     }
   }
 
+  navigateToDashboard() {
+    this.router.navigate(['/pages/dashboard']);
+}
+
+  validataFormulario() {
+    // Aquí puedes agregar validaciones adicionales si es necesario
+  }
 }

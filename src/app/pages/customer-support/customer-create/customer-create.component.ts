@@ -82,7 +82,7 @@ export class CustomerCreateComponent {
   }
 
   navigateToCustomerList() {
-    this.router.navigate(['/customer-list']);
+    this.router.navigate(['/pages/customer-list']);
   }
   
   onSubmit() {

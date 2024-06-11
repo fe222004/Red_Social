@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-login',
@@ -18,5 +19,10 @@ export class LoginComponent {
 
     password!: string;
 
-    constructor() { }
+    constructor(private router: Router) { }
+
+
+    navigateToDashboard() {
+        this.router.navigate(['/pages/form']);
+    }
 }
