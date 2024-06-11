@@ -1,26 +1,27 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  private formBuilder = inject(FormBuilder);
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
   private readonly userService: UserService = inject(UserService);
 
   public loginForm: FormGroup;
-  public imageSrc: string | ArrayBuffer | null = null;
-  public files: any = [];
-  
+  public imageSrc: string | ArrayBuffer | null | undefined = null;
+  public files: any[] = [];
+
   constructor() {
-    this.loginForm = this.buildForm;
+    this.loginForm = this.buildForm();
   }
 
-  get buildForm(): FormGroup {
-    return (this.loginForm = this.formBuilder.group({
+  buildForm(): FormGroup {
+    return this.formBuilder.group({
       image: [null],
       lastname: ['', Validators.required],
       firstname: ['', Validators.required],
@@ -29,66 +30,69 @@ export class RegisterComponent {
       countryId: ['', Validators.required],
       rolId: ['', Validators.required],
       description: ['']
-    }));
+    });
+  }
+
+  getFile(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageSrc = reader.result;
+      };
+      reader.readAsDataURL(file);
+      this.files = [file];
+    }
   }
 
   onSubmit() {
-    if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      // Aquí puedes enviar los datos del formulario al servidor
+    console.log('Se ha hecho clic en el botón de envío.');
+    if (this.loginForm.invalid) {
+      console.log('El formulario no es válido.');
+      return;
     }
 
-    if (this.loginForm.invalid) {
-      return;
-  }
+    const formData = new FormData();
+    formData.append('lastname', this.loginForm.value.lastname);
+    formData.append('firstname', this.loginForm.value.firstname);
+    formData.append('email', this.loginForm.value.email);
+    formData.append('password', this.loginForm.value.password);
+    formData.append('countryId', this.loginForm.value.countryId);
+    formData.append('rolId', this.loginForm.value.rolId);
+    formData.append('description', this.loginForm.value.description);
 
-  const formData = new FormData();
-  formData.append('lastname', this.loginForm.value.lastname);
-  formData.append('firstname', this.loginForm.value.firstname);
-  formData.append('email', this.loginForm.value.email);
-  formData.append('password', this.loginForm.value.password);
-  formData.append('countryId', this.loginForm.value.countryId);
-  formData.append('rolId', this.loginForm.value.rolId);
-  formData.append('description', this.loginForm.value.description);
+    const file = this.files[0];
+    if (file) {
+      formData.append('image', file, file.name);
+    }
 
-  const file = this.files[0];
-  formData.append('image', file, file.name);
-
-  const selectedActors = this.loginForm.value.actor_id;
-  selectedActors.forEach((actorId: number) => {
-      formData.append('actor_id[]', actorId.toString());
-  });
-
-  this.userService.createUser(formData).subscribe((response) => {
-  });
+    console.log(formData)
+    this.userService.createUser(formData).subscribe(
+      (response: User) => {
+        console.log('User created successfully:', response);
+      },
+      (error) => {
+        console.error('Error creating user:', error);
+      }
+    );
   }
 
   chooseFile() {
-    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
-    fileInput.click();
-  }
-
-  getFile(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const result = e.target?.result;
-        if (result) {
-          this.imageSrc = result;
-        }
-      };
-      reader.readAsDataURL(file);
+    const inputElement = document.getElementById('fileInput') as HTMLInputElement;
+    if (inputElement) {
+      inputElement.click();
     }
   }
 
   clearImage() {
+    console.log('Se ha hecho clic en el botón de limpiar imagen.');
     this.imageSrc = null;
+    this.files = [];
     this.loginForm.get('image')?.setValue(null);
   }
 
   onDrop(event: DragEvent) {
+    console.log('Se ha soltado un archivo.');
     event.preventDefault();
     event.stopPropagation();
     if (event.dataTransfer?.files && event.dataTransfer.files.length > 0) {
@@ -104,13 +108,9 @@ export class RegisterComponent {
   private handleFile(file: File) {
     const reader = new FileReader();
     reader.onload = (e) => {
-      const result = e.target?.result;
-      if (result) {
-        this.imageSrc = result;
-      }
+      this.imageSrc = e.target?.result;
     };
     reader.readAsDataURL(file);
-    this.loginForm.get('image')?.setValue(file);
+    this.files = [file];
   }
-
 }

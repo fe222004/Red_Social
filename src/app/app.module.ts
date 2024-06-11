@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {BrowserModule, provideClientHydration} from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -25,9 +25,9 @@ import { FooterComponent } from './pages/components/footer/footer.component';
 import { PostComponent } from './pages/components/post/post.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -47,7 +47,6 @@ import { CustomerListComponent } from './pages/customer-support/customer-list/cu
     RegisterComponent,
     CustomerListComponent
 
-
   ],
   imports: [
     RouterModule,
@@ -62,10 +61,10 @@ import { CustomerListComponent } from './pages/customer-support/customer-list/cu
     PagesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule 
-
+    FormsModule,
+    HttpClientModule
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
