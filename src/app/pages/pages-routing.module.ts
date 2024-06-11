@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 
-import { StoriesComponent } from './components/stories/stories.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
@@ -38,8 +37,12 @@ const routes: Routes = [
     path:'customer',
     loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule)
   },
+  {
+    path:'user',
+    loadChildren: () => import('./user/user-routing.module').then(m => m.UserRoutingModule)
+  },
 
-  //Navegación componente create y list
+  //Navegación componente create y list  revisarlo
   {
     path: 'customer-create',
     component: CustomerCreateComponent
@@ -47,10 +50,6 @@ const routes: Routes = [
   {
     path: 'customer-list',
     component: CustomerListComponent
-  },
-  {
-    path:'user',
-    loadChildren: () => import('./user/user-routing.module').then(m => m.UserRoutingModule)
   }
 
 ];

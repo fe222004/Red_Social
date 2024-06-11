@@ -54,13 +54,8 @@ export class RegisterComponent {
   const file = this.files[0];
   formData.append('image', file, file.name);
 
-  const selectedActors = this.loginForm.value.actor_id;
-  selectedActors.forEach((actorId: number) => {
-      formData.append('actor_id[]', actorId.toString());
-  });
-
-  this.userService.createUser(formData).subscribe((response) => {
-  });
+  //this.userService.createUser(formData).subscribe((response) => {
+  //});
   }
 
   chooseFile() {

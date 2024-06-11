@@ -6,10 +6,12 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { InspectorModule } from './inspector/inspector.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PageCreatorModule } from './contentCreator/page-creator.module'; 
+import { PageCreatorModule } from './contentCreator/page-creator.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    
+  ],
   imports: [
     CommonModule,
     PagesRoutingModule,

@@ -8,18 +8,18 @@ import { environment } from '../../environments/environment';
 export class UserService {
 
   private httpClient: HttpClient = inject(HttpClient);
-  private apiURLUser: string = `${environment.apiUrl}/users`;
+  //private apiURLUser: string = `${environment.apiUrl}/users`;
 
 
   constructor() { }
 
 
   findUser() {
-    this.httpClient.get(this.apiURLUser)
+    //this.httpClient.get(this.apiURLUser)
   }
 
   createUser(playload: any) {
-    return this.httpClient.post(this.apiURLUser, playload)
+    //return this.httpClient.post(this.apiURLUser, playload)
   }
 
   editUser(playload: any) {

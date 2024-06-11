@@ -9,16 +9,11 @@ declare var bootstrap: any;
   styleUrl: './customer-create.component.scss',
 })
 export class CustomerCreateComponent {
-  onSubmit() {
-    throw new Error('Method not implemented.');
-  }
-
   mostrarFormularioQuejas = false;
   mostrarFormularioQuejasAdvertencia = false;
   advertenciaMensaje: string = '';
 
   private formBuilder = inject(FormBuilder);
-
 
   protected form: FormGroup;
 
@@ -31,15 +26,7 @@ export class CustomerCreateComponent {
     return (this.form = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       lastname: ['', [Validators.required, Validators.minLength(2)]],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-          ),
-        ],
-      ],
+      email: ['',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),],],
       solution: ['', [Validators.required, Validators.minLength(2)]],
       date: ['', Validators.required],
       complaint_number: ['', [Validators.required, Validators.min(1)]],
@@ -94,6 +81,14 @@ export class CustomerCreateComponent {
     }
   }
 
+  navigateToCustomerList() {
+    this.router.navigate(['/customer-list']);
+  }
+  
+  onSubmit() {
+    this.validataForm();
+  }
+
   enviarAdvertencia() {
     if (this.advertenciaMensaje.trim() !== '') {
       alert('Advertencia enviada: ' + this.advertenciaMensaje);
@@ -101,10 +96,6 @@ export class CustomerCreateComponent {
     } else {
       alert('El mensaje de advertencia no puede estar vacío');
     }
-  }
-
-  navigateToCustomerList() {
-    this.router.navigate(['/customer-list']);
   }
 
 }
