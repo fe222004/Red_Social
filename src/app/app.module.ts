@@ -25,6 +25,7 @@ import { ProfileComponent } from './pages/user/profile/profile.component';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostComponent } from './pages/components/post/post.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { PostComponent } from './pages/components/post/post.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
 
     CardModule,
     ButtonModule,
