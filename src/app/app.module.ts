@@ -30,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SurveyComponent } from './pages/components/survey/survey.component';
+import { NewCreateComponent } from './pages/create/new-create/new-create.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { SurveyComponent } from './pages/components/survey/survey.component';
     PostComponent,
     RegisterComponent,
     CustomerListComponent,
-    SurveyComponent
+    SurveyComponent,
+    NewCreateComponent
 
 
   ],

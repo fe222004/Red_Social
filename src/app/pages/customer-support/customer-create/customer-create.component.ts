@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ResolverService } from '../../../services/resolver.service';
 declare var bootstrap: any;
 
 @Component({
@@ -14,6 +15,7 @@ export class CustomerCreateComponent {
   advertenciaMensaje: string = '';
 
   private formBuilder = inject(FormBuilder);
+  private readonly resolverService: ResolverService = inject(ResolverService);
 
   protected form: FormGroup;
 
@@ -56,6 +58,18 @@ export class CustomerCreateComponent {
     return this.form.controls['suspended_account'];
   }
 
+  //REVISAR
+  onSubmit(): void {
+    console.log("Entro")
+    if (this.form.invalid){
+      return;
+    }
+    this.resolverService.createResolver(this.form.value).subscribe(() => {
+      console.log("Entro", this.form.value)
+    });
+
+  }
+
   mostrarFormulario() {
     this.mostrarFormularioQuejas = true;
   }
@@ -72,22 +86,25 @@ export class CustomerCreateComponent {
     this.mostrarFormularioQuejasAdvertencia = false;
   }
 
+  //LLEVA DATOS AL BACK
   validataForm() {
     if (this.form.valid) {
       alert('Registrado');
-      this.ocultarFormulario();
+      this.resolverService.createResolver(this.form.value).subscribe(() => {
+      });
+      console.log("Entro", this.form.value)
+      //this.ocultarFormulario();
     } else {
       alert('No registrado');
     }
+    console.log("Ingreso aqui")
   }
 
   navigateToCustomerList() {
     this.router.navigate(['/pages/customer-list']);
   }
   
-  onSubmit() {
-    this.validataForm();
-  }
+ 
 
   enviarAdvertencia() {
     if (this.advertenciaMensaje.trim() !== '') {
