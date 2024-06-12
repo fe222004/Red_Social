@@ -53,20 +53,34 @@ export class RegisterComponent {
     }
 
     const formData = new FormData();
+
     formData.append('lastname', this.loginForm.value.lastname);
+    console.log('lastname:', this.loginForm.value.lastname);
+
     formData.append('firstname', this.loginForm.value.firstname);
+    console.log('firstname:', this.loginForm.value.firstname);
+
     formData.append('email', this.loginForm.value.email);
+    console.log('email:', this.loginForm.value.email);
+
     formData.append('password', this.loginForm.value.password);
+    console.log('password:', this.loginForm.value.password);
+
     formData.append('countryId', this.loginForm.value.countryId);
+    console.log('countryId:', this.loginForm.value.countryId);
+
     formData.append('rolId', this.loginForm.value.rolId);
+    console.log('rolId:', this.loginForm.value.rolId);
+
     formData.append('description', this.loginForm.value.description);
+    console.log('description:', this.loginForm.value.description);
 
     const file = this.files[0];
     if (file) {
       formData.append('image', file, file.name);
+      console.log('image file:', file);
     }
 
-    console.log(formData)
     this.userService.createUser(formData).subscribe(
       (response: User) => {
         console.log('User created successfully:', response);

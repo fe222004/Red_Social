@@ -13,7 +13,7 @@ export class UserService {
   constructor() { }
 
   createUser(formData: FormData) {
-    console.log(formData)
+    console.log('llego al servidor',formData);
     return this.httpClient.post<User>(this.apiUrl, formData);
   }
 }
