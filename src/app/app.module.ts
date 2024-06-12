@@ -26,6 +26,8 @@ import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { PostComponent } from './pages/components/post/post.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommentsComponent } from './components/comments/comments.component';
+import { MoreCommentsComponent } from './components/more-comments/more-comments.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
     FormSuscriptorComponent,
     ProfileComponent,
     EditProfileComponent,
-    PostComponent
+    PostComponent,
+    CommentsComponent,
+    MoreCommentsComponent
 
   ],
   imports: [
