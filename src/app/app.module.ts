@@ -18,6 +18,14 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { promisify } from 'util';
+import { ProfileComponent } from './pages/user/profile/profile.component';
+import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PostComponent } from './pages/components/post/post.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommentsComponent } from './components/comments/comments.component';
+import { MoreCommentsComponent } from './components/more-comments/more-comments.component';
 
 import { ProfileComponent } from './pages/user/profile/profile.component';
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
@@ -39,6 +47,11 @@ import { HttpClientModule } from '@angular/common/http';
     CustomerCreateComponent,
     StoriesComponent,
     FormSuscriptorComponent,
+    ProfileComponent,
+    EditProfileComponent,
+    PostComponent,
+    CommentsComponent,
+    MoreCommentsComponent
 
     ProfileComponent,
     ExplorersComponent,

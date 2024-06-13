@@ -1,0 +1,9 @@
+<!-- comments.component.html -->
+<div *ngFor="let comment of firstTwoComments">
+    <p>{{ comment }}</p>
+  </div>
+  <button *ngIf="remainingComments.length > 0" (click)="toggleShowMoreComments()">
+    {{ showMoreComments ? 'Ver menos' : 'Ver más' }}
+  </button>
+  <app-more-comments *ngIf="showMoreComments" [comments]="remainingComments"></app-more-comments>
+  
