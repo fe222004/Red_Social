@@ -7,22 +7,23 @@ import { PostI } from "../models/post.interface";
 @Injectable({providedIn: 'root'})
 export class PostService {
   private readonly httpClient = inject(HttpClient);
-  private API_URL_POST = `${environment.API_URL}/post`;
+  private readonly apiUrl: string = 'http://localhost:3000/post';
+
   
   findPost():Observable<PostI[]> {
-    return this.httpClient.get<[]>(this.API_URL_POST);
+    return this.httpClient.get<[]>(this.apiUrl);
   }
 
   createPost(payload: PostI) {
-    return this.httpClient.post(this.API_URL_POST, payload);
+    return this.httpClient.post(this.apiUrl, payload);
   }
 
   updatePost(id: string, payload: PostI):Observable<PostI> {
-    return this.httpClient.put<PostI>(`${this.API_URL_POST}/${id}`, payload);
+    return this.httpClient.put<PostI>(`${this.apiUrl}/${id}`, payload);
   }
 
   deletePost(id: string) {
-    return this.httpClient.delete(`${this.API_URL_POST}/${id}`);
+    return this.httpClient.delete(`${this.apiUrl}/${id}`);
   }
 
 }
