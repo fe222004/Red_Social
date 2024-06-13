@@ -34,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
 import { ProfileComponent } from './pages/user/profile/profile.component';
 import { PostComponent } from './pages/components/post/post.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 
 
@@ -54,7 +55,8 @@ import { PostComponent } from './pages/components/post/post.component';
     FooterComponent,
     PostComponent,
     RegisterComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    LoginComponent
 
   ],
   imports: [
