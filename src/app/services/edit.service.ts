@@ -1,4 +1,4 @@
-import {APP_ID, inject, Injectable} from "@angular/core";
+import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
@@ -7,7 +7,7 @@ import { EditI } from "../models/edit.interface";
 @Injectable({providedIn: 'root'})
 export class EditService {
   private readonly httpClient = inject(HttpClient);
-  private API_URL_EDIT = `${environment.API_URL}/EDITs`;
+  private API_URL_EDIT = `${environment.API_URL}/users`;
 
   findUsersEdit():Observable<EditI[]> {
     return this.httpClient.get<EditI[]>(this.API_URL_EDIT);

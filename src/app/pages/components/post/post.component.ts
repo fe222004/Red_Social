@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PostService } from '../../../services/post.service';
+import { PostI } from '../../../models/post.interface';
 
 @Component({
   selector: 'app-post',
@@ -8,43 +10,55 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class PostComponent {
   private formBuilder: FormBuilder = inject(FormBuilder);
+  protected postForm: FormGroup;
+  private readonly postService = inject(PostService)
+  protected posts: PostI[] = [];
+  protected post: PostI = {};
 
-    protected postForm: FormGroup;
 
     constructor() {
-      this.postForm = this.builForm
+      this.postForm = this.buildForm
     }
-        get builForm(): FormGroup{
-          return this.formBuilder.group({
-            id: 0,
-            text : ['', Validators.required, Validators.minLength(30)],
-            image : '',
-            tag: ['', Validators.required, Validators.minLength(10)],
+
+    get buildForm(): FormGroup {
+      return (this.postForm = this.formBuilder.group({
+        text: ['', [Validators.required, Validators.minLength(2)]],
+        tag: ['', [Validators.minLength(2)]],
+        
+      }));
+    }
+
+      
+        get text(): AbstractControl {
+          return this.postForm.controls['text'];
+        }
+        get tag(): AbstractControl {
+          return this.postForm.controls['tag'];
+        }
+
+
+        onSubmit() {
+          console.log('Entro al sumbmit');
+          if (this.postForm.invalid) {
+            console.log('El formulario no es válido.');
+            return;
+          }
+
+          this.postService.createPost(this.postForm.value).subscribe(() => {
+            console.log("ENTRO", this.postForm.value)
           });
         }
 
-        get id(): AbstractControl {
-          return this.postForm.controls['id']
-        }
-
-        get text(): AbstractControl {
-          return this.postForm.controls['text']
-        }
-        get image(): AbstractControl {
-          return this.postForm.controls['image']
-        }
-        get tag(): AbstractControl {
-          return this.postForm.controls['tag']
-        }
-
-
-        validatePostForm() {
+        crearPost() {
           if (this.postForm.valid) {
-            alert('valido');
+            alert('Registrado');
+            this.postService.createPost(this.postForm.value).subscribe(() => {
+            });
+            console.log("Entro", this.postForm.value)
           } else {
-            alert('No valido');
+            alert('No registrado');
           }
-        }
-
-
+          console.log("Ingreso aqui")
+        }      
+      
 }

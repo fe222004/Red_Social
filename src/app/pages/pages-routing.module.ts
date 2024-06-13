@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StoriesComponent } from './components/stories/stories.component';
+import { PostComponent } from './components/post/post.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path:'customer',
     loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule)
+  },
+  {
+    path: 'post',
+    component: PostComponent
   }
 ];
 

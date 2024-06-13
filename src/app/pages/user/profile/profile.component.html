@@ -132,18 +132,14 @@
                   </p>
                 </div>
                 <div class="edit" style="margin-left: 350px;">
-                  <button type="button" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;">Editar
+                  <button type="submit" class="btn btn-outline-info"
+                    style=" border-radius: 50px; margin-top: 10px;" (click)="navigatePost">Editar
                     Post</button>
                 </div>
               </div>
               <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure
-                    voluptatum
-                    a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod
-                    unde
-                    perferendis ad vero?</p>
+                  <p></p>
                   <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
                   </footer>
                 </blockquote>
@@ -166,141 +162,20 @@
                     <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
                       style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
                   </div>
-                  <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
-                    <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
-                      placeholder="Agrega un comentario" style="height: 45px;">
-                  </div>
-                  <div class="comentsave" style="margin-left: 10px;">
-                    <button type="button" class="btn btn-outline-info"
-                      style=" border-radius: 50px; margin-top: 10px;" (click)="validateComentForm()">Comentar</button>
-                  </div>
+                  <form [formGroup]="comentForm" (ngSubmit)="onSubmit()">
+                    <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
+                      <input type="text" class="form-control" id="coment" placeholder="Agrega un comentario"
+                        style="height: 45px;" formControlName="comment">
+                    </div>
+                    <div class="comentsave" style="margin-left: 10px;">
+                      <button type="submit" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;"
+                        >Comentar</button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-          <div class="post">
-            <div class="card" style="width: 700px;">
-              <div class="card-header" style="display: flex;">
-                <div class="profile-image">
-                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>Joss Balarezo</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">jossy.balarezo21</small>
-                  </p>
-                </div>
-                <div class="edit" style="margin-left: 350px;">
-                  <button type="button" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;">Editar
-                    Post</button>
-                </div>
-              </div>
-              <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure
-                    voluptatum
-                    a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod
-                    unde
-                    perferendis ad vero?</p>
-                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-                  </footer>
-                </blockquote>
-              </div>
-              <div class="card-footer">
-                <div class="option" style="display: flex; margin-left: 140px;">
-                  <div class="like" style="display: flex; font-size: 20px;">
-                    <i class="bi bi-heart"></i>
-                    <p style="margin-left: 10px;">Like</p>
-                  </div>
-                  <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
-                    <i class="bi bi-chat"></i>
-                    <p style="margin-left: 10px;">Comentarios</p>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="coment" style="display: flex;">
-                  <div class="photo">
-                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                      style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
-                  </div>
-                  <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
-                    <form [formGroup]="comentForm">
-                      <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
-                        placeholder="Agrega un comentario" style="height: 45px;">
-                    </form>
-                  </div>
-                  <div class="comentsave" style="margin-left: 10px;">
-                    <button type="button" class="btn btn-outline-info"
-                      style=" border-radius: 50px; margin-top: 10px;">Comentar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="post">
-            <div class="card" style="width: 700px;">
-              <div class="card-header" style="display: flex;">
-                <div class="profile-image">
-                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>Joss Balarezo</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">jossy.balarezo21</small>
-                  </p>
-                </div>
-                <div class="edit" style="margin-left: 350px;">
-                  <button type="button" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;">Editar
-                    Post</button>
-                </div>
-              </div>
-              <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum consectetur laboriosam iure
-                    voluptatum
-                    a aperiam fugiat molestias voluptas odio provident quia deserunt enim, maxime, exercitationem quod
-                    unde
-                    perferendis ad vero?</p>
-                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
-                  </footer>
-                </blockquote>
-              </div>
-              <div class="card-footer">
-                <div class="option" style="display: flex; margin-left: 140px;">
-                  <div class="like" style="display: flex; font-size: 20px;">
-                    <i class="bi bi-heart"></i>
-                    <p style="margin-left: 10px;">Like</p>
-                  </div>
-                  <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
-                    <i class="bi bi-chat"></i>
-                    <p style="margin-left: 10px;">Comentarios</p>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="coment" style="display: flex;">
-                  <div class="photo">
-                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                      style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
-                  </div>
-                  <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
-                    <input type="text" class="form-control" id="coment" aria-describedby="emailHelp"
-                      placeholder="Agrega un comentario" style="height: 45px;">
-                  </div>
-                  <div class="comentsave" style="margin-left: 10px;">
-                    <button type="button" class="btn btn-outline-info"
-                      style=" border-radius: 50px; margin-top: 10px;">Comentar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
         </section>
 
         <section style="margin-left: 30px;">

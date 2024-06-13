@@ -37,8 +37,6 @@ export class ComentService {
     return this.httpClient.get<ComentI>(`${this.API_URL_COMENT}/${id}`);
   }
 
-  
-
   getComments(): string[] {
     return this.comments;
   }
