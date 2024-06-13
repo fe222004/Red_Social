@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import {BrowserModule,provideClientHydration,} from '@angular/platform-browser';
-
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -9,7 +8,6 @@ import { CardModule } from 'primeng/card';
 import { ButtonModule } from 'primeng/button';
 import { SidebarModule } from 'primeng/sidebar';
 import { MenubarModule } from 'primeng/menubar';
-import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
 import { CustomerCreateComponent } from './pages/customer-support/customer-create/customer-create.component';
 import { NavarComponent } from './pages/components/navar/navar.component';
 import { MenuComponent } from './pages/components/menu/menu.component';
@@ -29,13 +27,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './components/comments/comments.component';
 import { MoreCommentsComponent } from './components/more-comments/more-comments.component';
 
+import { ProfileComponent } from './pages/user/profile/profile.component';
+import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
+import { FooterComponent } from './pages/components/footer/footer.component';
+import { PostComponent } from './pages/components/post/post.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     MenuComponent,
-    CreatorComponent,
     NavarComponent,
     CustomerCreateComponent,
     StoriesComponent,
@@ -46,12 +53,18 @@ import { MoreCommentsComponent } from './components/more-comments/more-comments.
     CommentsComponent,
     MoreCommentsComponent
 
+    ProfileComponent,
+    ExplorersComponent,
+    FooterComponent,
+    PostComponent,
+    RegisterComponent,
+    CustomerListComponent
+
   ],
   imports: [
+    RouterModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-
     CardModule,
     ButtonModule,
     SidebarModule,
@@ -61,10 +74,10 @@ import { MoreCommentsComponent } from './components/more-comments/more-comments.
     PagesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-   
-
+    FormsModule,
+    HttpClientModule
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,66 @@
+<body>
+    <div>
+        <!-- SIDEBAR -->
+        <app-menu></app-menu>
+        <!-- SIDEBAR -->
+    </div>
+    <app-navar></app-navar>
+    <!-- CONTENT -->
+    <section id="content">
+        <app-stories></app-stories> 
+        <!-- MAIN -->
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1 style="margin-left: 395px; margin-top: 30px">
+                        Listado de Quejas
+                    </h1>
+                </div>
+            </div>
+
+            <div class="table-data">
+                <div class="order">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead class="table-light-gray">
+                            <tr class="campos">
+                                <th scope="col" class="move-left">#</th>
+                                <th scope="col" class="move-left">Nombre</th>
+                                <th scope="col" class="move-left">Apellido</th>
+                                <th scope="col" class="move-left">Correo</th>
+                                <th scope="col" class="move-left">Solución</th>
+                                <th scope="col" class="move-left">Fecha de solución</th>
+                                <th scope="col" class="move-left">Número de queja</th>
+                                <th scope="col" class="move-left">Estado de cuenta</th>
+                                <th scope="col" class="move-left">Responsable</th>
+                                <th scope="col" class="move-left">Estado de solución</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Maria Fernanda</td>
+                                <td>Perez Lopez</td>
+                                <td>maria12&#64;gmail.com</td>
+                                <td>Cambiar contraseña</td>
+                                <td>12-12-2024</td>
+                                <td>1</td>
+                                <td>No</td>
+                                <td>Niurka Condor</td>
+                                <td>Resuelto</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="col-6" style="margin-top: 30px;margin-left: 520px;">
+                        <button type="button" class="btn btn-primary me-2" (click)="navigateToCustomerCreate()">
+                            <i class="bi bi-arrow-left-circle icono-grande"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+
+    <script src="script.js"></script>
+</body>
