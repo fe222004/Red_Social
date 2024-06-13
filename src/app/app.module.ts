@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComplaintComponent } from './pages/inspector/complaint/complaint.component';
 import { InspectorModule } from './pages/inspector/inspector.module';
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,8 +49,9 @@ import { ExplorersComponent } from './pages/contents/explorers/explorers.compone
     MenubarModule,
     PasswordModule,
     CheckboxModule,
- 
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    FormsModule,
     
    
   ],

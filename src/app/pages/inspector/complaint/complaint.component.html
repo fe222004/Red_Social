@@ -1,10 +1,13 @@
 <body>
-  <app-menu></app-menu>
+  <header>
+    <app-menu></app-menu>
   <app-navar></app-navar>
+  </header>
+  
 
-  <div class="container my-5"> <!-- Agrega margen en la parte superior e inferior -->
-    <div class="row justify-content-center"> <!-- Centra el contenido horizontalmente -->
-      <div class="col-md-8"> <!-- Define el ancho máximo del contenido -->
+  <div class="container my-5"> 
+    <div class="row justify-content-center"> 
+      <div class="col-md-8"> 
         <div class="post-container">
           <div class="post">
             <div class="post-header">
@@ -36,35 +39,43 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form>
+                    <form [formGroup]="logForm">
                       <div class="mb-3 form-floating">
-                        <input type="text" class="form-control" id="infractor" name="infractor" placeholder=" ">
+                        <input type="text" formControlName="infractor" class="form-control" id="infractor" name="infractor" placeholder=" ">
+                        @if (logForm.controls['infractor'].hasError('required') &&(logForm.controls.infractor.dirty || logForm.controls.infractor.touched)) {<small style="color:red"> Campo requerido</small>}
                         <label for="infractor">Infractor <i class="bi bi-person-fill"></i></label>
                       </div>
                       <div class="mb-3 form-floating">
-                        <textarea class="form-control" id="problema" name="problema" rows="3" placeholder=" "></textarea>
+                        <textarea class="form-control" formControlName="problem" id="problema" name="problema" rows="3" placeholder=" "></textarea>
+                        @if (logForm.controls['problem'].hasError('required') &&(logForm.controls.problem.dirty || logForm.controls.problem.touched)) {<small style="color:red"> Campo requerido</small>}
+                        <div *ngIf="logForm.controls.infractor.errors?.['pattern']">
+                          <small style="color:red"> Solo espacios y letras</small>
+                          </div>
                         <label for="problema">Problema <i class="bi bi-chat-left-text-fill"></i></label>
                       </div>
                       <div class="mb-3 form-floating">
-                        <input type="date" class="form-control" id="fecha" name="fecha" placeholder=" ">
+                        <input type="date" class="form-control" formControlName="complaint_date" id="fecha" name="fecha" placeholder=" ">
+                        @if (logForm.controls['complaint_date'].hasError('required') &&(logForm.controls.complaint_date.dirty || logForm.controls.complaint_date.touched)) {<small style="color:red"> Campo requerido</small>}
                         <label for="fecha">Fecha de queja <i class="bi bi-calendar-date-fill"></i></label>
                       </div>
-                      <div class="mb-3 form-floating">
-                        <input type="time" class="form-control" id="hora" name="hora" placeholder=" ">
+                      <div class="mb-3 form-floating"> 
+                        <input type="time" class="form-control" formControlName="time" id="hora" name="hora" placeholder=" ">
+                        @if (logForm.controls['time'].hasError('required') &&(logForm.controls.time.dirty || logForm.controls.time.touched)) {<small style="color:red"> Campo requerido</small>}
                         <label for="hora">Hora <i class="bi bi-clock-fill"></i></label>
                       </div>
                       <div class="mb-3 form-floating">
-                        <select class="form-select" id="estado" name="estado" placeholder=" ">
+                        <select class="form-select" id="estado" formControlName="severity" name="estado" placeholder=" ">
                           <option value="leve">Leve</option>
                           <option value="grave">Grave</option>
                         </select>
+                        @if (logForm.controls['severity'].hasError('requiredTrue') &&(logForm.controls.severity.dirty || logForm.controls.severity.touched)) {<small style="color:red"> Campo requerido</small>}
                         <label for="estado">Estado <i class="bi bi-exclamation-triangle-fill"></i></label>
                       </div>
                     </form>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Resetear</button>
-                    <button type="button" class="btn btn-primary">Enviar</button>
+                    <button type="button" class="btn btn-danger"  (click)="reset()">Resetear</button>
+                    <button type="button" class="btn btn-primary" (click)="login()">Enviar</button>
                   </div>
                 </div>
               </div>
