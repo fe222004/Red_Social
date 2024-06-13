@@ -6,7 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './new-create.component.html',
   styleUrl: './new-create.component.scss'
 })
-export class NewCreateComponent {
+export class NewCreateComponent  {
   private formBuilder = inject(FormBuilder);
   protected form: FormGroup;
   imageSrc: string | ArrayBuffer | null = null;
@@ -18,9 +18,7 @@ export class NewCreateComponent {
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
-      text: ['', [Validators.required, Validators.minLength(2)]],
       image: ['', Validators.required],
-      tag: ['', [Validators.required]],
     });
   }
 
@@ -41,37 +39,13 @@ export class NewCreateComponent {
         }
       };
       reader.readAsDataURL(file);
+      this.form.get('image')?.setValue(file);
     }
   }
 
   clearImage() {
     this.imageSrc = null;
     this.form.get('image')?.setValue(null);
-  }
-
-  onDrop(event: DragEvent) {
-    event.preventDefault();
-    event.stopPropagation();
-    if (event.dataTransfer?.files && event.dataTransfer.files.length > 0) {
-      this.handleFile(event.dataTransfer.files[0]);
-      event.dataTransfer.clearData();
-    }
-  }
-
-  onDragOver(event: DragEvent) {
-    event.preventDefault();
-  }
-
-  private handleFile(file: File) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const result = e.target?.result;
-      if (result) {
-        this.imageSrc = result;
-      }
-    };
-    reader.readAsDataURL(file);
-    this.form.get('image')?.setValue(file);
   }
 
   openModal() {

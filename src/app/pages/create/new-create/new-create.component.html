@@ -1,25 +1,19 @@
 <div *ngIf="showModal" class="modal-backdrop">
-    <div class="modal">
+    <div class="modal-content">
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="modal-header">
-                <h5 class="modal-title">Crear Nuevo</h5>
+                <h5 class="modal-title">Crea una nueva publicación</h5>
                 <button type="button" class="close" (click)="closeModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <!-- Campos del formulario -->
-                <input formControlName="text" placeholder="Texto" required>
                 <input type="file" id="fileInput" (change)="getFile($event)" style="display: none;">
-                <button type="button" (click)="chooseFile()">Seleccionar imagen</button>
-                <input formControlName="image" required>
-                <input formControlName="tag" placeholder="Etiqueta" required>
+                <button *ngIf="!imageSrc" type="button" class="choose-file-button" (click)="chooseFile()">
+                    <span class="bi bi-camera"></span> Seleccionar de la computadora
+                </button>
                 <div class="image-preview" *ngIf="imageSrc">
                     <img [src]="imageSrc" alt="Vista previa de la imagen">
-                    <button type="button" (click)="clearImage()">Eliminar imagen</button>
+                    <button type="button" class="clear-image-button" (click)="clearImage()">Eliminar imagen</button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" (click)="closeModal()">Cancelar</button>
-                <button type="submit" [disabled]="!form.valid">Crear</button>
             </div>
         </form>
     </div>

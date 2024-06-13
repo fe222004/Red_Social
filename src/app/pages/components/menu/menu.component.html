@@ -34,13 +34,16 @@
             </a>
         </li>
         <li style="margin-top: 20px;">
-            <a (click)="openModal()" style="cursor:pointer;">
+            <a (click)="creator.openModal()" style="cursor:pointer;">
                 <i class='bx bxs-group'></i>
                 <i class="bi bi-plus-square" style="margin-right: 10px;"></i>
                 <span class="text">Crear</span>
             </a>
-        </li>        
-        <app-new-create #creator></app-new-create> <!--Muestra el modal-->
+        </li>
+        <app-new-create #creator></app-new-create>
+        
+        
+
         <li style="margin-top: 20px;">
             <a routerLink="/pages/customer/customer-create">
                 <i class='bx bxs-group'></i>
