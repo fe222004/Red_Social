@@ -8,7 +8,6 @@ import { ExplorersComponent } from './explorers/explorers.component';
 @NgModule({
   declarations: [
     
-   
   ],
   imports: [
     CommonModule,
