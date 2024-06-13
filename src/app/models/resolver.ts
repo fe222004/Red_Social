@@ -6,6 +6,8 @@ export interface ResolverI {
     date: Date;
     complaint_number: string;
     suspended_account: boolean;
+    responsible: string;
+    status: boolean;
     
 
 }

@@ -9,36 +9,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class NewCreateComponent {
   private formBuilder = inject(FormBuilder);
   protected form: FormGroup;
-  imageSrc: string | ArrayBuffer | null = null;  //protect user : any = NULL;
-  //private readonly userService: UserService = inject(UserService);
-  //protect user : any = NULL;
+  imageSrc: string | ArrayBuffer | null = null;
+  showModal: boolean = false;
 
-  //private readonly userService: UserService = inject(UserService);
-
-  constructor(){
+  constructor() {
     this.form = this.buildForm();
-   // this.findUser()
   }
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
-      user: ['', [Validators.required, Validators.minLength(2)]],
       text: ['', [Validators.required, Validators.minLength(2)]],
       image: ['', Validators.required],
       tag: ['', [Validators.required]],
     });
   }
-
-  //findUser(){
-  //this.userService.findUser().suscribe((response: any) => {
-  //this.user = response
-  //})
-  
-  //createUser(playload :any){
-  //this.userService.createUser().suscribe(response => {
-
-  //})
-
 
   chooseFile() {
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
@@ -88,5 +72,21 @@ export class NewCreateComponent {
     };
     reader.readAsDataURL(file);
     this.form.get('image')?.setValue(file);
+  }
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  onSubmit() {
+    if (this.form.valid) {
+      console.log('Formulario enviado:', this.form.value);
+      // Aquí puedes llamar a tu servicio para guardar los datos
+      this.closeModal();
+    }
   }
 }

@@ -10,6 +10,7 @@ export class ResolverService {
     private API_URL_RESOLVER = `${environment.API_URL}/resolvers`;
 
     findResolver():Observable<ResolverI[]>{
+        console.log("Llego al servidor")
         return this.httpClient.get<ResolverI[]>(this.API_URL_RESOLVER);
     }
 

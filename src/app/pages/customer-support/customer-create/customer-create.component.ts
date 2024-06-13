@@ -11,7 +11,6 @@ declare var bootstrap: any;
 })
 export class CustomerCreateComponent {
   mostrarFormularioQuejas = false;
-  mostrarFormularioQuejasAdvertencia = false;
   advertenciaMensaje: string = '';
 
   private formBuilder = inject(FormBuilder);
@@ -33,6 +32,8 @@ export class CustomerCreateComponent {
       date: ['', Validators.required],
       complaint_number: ['', [Validators.required, Validators.min(1)]],
       suspended_account: [false, Validators.required],
+      responsible: ['', [Validators.required, Validators.minLength(2)]],
+      status: ['', Validators.required],
     }));
   }
 
@@ -54,8 +55,14 @@ export class CustomerCreateComponent {
   get complaint_number(): AbstractControl {
     return this.form.controls['complaint_number'];
   }
+  get responsible(): AbstractControl {
+    return this.form.controls['responsible'];
+  }
   get suspended_account(): AbstractControl {
     return this.form.controls['suspended_account'];
+  }
+  get status(): AbstractControl {
+    return this.form.controls['status'];
   }
 
   //REVISAR
@@ -78,14 +85,6 @@ export class CustomerCreateComponent {
     this.mostrarFormularioQuejas = false;
   }
 
-  mostrarAdvertencia() {
-    this.mostrarFormularioQuejasAdvertencia = true;
-  }
-
-  ocultarAdvertencia() {
-    this.mostrarFormularioQuejasAdvertencia = false;
-  }
-
   //LLEVA DATOS AL BACK
   validataForm() {
     if (this.form.valid) {
@@ -104,15 +103,5 @@ export class CustomerCreateComponent {
     this.router.navigate(['/pages/customer-list']);
   }
   
- 
-
-  enviarAdvertencia() {
-    if (this.advertenciaMensaje.trim() !== '') {
-      alert('Advertencia enviada: ' + this.advertenciaMensaje);
-      this.ocultarAdvertencia();
-    } else {
-      alert('El mensaje de advertencia no puede estar vacío');
-    }
-  }
 
 }
