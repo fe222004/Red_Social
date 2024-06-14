@@ -23,15 +23,18 @@
 
 .modal-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     border-bottom: 1px solid #e5e5e5;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .modal-title {
     margin: 0;
+    text-align: center;
+    flex-grow: 1;
 }
 
 .close {
@@ -39,6 +42,8 @@
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    right: 10px;
+    position: absolute;
 }
 
 .modal-body {
@@ -48,37 +53,48 @@
     align-items: center; /* Centramos el contenido de la modal body */
 }
 
+.camera-icon {
+    font-size: 5rem; 
+    color: black; 
+    margin-bottom: 10px; 
+}
+
+.drag-text-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.drag-text {
+    margin-top: 50px; 
+}
+
 .choose-file-button {
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
     width: fit-content;
-    margin-bottom: 20px;
+    margin-top: -20px; 
     position: relative;
 }
 
-.choose-file-button .bi-camera {
-    margin-right: 5px;
-}
-
 .choose-file-button:hover {
-    background-color: #0056b3;
-}
-.choose-file-button:hover {
-    background-color: #0056b3;
-}
-
-.choose-file-button:hover {
-    background-color: #0056b3; /* Color azul más oscuro al pasar el cursor */
+    background-color: #0056b3; 
 }
 
 .image-preview img {
     max-width: 100%;
     border-radius: 5px;
+}
+
+.clear-image-button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ajusta este valor según el ancho del contenedor */
 }
 
 .clear-image-button {
@@ -109,7 +125,7 @@
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: -20px; /* Ajusta el margen superior */
+    margin-top: -25px; /* Ajusta el margen superior */
 }
 
 .cancel-button:hover {
