@@ -3,6 +3,20 @@ body{
     margin: 0;
     background: #eee;
 }
+.coment{
+	display: flex; 
+	font-size: 20px; 
+	margin-left: 80px;
+}
+.coment button{
+	margin-left: 10px;
+	background: transparent;
+	border: none;
+}
+.option{
+	display: flex; 
+	margin-left: 100px
+}
 .card{
     margin-top: 10px;
     width: 550px;

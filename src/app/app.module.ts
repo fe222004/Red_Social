@@ -21,21 +21,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { promisify } from 'util';
 import { ProfileComponent } from './pages/user/profile/profile.component';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { PostComponent } from './pages/components/post/post.component';
-import { HttpClientModule } from '@angular/common/http';
-import { CommentsComponent } from './components/comments/comments.component';
-import { MoreCommentsComponent } from './components/more-comments/more-comments.component';
 
-import { ProfileComponent } from './pages/user/profile/profile.component';
+import { PostComponent } from './pages/components/post/post.component';
+
+
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
 import { FooterComponent } from './pages/components/footer/footer.component';
-import { PostComponent } from './pages/components/post/post.component';
+
 import { RegisterComponent } from './components/auth/register/register.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CommentsComponent } from './pages/components/comments/comments.component';
 
 
 @NgModule({
@@ -51,9 +49,6 @@ import { HttpClientModule } from '@angular/common/http';
     EditProfileComponent,
     PostComponent,
     CommentsComponent,
-    MoreCommentsComponent
-
-    ProfileComponent,
     ExplorersComponent,
     FooterComponent,
     PostComponent,

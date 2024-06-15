@@ -19,7 +19,8 @@ export class ProfileComponent {
   private readonly postService = inject(PostService);
   protected coments: ComentI[] = [];
   protected posts: PostI[] = [];
-  protected post: PostI = {};
+
+  
 
   constructor(private router: Router) {
     this.comentForm = this.buildForm
@@ -55,14 +56,14 @@ export class ProfileComponent {
       console.log(this.coments)
     })
   }
-  updateComent() {
-    this.postService.updatePost('', {}).subscribe(response => {
+  updateComent(id:string) {
+    this.comentService.updateComent(id, {}).subscribe(response => {
       console.log(response);
     })
   }
 
-  deleteComent() {
-    this.postService.deletePost('').subscribe(response => {
+  deleteComent(id:string) {
+    this.comentService.deleteComent(id).subscribe(response => {
       console.log(response)
     })
   }
@@ -76,13 +77,17 @@ export class ProfileComponent {
     })
   }
 
-  deletePostt() {
-    this.comentService.deleteComent('').subscribe(response => {
+  deletePostt(id:string) {
+    this.postService.deletePost(id).subscribe(response => {
       console.log(response)
     })
   }
 
   navigatePost() {
     this.router.navigate(['/pages/post']);
+  }
+
+  navigateComents() {
+    this.router.navigate(['/pages/coments']);
   }
 }

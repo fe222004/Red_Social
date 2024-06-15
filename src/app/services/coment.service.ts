@@ -1,21 +1,15 @@
-import {APP_ID, inject, Injectable} from "@angular/core";
+import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import { ComentI } from "../models/coment.interface";
+import { environment } from "../../environments/environment";
+
 
 @Injectable({providedIn: 'root'})
 export class ComentService {
   private readonly httpClient = inject(HttpClient);
-  private API_URL_COMENT = `${environment.API_URL}/coment`;
+  private API_URL_COMENT = `${environment.API_URL}/coments`;
   
-  private comments: string[] = [
-    'Comentario 1',
-    'Comentario 2',
-    'Comentario 3',
-    'Comentario 4',
-    'Comentario 5'
-  ];
 
   findComentS():Observable<ComentI[]> {
     return this.httpClient.get<[]>(this.API_URL_COMENT);
@@ -37,7 +31,5 @@ export class ComentService {
     return this.httpClient.get<ComentI>(`${this.API_URL_COMENT}/${id}`);
   }
 
-  getComments(): string[] {
-    return this.comments;
-  }
+
 }

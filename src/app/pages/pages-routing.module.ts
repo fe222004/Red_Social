@@ -9,6 +9,7 @@ import { StoriesComponent } from './components/stories/stories.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 
 
@@ -41,6 +42,15 @@ const routes: Routes = [
     path:'customer',
     loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule)
   },
+  {
+    path:'user',
+    loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+  },
+  {
+    path: 'coments',
+    component: CommentsComponent
+     },
+  
    {
     path: 'post',
     component: PostComponent
