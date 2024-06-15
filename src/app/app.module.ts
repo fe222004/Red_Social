@@ -21,7 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
-import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './components/comments/comments.component';
 import { MoreCommentsComponent } from './components/more-comments/more-comments.component';
 
@@ -36,8 +35,7 @@ import { CustomerListComponent } from './pages/customer-support/customer-list/cu
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SurveyComponent } from './pages/components/survey/survey.component';
 import { NewCreateComponent } from './pages/create/new-create/new-create.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CustomerListComponent } from './pages/customer-support/customer-list/customer-list.component';
+
 import { ProfileComponent } from './pages/user/profile/profile.component';
 import { PostComponent } from './pages/components/post/post.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -63,7 +61,7 @@ import { LoginComponent } from './components/auth/login/login.component';
     RegisterComponent,
     CustomerListComponent,
     SurveyComponent,
-    NewCreateComponent
+    NewCreateComponent,
     LoginComponent
   ],
   imports: [

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
 
@@ -11,10 +11,12 @@ import { User } from '../../../models/user';
 export class RegisterComponent {
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
   private readonly userService: UserService = inject(UserService);
+  
 
   public loginForm: FormGroup;
   public imageSrc: string | ArrayBuffer | null | undefined = null;
   public files: any[] = [];
+  
 
   constructor() {
     this.loginForm = this.buildForm();
@@ -22,16 +24,48 @@ export class RegisterComponent {
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
-      image: [null],
-      lastname: ['', Validators.required],
-      firstname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      image: [null], 
+      lastname: ['', [Validators.required, Validators.minLength(2)]],
+      firstname: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),],],
+      password: ['', [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],      
       countryId: ['', Validators.required],
+      city: ['', Validators.required],
       rolId: ['', Validators.required],
-      description: ['']
+      description: ['', [Validators.required, Validators.minLength(2)]],
     });
   }
+
+  get image(): AbstractControl {
+    return this.loginForm.controls['image'];
+  }
+  get lastname(): AbstractControl {
+    return this.loginForm.controls['lastname'];
+  }
+  get firstname(): AbstractControl {
+    return this.loginForm.controls['firstname'];
+  }
+  get email(): AbstractControl {
+    return this.loginForm.controls['email'];
+  }
+  get password(): AbstractControl {
+    return this.loginForm.controls['password'];
+  }
+  get countryId(): AbstractControl {
+    return this.loginForm.controls['countryId'];
+  }
+  get city(): AbstractControl {
+    return this.loginForm.controls['city'];
+  }
+  get rolId(): AbstractControl {
+    return this.loginForm.controls['rolId'];
+  }
+  get description(): AbstractControl {
+    return this.loginForm.controls['description'];
+  }
+  
+
+
 
   getFile(event: any): void {
     const file = event.target.files[0];
@@ -129,4 +163,5 @@ export class RegisterComponent {
     reader.readAsDataURL(file);
     this.files = [file];
   }
+  
 }

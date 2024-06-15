@@ -28,9 +28,6 @@ export class LoginComponent {
   }
     password!: string;
 
-    constructor(private router: Router) { }
-
-
     navigateToDashboard() {
         this.router.navigate(['/pages/form']);
     }
