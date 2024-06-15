@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { StoriesComponent } from './components/stories/stories.component';
 
+import { PostComponent } from './components/post/post.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
 import { SurveyComponent } from './components/survey/survey.component';
+
 
 
 const routes: Routes = [

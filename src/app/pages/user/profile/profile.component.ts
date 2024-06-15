@@ -1,5 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ComentService } from '../../../services/coment.service';
+import { ComentI } from '../../../models/coment.interface';
+import { PostService } from '../../../services/post.service';
+import { PostI } from '../../../models/post.interface';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -7,28 +12,77 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-
   private formBuilder: FormBuilder = inject(FormBuilder);
+  protected comentForm: FormGroup;
 
-    protected comentForm: FormGroup;
+  private readonly comentService = inject(ComentService);
+  private readonly postService = inject(PostService);
+  protected coments: ComentI[] = [];
+  protected posts: PostI[] = [];
+  protected post: PostI = {};
 
-    constructor() {
-      this.comentForm = this.builForm
-    }
-        get builForm(): FormGroup{
-          return this.formBuilder.group({
-            id: 0,
-            coment:['', Validators.required, Validators.minLength(30)],
-          });
-        }
-
-        get id(): AbstractControl {
-          return this.comentForm.controls['id']
-        }
-
-        get coment(): AbstractControl {
-          return this.comentForm.controls['coment']
-        }
+  constructor(private router: Router) {
+    this.comentForm = this.buildForm
+    this.findComents();
+    this.findPost();
+  }
+  get buildForm(): FormGroup {
+    return (this.comentForm = this.formBuilder.group({
+      coment: ['', [Validators.required, Validators.minLength(10)]],      
+    }));
+  }
 
 
+  onSubmit() {
+    console.log('Se ha hecho clic en el botón de envío.');
+  }
+
+  // crearComent() {
+  //   if (this.comentForm.valid) {
+  //     alert('Registrado');
+  //     this.comentService.createComent(this.comentForm.value).subscribe(() => {
+  //     });
+  //     console.log("Entro", this.comentForm.value)
+  //   } else {
+  //     alert('No registrado');
+  //   }
+  //   console.log("Ingreso aqui")
+  // } 
+
+  findComents() {
+    this.comentService.findComentS().subscribe(response => {
+      this.coments = response;
+      console.log(this.coments)
+    })
+  }
+  updateComent() {
+    this.postService.updatePost('', {}).subscribe(response => {
+      console.log(response);
+    })
+  }
+
+  deleteComent() {
+    this.postService.deletePost('').subscribe(response => {
+      console.log(response)
+    })
+  }
+
+  
+  //Post
+  findPost() {
+    this.postService.findPost().subscribe(response => {
+      this.posts = response;
+      console.log(this.posts)
+    })
+  }
+
+  deletePostt() {
+    this.comentService.deleteComent('').subscribe(response => {
+      console.log(response)
+    })
+  }
+
+  navigatePost() {
+    this.router.navigate(['/pages/post']);
+  }
 }

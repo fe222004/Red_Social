@@ -5,10 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.scss'
 })
-export class MenuComponent {
-openModal() {
-throw new Error('Method not implemented.');
-}
+
+
+export class MenuComponent{
 
   private allSideMenu!: NodeListOf<HTMLAnchorElement>;
   private menuBar!: HTMLElement | null;

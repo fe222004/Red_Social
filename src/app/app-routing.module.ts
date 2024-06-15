@@ -39,6 +39,7 @@ const routes: Routes = [
     component: ErrorComponent
   },
   {
+
     path: 'access',
     component: AccessComponent
   },

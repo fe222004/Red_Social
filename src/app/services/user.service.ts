@@ -1,28 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
-  private httpClient: HttpClient = inject(HttpClient);
-  //private apiURLUser: string = `${environment.apiUrl}/users`;
-
-
   constructor() { }
 
 
-  findUser() {
-    //this.httpClient.get(this.apiURLUser)
-  }
+  private readonly httpClient: HttpClient = inject(HttpClient);
+  private readonly apiUrl: string = 'http://localhost:3000/users';
 
-  createUser(playload: any) {
-    //return this.httpClient.post(this.apiURLUser, playload)
-  }
 
-  editUser(playload: any) {
-    //return this.httpClient.post('http:localhosth:3000/user/'+id,playload)
+  createUser(formData: FormData) {
+    console.log('llego al servidor',formData);
+    return this.httpClient.post<User>(this.apiUrl, formData);
   }
 }
+
