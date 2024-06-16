@@ -61,6 +61,8 @@ export class RegisterComponent {
     formData.append('firstname', this.loginForm.value.firstname);
     console.log('firstname:', this.loginForm.value.firstname);
 
+  //this.userService.createUser(formData).subscribe((response) => {
+  //});
     formData.append('email', this.loginForm.value.email);
     console.log('email:', this.loginForm.value.email);
 

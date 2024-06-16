@@ -8,11 +8,12 @@ import { throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+  constructor() { }
+
 
   private readonly httpClient: HttpClient = inject(HttpClient);
   private readonly apiUrl: string = 'http://localhost:3000/users';
 
-  constructor() { }
 
   createUser(formData: FormData) {
     console.log('llego al servidor',formData);
@@ -38,3 +39,4 @@ export class UserService {
     return throwError(errorMessage);
   }
 }
+
