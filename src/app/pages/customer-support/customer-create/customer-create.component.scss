@@ -576,26 +576,4 @@ body {
     display: block;
 }
 
-/*Advertencia*/
-.form-quejas.show,
-.form-quejas-advertencia.show {
-  display: block;
-}
 
-/*Estilo a advertencias */
-.form-quejas,
-.form-quejas-advertencia {
-  display: none;
-  position: fixed;
-    top: 70px;
-    left: 58%; 
-	transform: translateX(-50%);
-    width: 90%;
-	max-width: 600px;
-    height: auto; 
-	max-height: calc(100% - 100px);
-    background-color: rgba(174, 174, 174, 0.993);
-    border-radius: 10px;
-    z-index: 999;
-    padding: 30px;
-}

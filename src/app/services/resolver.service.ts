@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable} from '@angular/core';
 import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 import { ResolverI } from '../models/resolver';
 
 @Injectable({providedIn: 'root'})
 export class ResolverService {
+   
     private readonly httpClient = inject(HttpClient);
     private API_URL_RESOLVER = `${environment.API_URL}/resolvers`;
 
@@ -19,6 +20,12 @@ export class ResolverService {
         return this.httpClient.post(this.API_URL_RESOLVER, playload);
 
     }
+
+    //ACTUALIZAR
+    updateResolver(id: string, payload: ResolverI):Observable<ResolverI> {
+        return this.httpClient.put<ResolverI>(`${this.API_URL_RESOLVER}/${id}`, payload);
+      }
+
 
     findResolverOne(id: string):Observable<ResolverI>{
         return this.httpClient.get<ResolverI>(`${this.API_URL_RESOLVER}/${id}`)
