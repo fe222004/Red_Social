@@ -1,6 +1,6 @@
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {Observable, Subject} from "rxjs";
 import { ComentI } from "../models/coment.interface";
 import { environment } from "../../environments/environment";
 
@@ -29,6 +29,21 @@ export class ComentService {
 
   findComentOne(id: string):Observable<ComentI> {
     return this.httpClient.get<ComentI>(`${this.API_URL_COMENT}/${id}`);
+  }
+
+
+  //comentarios modal
+
+  private modalVisibility = new Subject<boolean>();
+
+  modalVisibility$ = this.modalVisibility.asObservable();
+
+  showModal() {
+    this.modalVisibility.next(true);
+  }
+
+  hideModal() {
+    this.modalVisibility.next(false);
   }
 
 

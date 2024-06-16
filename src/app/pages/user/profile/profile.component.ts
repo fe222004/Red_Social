@@ -68,6 +68,11 @@ export class ProfileComponent {
     })
   }
 
+  //Comentarios Modal
+  openModalComents() {
+    this.comentService.showModal();
+  }
+
   
   //Post
   findPost() {
