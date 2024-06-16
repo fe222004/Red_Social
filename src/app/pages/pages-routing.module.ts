@@ -11,6 +11,7 @@ import { StoriesComponent } from './components/stories/stories.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
+import { CreatorComponent } from './contentCreator/creator/creator.component';
 
 
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path:'creator',
+    component:CreatorComponent
   },
   {
     path: 'register',

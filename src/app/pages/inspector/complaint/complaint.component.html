@@ -65,17 +65,17 @@
                       </div>
                       <div class="mb-3 form-floating">
                         <select class="form-select" id="estado" formControlName="severity" name="estado" placeholder=" ">
-                          <option value="leve">Leve</option>
+                          <option value="leve" >Leve</option>
                           <option value="grave">Grave</option>
                         </select>
-                        @if (logForm.controls['severity'].hasError('requiredTrue') &&(logForm.controls.severity.dirty || logForm.controls.severity.touched)) {<small style="color:red"> Campo requerido</small>}
+                        @if (logForm.controls['severity'].hasError('required') &&(logForm.controls.severity.dirty || logForm.controls.severity.touched)) {<small style="color:red"> Campo requerido</small>}
                         <label for="estado">Estado <i class="bi bi-exclamation-triangle-fill"></i></label>
                       </div>
                     </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger"  (click)="reset()">Resetear</button>
-                    <button type="button" class="btn btn-primary" (click)="login()">Enviar</button>
+                    <button type="button" class="btn btn-primary" (click)="createForm()">Enviar</button>
                   </div>
                 </div>
               </div>
