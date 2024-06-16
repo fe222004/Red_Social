@@ -10,8 +10,6 @@
             </div>
 
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-100">
-                <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
-
                 <div class="row">
                     <div class="col-md-12 mb-3 text-center">
                         <label for="image" class="form-label text-dark h5 font-weight-medium">Avatar</label>
