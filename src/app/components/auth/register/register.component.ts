@@ -15,6 +15,7 @@ export class RegisterComponent {
   public loginForm: FormGroup;
   public imageSrc: string | ArrayBuffer | null | undefined = null;
   public files: any[] = [];
+  public errorMessage: string | null = null;
 
   constructor() {
     this.loginForm = this.buildForm();
@@ -22,14 +23,14 @@ export class RegisterComponent {
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
-      image: [null],
-      lastname: ['', Validators.required],
-      firstname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      countryId: ['', Validators.required],
-      rolId: ['', Validators.required],
-      description: ['']
+        firstname: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+        lastname: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(40)]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        image: [''],
+        description: ['', [Validators.maxLength(200)]],
+        countryId: [''],
+        roleId: [''],
     });
   }
 
@@ -76,17 +77,22 @@ export class RegisterComponent {
     console.log('description:', this.loginForm.value.description);
 
     const file = this.files[0];
-    if (file) {
-      formData.append('image', file, file.name);
-      console.log('image file:', file);
-    }
+    formData.append('image', file, file.name);
+    console.log(file.name)
+
+     // Verificar que formData contiene los datos correctos
+  formData.forEach((value, key) => {
+    console.log(key + ': ' + value);
+  });
 
     this.userService.createUser(formData).subscribe(
       (response: User) => {
         console.log('User created successfully:', response);
+        this.errorMessage = null; // Clear error message
       },
       (error) => {
         console.error('Error creating user:', error);
+        this.errorMessage = error; // Display error message
       }
     );
   }
