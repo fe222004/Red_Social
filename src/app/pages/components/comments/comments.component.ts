@@ -11,13 +11,14 @@ import { ComentI } from '../../../models/coment.interface';
 export class CommentsComponent{
   
   private readonly comentService = inject(ComentService);  
+  protected comments: ComentI[] = [];
+
+  constructor(){
+    this.findComents();
+  }
   
   isVisible = false;
-  comments: ComentI[] = [
-    { text: 'Este es un comentario de ejemplo' },
-    { text: 'Otro comentario de ejemplo' }
-  ];
-  newComment: string = '';
+  
 
   ngOnInit(): void {
     this.comentService.modalVisibility$.subscribe(visible => {
@@ -29,6 +30,10 @@ export class CommentsComponent{
     this.comentService.hideModal();
   }
 
-
-
+  findComents() {
+    this.comentService.findComentS().subscribe(response => {
+      this.comments = response;
+      console.log(this.comments)
+    })
+  }
 }

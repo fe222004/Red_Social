@@ -55,6 +55,7 @@ const routes: Routes = [
     path: 'post',
     component: PostComponent
      },
+     
   //Navegación componente create y list
   {
     path: 'customer-create',
