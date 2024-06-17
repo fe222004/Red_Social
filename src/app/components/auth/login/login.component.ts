@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -22,15 +22,23 @@ export class LoginComponent {
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
       rememberMe: [false]
     });
   }
-    password!: string;
 
-    navigateToDashboard() {
-        this.router.navigate(['/pages/form']);
-    }
+  get email(): AbstractControl {
+    return this.loginForm.controls['email'];
+  }
+  get password(): AbstractControl {
+    return this.loginForm.controls['password'];
+  }
+  
+  //password!: string;
+
+  navigateToDashboard() {
+    this.router.navigate(['/pages/form']);
+  }
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;

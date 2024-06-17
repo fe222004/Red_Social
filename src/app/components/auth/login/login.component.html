@@ -14,14 +14,38 @@
             <div class="w-100">
                 <div class="mb-3">
                     <label for="email1" class="form-label text-dark h5 font-weight-medium">Email</label>
-                    <input id="email1" type="text" placeholder="Email address" class="form-control" style="padding: 0.75rem;">
+                    <input id="email1" type="text" placeholder="Email address" class="form-control" formControlName="email" style="padding: 0.75rem;">
                 </div>
+                <div style="font-size: smaller; text-align: center">
+                  @if(email.errors){ @if(email.touched){
+                  @if(email.errors['required']){
+                  <span class="p-error">Este campo es requerido</span>
+                  } @if(email.errors['pattern']){
+                  <span class="p-error">Ingrese un correo electrónico
+                      válido</span>
+                  } } }
+              </div>
 
                 <div class="mb-4">
                     <label for="password1" class="form-label text-dark h5 font-weight-medium">Password</label>
-                    <input id="password1" type="password" placeholder="Password" class="form-control" style="padding: 0.75rem;">
+                    <input id="password1" type="password" placeholder="Password" class="form-control" formControlName="password" style="padding: 0.75rem;">
                 </div>
-
+                <div style="font-size: smaller; text-align: center">
+                  @if(password.errors){ @if(password.touched){
+                  @if(password.errors['required']){
+                  <span class="p-error">Este campo es requerido</span>
+                  } @if(password.errors['pattern']) {
+                      <span class="p-error">
+                          Por favor, asegúrate de que tu contraseña cumpla con los siguientes criterios:
+                          <ul>
+                              <li>Al menos una letra minúscula.</li>
+                              <li>Al menos una letra mayúscula.</li>
+                              <li>Al menos un dígito numérico.</li>
+                              <li>Al menos un carácter especial como &commat;$!%*?&..</li>
+                          </ul>
+                      </span>
+                  } } }
+              </div>
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" id="rememberme1">
