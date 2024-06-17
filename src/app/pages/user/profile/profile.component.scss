@@ -3,6 +3,40 @@ body{
     margin: 0;
     background: #eee;
 }
+.coment{
+	display: flex; 
+	font-size: 20px; 
+	margin-left: 80px;
+}
+.coment button{
+	margin-left: 10px;
+	background: transparent;
+	border: none;
+}
+.coment1{
+	display: flex;
+	margin-left: 30PX;
+}
+.photo img{
+	width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;
+}
+.mb-3{
+	margin-left: 20px; margin-top: 10px; width: 430px;
+}
+.text{
+	height: 45px;
+}
+.comentsave{
+	margin-left: 10px;
+}
+.btn-outline-info{
+	border-radius: 50px;
+	margin-top: 10px;
+}
+.option{
+	display: flex; 
+	margin-left: 100px
+}
 .card{
     margin-top: 10px;
     width: 550px;

@@ -9,6 +9,8 @@ import { RegisterComponent } from '../components/auth/register/register.componen
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
 import { SurveyComponent } from './components/survey/survey.component';
+import { CommentsComponent } from './components/comments/comments.component';
+
 
 
 
@@ -49,6 +51,19 @@ const routes: Routes = [
     path: 'create',
     loadChildren: () => import('./create/create.module').then(m => m.CreateModule)
   },
+       loadChildren: () => import('./user/user.module').then(m => m.UserModule)
+  },
+  {
+    path: 'coments',
+    component: CommentsComponent
+     },
+  
+   {
+    path: 'post',
+    component: PostComponent
+     },
+     
+
   {
     path: 'customer-create',
     component: CustomerCreateComponent
