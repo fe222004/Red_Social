@@ -1,4 +1,5 @@
 export interface ComentI {
     id?:string;
-    coment?: string;
+    comment?: string;
+    commentDate?: Date;
   }
