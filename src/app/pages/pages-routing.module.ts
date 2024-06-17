@@ -4,14 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ComplaintComponent } from './inspector/complaint/complaint.component';
 import { ExplorersComponent } from './contents/explorers/explorers.component';
-
 import { StoriesComponent } from './components/stories/stories.component';
 
-  import { PostComponent } from './components/post/post.component';
+import { PostComponent } from './components/post/post.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
 import { CreatorComponent } from './contentCreator/creator/creator.component';
+import { SurveyComponent } from './components/survey/survey.component';
 
 
 
@@ -57,11 +57,14 @@ const routes: Routes = [
     path:'customer',
     loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule)
   },
-   {
-    path: 'post',
-    component: PostComponent
-     },
-  //Navegación componente create y list
+  {
+    path:'user',
+    loadChildren: () => import('./user/user-routing.module').then(m => m.UserRoutingModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./create/create.module').then(m => m.CreateModule)
+  },
   {
     path: 'customer-create',
     component: CustomerCreateComponent
@@ -71,8 +74,8 @@ const routes: Routes = [
     component: CustomerListComponent
   },
   {
-    path:'user',
-    loadChildren: () => import('./user/user-routing.module').then(m => m.UserRoutingModule)
+    path: 'form',
+    component: SurveyComponent
   }
 
 ];

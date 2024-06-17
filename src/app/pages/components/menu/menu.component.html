@@ -14,35 +14,40 @@
         </li>
         <li style="margin-top: 20px;">
             <a routerLink="/pages/contenent/explorer">
-                <i class='bx bxs-cylinder'></i> 
+                <i class='bx bxs-cylinder'></i>
                 <i class="bi bi-globe-americas" style="margin-right: 10px;"></i>
                 <span class="text">Explorar</span>
             </a>
         </li>
-        <li  style="margin-top: 20px;">
-            <a routerLink="/pages/notificaciones">
-                <i class='bx bx-table'></i>
-                <span class="text">Notificaciones</span>
-            </a>
-        </li>
-        <li  style="margin-top: 20px;">
-            <a routerLink="/pages/comunidad">
-                <i class='bx bxs-group'></i>
-                <i class="bi bi-people"  style="margin-right: 10px;"></i>
-                <span class="text">Comunidad</span>
-            </a>
-        </li>
-        <li  style="margin-top: 20px;">
+        <li style="margin-top: 20px;">
             <a routerLink="/pages/c/creator">
                 <i class='bx bxs-group'></i>
                 <i class="bi bi-person-hearts" style="margin-right: 10px;"></i>
                 <span class="text">Creador</span>
             </a>
         </li>
-        <li  style="margin-top: 20px;">
+        <li style="margin-top: 20px;">
+            <a routerLink="/pages/comunidad">
+                <i class='bx bxs-group'></i>
+                <i class="bi bi-people" style="margin-right: 10px;"></i>
+                <span class="text">Comunidad</span>
+            </a>
+        </li>
+        <li style="margin-top: 20px;">
+            <a (click)="creator.openModal()" style="cursor:pointer;">
+                <i class='bx bxs-group'></i>
+                <i class="bi bi-plus-square" style="margin-right: 10px;"></i>
+                <span class="text">Crear</span>
+            </a>
+        </li>
+        <app-new-create #creator></app-new-create>
+        
+        
+
+        <li style="margin-top: 20px;">
             <a routerLink="/pages/customer/customer-create">
                 <i class='bx bxs-group'></i>
-                <i class="bi bi-mailbox-flag"  style="margin-right: 10px;"></i>
+                <i class="bi bi-mailbox-flag" style="margin-right: 10px;"></i>
                 <span class="text">Administrador</span>
             </a>
         </li>
@@ -51,7 +56,7 @@
         <li>
             <a routerLink="/login" class="logout">
                 <i class='bx bx-log-out-circle'></i>
-                <i class="bi bi-escape"  style="margin-right: 10px; width:62; height: 62"></i>
+                <i class="bi bi-escape" style="margin-right: 10px; width:62; height: 62"></i>
                 <span class="text">Salir</span>
             </a>
         </li>
