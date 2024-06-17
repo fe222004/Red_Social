@@ -8,30 +8,37 @@ import { environment } from "../../environments/environment";
 @Injectable({providedIn: 'root'})
 export class ComentService {
   private readonly httpClient = inject(HttpClient);
-  private API_URL_COMENT = `${environment.API_URL}/coments`;
+
+  private readonly apiUrl: string = 'http://localhost:3000/coment';
+
+  
+  private comments: string[] = [
+    'Comentario 1',
+    'Comentario 2',
+    'Comentario 3',
+    'Comentario 4',
+    'Comentario 5'
+  ];
 
   findComentS():Observable<ComentI[]> {
-    console.log('Entro al Servicio Get')
-    return this.httpClient.get<ComentI[]>(this.API_URL_COMENT);
+    return this.httpClient.get<[]>(this.apiUrl);
   }
 
   createComent(payload: ComentI) {
-    console.log('Entro al Servicio post coment')
-    return this.httpClient.post(this.API_URL_COMENT, payload);
+    return this.httpClient.post(this.apiUrl, payload);
   }
 
   updateComent(id: string, payload: ComentI):Observable<ComentI> {
-    console.log('Entro al Servicio put coment')
-    return this.httpClient.put<ComentI>(`${this.API_URL_COMENT}/${id}`, payload);
+    return this.httpClient.put<ComentI>(`${this.apiUrl}/${id}`, payload);
   }
 
   deleteComent(id: string) {
-    console.log('Entro al Servicio delete coment')
-    return this.httpClient.delete(`${this.API_URL_COMENT}/${id}`);
+    return this.httpClient.delete(`${this.apiUrl}/${id}`);
+
   }
 
   findComentOne(id: string):Observable<ComentI> {
-    return this.httpClient.get<ComentI>(`${this.API_URL_COMENT}/${id}`);
+    return this.httpClient.get<ComentI>(`${this.apiUrl}/${id}`);
   }
 
 

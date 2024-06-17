@@ -1,36 +1,113 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
+import { Country } from '../../../models/country';
+import { CountryService } from '../../../services/country.service';
+import { Rol } from '../../../models/rol';
+import { RolService } from '../../../services/rol.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
   private readonly userService: UserService = inject(UserService);
 
+  private readonly countryService: CountryService = inject(CountryService);
+  private readonly rolService: RolService = inject(RolService);
+
   public loginForm: FormGroup;
   public imageSrc: string | ArrayBuffer | null | undefined = null;
   public files: any[] = [];
+  public errorMessage: string | null = null;
 
-  constructor() {
+  countries: Country[] = [];
+  roles: Rol[] = [];
+
+  constructor(private router: Router) {
     this.loginForm = this.buildForm();
+    this.getCountries();
+    this.getRol();
   }
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
-      image: [null],
-      lastname: ['', Validators.required],
-      firstname: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      countryId: ['', Validators.required],
-      rolId: ['', Validators.required],
-      description: ['']
+      firstname: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(40),
+        ],
+      ],
+      lastname: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(40),
+        ],
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+          ),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/
+          ),
+        ],
+      ],
+      image: [''],
+      description: ['', [Validators.maxLength(200)]],
+      countryId: [''],
+      rolId: [''],
     });
+  }
+
+  get image(): AbstractControl {
+    return this.loginForm.controls['image'];
+  }
+  get lastname(): AbstractControl {
+    return this.loginForm.controls['lastname'];
+  }
+  get firstname(): AbstractControl {
+    return this.loginForm.controls['firstname'];
+  }
+  get email(): AbstractControl {
+    return this.loginForm.controls['email'];
+  }
+  get password(): AbstractControl {
+    return this.loginForm.controls['password'];
+  }
+  get countryId(): AbstractControl {
+    return this.loginForm.controls['countryId'];
+  }
+  get city(): AbstractControl {
+    return this.loginForm.controls['city'];
+  }
+  get rolId(): AbstractControl {
+    return this.loginForm.controls['rolId'];
+  }
+  get description(): AbstractControl {
+    return this.loginForm.controls['description'];
   }
 
   getFile(event: any): void {
@@ -43,6 +120,20 @@ export class RegisterComponent {
       reader.readAsDataURL(file);
       this.files = [file];
     }
+  }
+
+  getCountries() {
+    this.countryService.findCountries().subscribe((response) => {
+      console.log(response);
+      this.countries = response;
+    });
+  }
+
+  getRol() {
+    this.rolService.findRol().subscribe((response) => {
+      console.log(response);
+      this.roles = response;
+    });
   }
 
   onSubmit() {
@@ -60,6 +151,8 @@ export class RegisterComponent {
     formData.append('firstname', this.loginForm.value.firstname);
     console.log('firstname:', this.loginForm.value.firstname);
 
+    //this.userService.createUser(formData).subscribe((response) => {
+    //});
     formData.append('email', this.loginForm.value.email);
     console.log('email:', this.loginForm.value.email);
 
@@ -76,23 +169,32 @@ export class RegisterComponent {
     console.log('description:', this.loginForm.value.description);
 
     const file = this.files[0];
-    if (file) {
-      formData.append('image', file, file.name);
-      console.log('image file:', file);
-    }
+    formData.append('image', file, file.name);
+    console.log(file.name);
+
+    // Verificar que formData contiene los datos correctos
+    formData.forEach((value, key) => {
+      console.log(key + ': ' + value);
+    });
 
     this.userService.createUser(formData).subscribe(
       (response: User) => {
         console.log('User created successfully:', response);
+        this.errorMessage = null; // Clear error message
+        this.router.navigate(['']); // Redirigir a la página de perfil o cualquier otra página
+
       },
       (error) => {
         console.error('Error creating user:', error);
+        this.errorMessage = error; // Display error message
       }
     );
   }
 
   chooseFile() {
-    const inputElement = document.getElementById('fileInput') as HTMLInputElement;
+    const inputElement = document.getElementById(
+      'fileInput'
+    ) as HTMLInputElement;
     if (inputElement) {
       inputElement.click();
     }

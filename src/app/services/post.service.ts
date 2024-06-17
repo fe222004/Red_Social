@@ -8,34 +8,25 @@ import { environment } from "../../environments/environment";
 @Injectable({providedIn: 'root'})
 export class PostService {
   private readonly httpClient = inject(HttpClient);
-  private API_URL_POST = `${environment.API_URL}/posts`;
+
+  private readonly apiUrl: string = 'http://localhost:3000/post';
+
   
   findPost():Observable<PostI[]> {
-    console.log('Entro al Servidor get')
-    return this.httpClient.get<PostI[]>(this.API_URL_POST);
+    return this.httpClient.get<[]>(this.apiUrl);
   }
 
   createPost(payload: PostI) {
-    console.log('Entro al Servidor Post')
-    return this.httpClient.post(this.API_URL_POST, payload);
+    return this.httpClient.post(this.apiUrl, payload);
   }
 
-  updatePost(id: string, payload: PostI): Observable<PostI> {
-    console.log('Entro al Servidor Put'); // Mensaje de depuración
-    return this.httpClient.put<PostI>(`${this.API_URL_POST}/${id}`, payload)
-      .pipe(
-        catchError(this.handleError) // Manejo de errores
-      );
-  }
-
-  private handleError(error: any): Observable<any> {
-    console.error('Ocurrió un error:', error); // Registro del error
-    throw new Error('Error en la solicitud HTTP'); // Lanza un error observable
+  updatePost(id: string, payload: PostI):Observable<PostI> {
+    return this.httpClient.put<PostI>(`${this.apiUrl}/${id}`, payload);
   }
 
   deletePost(id: string) {
-    console.log('Entro al Servidor Delete')
-    return this.httpClient.delete(`${this.API_URL_POST}/${id}`);
+    return this.httpClient.delete(`${this.apiUrl}/${id}`);
+
   }
 
 }
