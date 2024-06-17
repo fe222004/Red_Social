@@ -9,16 +9,7 @@ import { environment } from "../../environments/environment";
 export class ComentService {
   private readonly httpClient = inject(HttpClient);
 
-  private readonly apiUrl: string = 'http://localhost:3000/coment';
-
-  
-  private comments: string[] = [
-    'Comentario 1',
-    'Comentario 2',
-    'Comentario 3',
-    'Comentario 4',
-    'Comentario 5'
-  ];
+  private readonly apiUrl: string = 'http://localhost:3000/coments';
 
   findComentS():Observable<ComentI[]> {
     return this.httpClient.get<[]>(this.apiUrl);

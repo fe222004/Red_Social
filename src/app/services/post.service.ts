@@ -9,7 +9,7 @@ import { environment } from "../../environments/environment";
 export class PostService {
   private readonly httpClient = inject(HttpClient);
 
-  private readonly apiUrl: string = 'http://localhost:3000/post';
+  private readonly apiUrl: string = 'http://localhost:3000/posts';
 
   
   findPost():Observable<PostI[]> {

@@ -62,6 +62,7 @@ const routes: Routes = [
   {
     path: 'post',
     component: PostComponent
+
   }
 ];
 
