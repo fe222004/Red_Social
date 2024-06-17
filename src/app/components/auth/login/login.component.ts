@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -21,9 +23,16 @@ export class LoginComponent {
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      password: ['', [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
       rememberMe: [false]
     });
+  }
+
+  get email(): AbstractControl {
+    return this.loginForm.controls['email'];
+  }
+  get password(): AbstractControl {
+    return this.loginForm.controls['password'];
   }
 
   onSubmit() {
