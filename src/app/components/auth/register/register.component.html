@@ -47,22 +47,16 @@
                         <input id="password1" type="password" placeholder="Password" formControlName="password" class="form-control" style="padding: 0.75rem;">
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="city" class="form-label text-dark h5 font-weight-medium">City</label>
-                        <select id="city" class="form-control" formControlName="city" style="padding: 0.75rem;">
-                            <option value="04b3976b-0f0f-45a7-ad69-b5fc6770d4fa">City 1</option>
-                            <option value="0b6c1411-934a-4ede-8f23-3b45f13aedb1">City 2</option>
-                        </select>
-                    </div>
-                    <div class="col-md-6 mb-3">
                         <label for="countryId" class="form-label text-dark h5 font-weight-medium">Country</label>
                         <select id="countryId" class="form-control" formControlName="countryId" style="padding: 0.75rem;">
-                            <option value="04b3976b-0f0f-45a7-ad69-b5fc6770d4fa">City 1</option>
-                            <option value="0b6c1411-934a-4ede-8f23-3b45f13aedb1">City 2</option>
+                            <option value={{country.id}} *ngFor="let country of countries">{{country.name}}</option>
                         </select>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="rolId" class="form-label text-dark h5 font-weight-medium">Role</label>
-                        <input id="rolId" type="text" placeholder="Role" formControlName="rolId" class="form-control" style="padding: 0.75rem;">
+                        <select id="rolId" type="text" placeholder="Role" formControlName="rolId" class="form-control" style="padding: 0.75rem;">
+                            <option value={{rol.id}} *ngFor="let rol of roles">{{rol.name}}</option>
+                        </select>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="description" class="form-label text-dark h5 font-weight-medium">Description</label>

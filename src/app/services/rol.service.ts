@@ -1,19 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { Rol } from '../models/rol';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Country } from '../models/country';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CountryService {
+export class RolService {
 
   private readonly httpClient = inject(HttpClient);
-  private readonly apiUrl: string = 'http://localhost:3000/country';
+  private readonly apiUrl: string = 'http://localhost:3000/rol';
   
   constructor() { }
 
-  findCountries():Observable<Country[]> {
+  findRol():Observable<Rol[]> {
     return this.httpClient.get<[]>(this.apiUrl);
   }
 }
