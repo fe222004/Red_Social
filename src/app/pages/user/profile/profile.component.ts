@@ -1,10 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ComentService } from '../../../services/coment.service';
 import { ComentI } from '../../../models/coment.interface';
 import { PostService } from '../../../services/post.service';
 import { PostI } from '../../../models/post.interface';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../../models/user';
 import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
@@ -12,7 +17,7 @@ import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.scss'
+  styleUrl: './profile.component.scss',
 })
 export class ProfileComponent {
   private formBuilder: FormBuilder = inject(FormBuilder);
@@ -25,14 +30,36 @@ export class ProfileComponent {
   protected coment: ComentI = {};
   protected posts: PostI[] = [];
   protected post: PostI = {};
+  private userId?: string;
+  user: User = {
+    id: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    image: '',
+    description: '',
+    countryId: 0,
+  };
+  http: any;
 
-  user: User | null = null; // Inicialmente no hay usuario logueado
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
+  ) {
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const userId = params.get('id');
+      if (userId) {
+        this.userService.getUser(userId).subscribe((response: User) => {
+          console.log('this is the get user', response);
+          this.user = response;
+        });
+      }
+    });
 
-
-
-  constructor(private router: Router, private authService: AuthService,
-    private userService: UserService) {
-    this.commentForm = this.buildForm
+    this.commentForm = this.buildForm;
     this.findPost();
   }
 
@@ -42,31 +69,19 @@ export class ProfileComponent {
     }));
   }
 
-
   get comment(): AbstractControl {
     return this.commentForm.controls['comment'];
   }
 
-  ngOnInit(): void {
-    const userId = this.authService.getUserId(); // Obtener el ID del usuario logueado desde el servicio de autenticación
+  navigateToEditUser() {
+    const userId = this.authService.getUserId();
+    console.log(userId);
     if (userId) {
-      this.loadUserData(userId); // Cargar los datos del usuario si está logueado
+      this.router.navigate(['/edit', userId]); 
+    } else {
     }
   }
 
-  loadUserData(userId: string): void {
-    this.userService.getUser(Number(userId)).subscribe(
-      user => {
-        this.user = user; // Asignar los datos del usuario cargado
-      },
-      error => {
-        console.error('Error al cargar los datos del usuario:', error);
-        // Manejar el error apropiadamente (puede ser redirigir a una página de error o mostrar un mensaje)
-      }
-    );
-  }
-
- 
   //Comentarios
   onSubmit() {
     console.log('Entro al sumbmit');
@@ -75,33 +90,33 @@ export class ProfileComponent {
       return;
     }
     this.comentService.createComent(this.commentForm.value).subscribe(() => {
-      console.log("ENTRO", this.commentForm.value)
+      console.log('ENTRO', this.commentForm.value);
     });
   }
 
   createComent() {
     if (this.commentForm.valid) {
       alert('Registrado');
-      this.comentService.createComent(this.commentForm.value).subscribe(() => {
-      });
-      console.log("Entro", this.commentForm.value)
+      this.comentService
+        .createComent(this.commentForm.value)
+        .subscribe(() => {});
+      console.log('Entro', this.commentForm.value);
     } else {
       alert('No registrado coments');
     }
-    console.log("Ingreso aqui")
+    console.log('Ingreso aqui');
   }
 
-
   updateComent(id: string) {
-    this.comentService.updateComent(id, {}).subscribe(response => {
+    this.comentService.updateComent(id, {}).subscribe((response) => {
       console.log(response);
-    })
+    });
   }
 
   deleteComent(id: string) {
-    this.comentService.deleteComent(id).subscribe(response => {
-      console.log(response)
-    })
+    this.comentService.deleteComent(id).subscribe((response) => {
+      console.log(response);
+    });
   }
 
   //Comentarios Modal
@@ -109,13 +124,12 @@ export class ProfileComponent {
     this.comentService.showModal();
   }
 
-
   //Post
   findPost() {
-    this.postService.findPost().subscribe(response => {
+    this.postService.findPost().subscribe((response) => {
       this.posts = response;
-      console.log(this.posts)
-    })
+      console.log(this.posts);
+    });
   }
 
   updatePost(id: string) {
@@ -123,13 +137,11 @@ export class ProfileComponent {
   }
 
   deletePost(id: string) {
-    console.log('entro a eliminar')
-    this.postService.deletePost(id).subscribe(
-      respuesta => {
-        this.findPost();
-        alert('Se eliminó');
-      }
-    );
+    console.log('entro a eliminar');
+    this.postService.deletePost(id).subscribe((respuesta) => {
+      this.findPost();
+      alert('Se eliminó');
+    });
     console.log('procesando la eliminacion');
   }
 }

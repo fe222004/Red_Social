@@ -21,7 +21,7 @@ export class StoryService {
       map(stories => stories.map(story => ({
         ...story,
         image: `${this.apiUrl}/uploads/stories/${story.image}`,
-        userImage: `${this.apiUrl}/uploads/users/${story.user.userImage}` // Asegúrate de que la ruta sea correcta
+        userImage: `${this.apiUrl}/uploads/${story.user.userImage}` // Asegúrate de que la ruta sea correcta
       })))
     );
   }
