@@ -2,37 +2,65 @@ import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
+import { Country } from '../../../models/country';
+import { CountryService } from '../../../services/country.service';
+import { Rol } from '../../../models/rol';
+import { RolService } from '../../../services/rol.service';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
   private readonly userService: UserService = inject(UserService);
-  
+
+  private readonly countryService: CountryService = inject(CountryService);  
+  private readonly rolService: RolService = inject(RolService);  
+
 
   public loginForm: FormGroup;
   public imageSrc: string | ArrayBuffer | null | undefined = null;
   public files: any[] = [];
+  public errorMessage: string | null = null;
+
+  countries : Country[]=[];
+  roles : Rol [] =[];
+
   
 
   constructor() {
     this.loginForm = this.buildForm();
+    this.getCountries();
+    this.getRol();
   }
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
-      image: [null], 
-      lastname: ['', [Validators.required, Validators.minLength(2)]],
-      firstname: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),],],
-      password: ['', [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],      
-      countryId: ['', Validators.required],
-      city: ['', Validators.required],
-      rolId: ['', Validators.required],
-      description: ['', [Validators.required, Validators.minLength(2)]],
+      firstname: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(40),
+        ],
+      ],
+      lastname: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(40),
+        ],
+      ],
+    email: ['',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),],],
+      password: ['', [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
+      image: [''],
+      description: ['', [Validators.maxLength(200)]],
+      countryId: [''],
+      rolId: [''],
+
     });
   }
 
@@ -79,6 +107,19 @@ export class RegisterComponent {
     }
   }
 
+  getCountries(){
+    this.countryService.findCountries().subscribe(response => {
+      console.log(response)
+      this.countries = response
+    });  }
+
+    getRol(){
+      this.rolService.findRol().subscribe(response => {
+        console.log(response)
+        this.roles = response
+      });  }
+
+
   onSubmit() {
     console.log('Se ha hecho clic en el botón de envío.');
     if (this.loginForm.invalid) {
@@ -112,23 +153,30 @@ export class RegisterComponent {
     console.log('description:', this.loginForm.value.description);
 
     const file = this.files[0];
-    if (file) {
-      formData.append('image', file, file.name);
-      console.log('image file:', file);
-    }
+    formData.append('image', file, file.name);
+    console.log(file.name);
+
+    // Verificar que formData contiene los datos correctos
+    formData.forEach((value, key) => {
+      console.log(key + ': ' + value);
+    });
 
     this.userService.createUser(formData).subscribe(
       (response: User) => {
         console.log('User created successfully:', response);
+        this.errorMessage = null; // Clear error message
       },
       (error) => {
         console.error('Error creating user:', error);
+        this.errorMessage = error; // Display error message
       }
     );
   }
 
   chooseFile() {
-    const inputElement = document.getElementById('fileInput') as HTMLInputElement;
+    const inputElement = document.getElementById(
+      'fileInput'
+    ) as HTMLInputElement;
     if (inputElement) {
       inputElement.click();
     }

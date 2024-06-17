@@ -9,6 +9,8 @@
                 <p class="text-muted">Sign in to continue</p>
             </div>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="w-100">
+                <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+
                 <div class="row">
                     <div class="col-md-12 mb-3 text-center">
                         <label for="image" class="form-label text-dark h5 font-weight-medium">Avatar</label>
@@ -87,24 +89,9 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="city" class="form-label text-dark h5 font-weight-medium">City</label>
-                        <select id="city" class="form-control" formControlName="city" style="padding: 0.75rem;">
-                            <option value="04b3976b-0f0f-45a7-ad69-b5fc6770d4fa">City 1</option>
-                            <option value="0b6c1411-934a-4ede-8f23-3b45f13aedb1">City 2</option>
-                        </select>
-                        <div style="font-size: smaller; text-align: center">
-                            @if(city.errors){
-                            @if(city.touched){
-                            @if(city.errors['required']){
-                            <span class="p-error">Este campo es requerido</span>
-                            } } }
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
                         <label for="countryId" class="form-label text-dark h5 font-weight-medium">Country</label>
                         <select id="countryId" class="form-control" formControlName="countryId" style="padding: 0.75rem;">
-                            <option value="04b3976b-0f0f-45a7-ad69-b5fc6770d4fa">City 1</option>
-                            <option value="0b6c1411-934a-4ede-8f23-3b45f13aedb1">City 2</option>
+                            <option value={{country.id}} *ngFor="let country of countries">{{country.name}}</option>
                         </select>
                         <div style="font-size: smaller; text-align: center">
                             @if(countryId.errors){
@@ -116,8 +103,10 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="rolId" class="form-label text-dark h5 font-weight-medium">Role</label>
-                        <input id="rolId" type="text" placeholder="Role" formControlName="rolId" class="form-control" style="padding: 0.75rem;">
-                        <div style="font-size: smaller; text-align: center">
+                        <select id="rolId" type="text" placeholder="Role" formControlName="rolId" class="form-control" style="padding: 0.75rem;">
+                            <option value={{rol.id}} *ngFor="let rol of roles">{{rol.name}}</option>
+                        </select>
+                     <div style="font-size: smaller; text-align: center">
                             @if(rolId.errors){
                             @if(rolId.touched){
                             @if(rolId.errors['required']){
