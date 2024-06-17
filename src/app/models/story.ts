@@ -1,8 +1,10 @@
 export interface StoryI {
+  id: number;
+  image: string;
+  created_at: string;
+  user: {
     id: number;
-    image: string;
-    userId: number;
-    username: string; 
-    userImage: string; 
-  }
-  
+    username: string;
+    userImage: string;
+  };
+}

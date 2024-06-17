@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { StoryI } from '../models/story';
 
 @Injectable({
@@ -16,7 +17,13 @@ export class StoryService {
   }
 
   getStories(): Observable<StoryI[]> {
-    return this.http.get<StoryI[]>(`${this.apiUrl}/stories`);
+    return this.http.get<StoryI[]>(`${this.apiUrl}/stories`).pipe(
+      map(stories => stories.map(story => ({
+        ...story,
+        image: `${this.apiUrl}/uploads/stories/${story.image}`,
+        userImage: `${this.apiUrl}/uploads/users/${story.user.userImage}` // Asegúrate de que la ruta sea correcta
+      })))
+    );
   }
 
   getStoriesForUser(userId: string): Observable<StoryI[]> {

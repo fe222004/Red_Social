@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoryService } from '../../../services/story.service';
 import { StoryI } from '../../../models/story';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stories',
@@ -14,7 +15,7 @@ export class StoriesComponent implements OnInit {
   selectedUsername: string = '';
   selectedUserImage: string = '';
 
-  constructor(private storyService: StoryService) {}
+  constructor(private storyService: StoryService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchStories();
@@ -24,6 +25,7 @@ export class StoriesComponent implements OnInit {
     this.storyService.getStories().subscribe(
       (stories: StoryI[]) => {
         this.stories = stories;
+        console.log(stories.map(story => story.image)); // Verifica las URLs de las imágenes
       },
       (error) => {
         console.error('Error fetching stories:', error);
@@ -37,8 +39,8 @@ export class StoriesComponent implements OnInit {
 
   setLargeImage(story: StoryI): void {
     this.selectedImage = story.image;
-    this.selectedUsername = story.username; // Obtén el nombre de usuario de la historia seleccionada
-    this.selectedUserImage = story.userImage; // Obtén la imagen del usuario de la historia seleccionada
+    this.selectedUsername = story.user.username;
+    this.selectedUserImage = story.user.userImage;
     this.showLargeImage = true;
   }
 }

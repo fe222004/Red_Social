@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StoryService } from '../../../services/story.service';
 import { AuthService } from '../../../services/auth.service';
 import { StoryI } from '../../../models/story';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-create',
@@ -18,7 +19,7 @@ export class NewCreateComponent {
   imageSrc: string | ArrayBuffer | null = null;
   showModal: boolean = false;
 
-  constructor() {
+  constructor(private router: Router) {
     this.form = this.buildForm();
   }
 
@@ -83,7 +84,7 @@ export class NewCreateComponent {
     this.storyService.createStory(formData).subscribe(
       (response: StoryI) => {
         console.log('Story created successfully:', response);
-        // Aquí podrías redirigir al usuario a una página de éxito o realizar otras acciones
+        this.closeModal(); 
       },
       (error) => {
         console.error('Error creating story:', error);
