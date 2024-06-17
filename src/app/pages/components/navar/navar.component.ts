@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navar',
@@ -15,7 +16,7 @@ export class NavarComponent {
   private searchForm!: HTMLFormElement | null;
   private switchMode!: HTMLInputElement | null;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a') as NodeListOf<HTMLAnchorElement>;
@@ -93,6 +94,10 @@ export class NavarComponent {
         document.body.classList.remove('dark');
       }
     });
+  }
+
+  navigateToProfile() {
+    this.router.navigate(['/pages/user/profile']);
   }
 
 }

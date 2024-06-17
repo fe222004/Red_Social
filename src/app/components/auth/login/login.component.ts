@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,6 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  valCheck: string[] = ['remember'];
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
@@ -26,22 +25,18 @@ export class LoginComponent {
       rememberMe: [false]
     });
   }
-    password!: string;
 
-    navigateToDashboard() {
-        this.router.navigate(['/pages/form']);
-    }
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe(
         response => {
           console.log('Login successful:', response);
-          this.router.navigate(['/pages/dashboard']); // Redirigir a la página de perfil o cualquier otra página
+          this.router.navigate(['/pages/dashboard']); // Redirigir a la página de dashboard después del login exitoso
         },
         error => {
           console.error('Login failed:', error);
-          alert('Login failed');
+          alert('Login failed'); // Mostrar un mensaje de error al usuario en caso de fallo
         }
       );
     } else {

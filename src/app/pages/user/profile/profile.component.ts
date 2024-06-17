@@ -5,6 +5,9 @@ import { ComentI } from '../../../models/coment.interface';
 import { PostService } from '../../../services/post.service';
 import { PostI } from '../../../models/post.interface';
 import { Router } from '@angular/router';
+import { User } from '../../../models/user';
+import { AuthService } from '../../../services/auth.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -17,14 +20,18 @@ export class ProfileComponent {
 
   private readonly comentService = inject(ComentService);
   private readonly postService = inject(PostService);
+
   protected comments: ComentI[] = [];
   protected coment: ComentI = {};
   protected posts: PostI[] = [];
   protected post: PostI = {};
 
+  user: User | null = null; // Inicialmente no hay usuario logueado
 
 
-  constructor(private router: Router) {
+
+  constructor(private router: Router, private authService: AuthService,
+    private userService: UserService) {
     this.commentForm = this.buildForm
     this.findPost();
   }
@@ -35,10 +42,31 @@ export class ProfileComponent {
     }));
   }
 
+
   get comment(): AbstractControl {
     return this.commentForm.controls['comment'];
   }
 
+  ngOnInit(): void {
+    const userId = this.authService.getUserId(); // Obtener el ID del usuario logueado desde el servicio de autenticación
+    if (userId) {
+      this.loadUserData(userId); // Cargar los datos del usuario si está logueado
+    }
+  }
+
+  loadUserData(userId: string): void {
+    this.userService.getUser(Number(userId)).subscribe(
+      user => {
+        this.user = user; // Asignar los datos del usuario cargado
+      },
+      error => {
+        console.error('Error al cargar los datos del usuario:', error);
+        // Manejar el error apropiadamente (puede ser redirigir a una página de error o mostrar un mensaje)
+      }
+    );
+  }
+
+ 
   //Comentarios
   onSubmit() {
     console.log('Entro al sumbmit');
