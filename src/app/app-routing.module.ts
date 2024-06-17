@@ -35,15 +35,6 @@ const routes: Routes = [
 
   },
   {
-    path: 'error',
-    component: ErrorComponent
-  },
-  {
-
-    path: 'access',
-    component: AccessComponent
-  },
-  {
     path: 'notfound',
     component: NotfoundComponent
   },

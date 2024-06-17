@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -16,8 +19,12 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
+
 import { PostComponent } from './pages/components/post/post.component';
+
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
 import { FooterComponent } from './pages/components/footer/footer.component';
 import { RegisterComponent } from './components/auth/register/register.component';
@@ -33,9 +40,6 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { combineLatest } from 'rxjs';
 import { CommentsComponent } from './pages/components/comments/comments.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +51,8 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
     FormSuscriptorComponent,
     ProfileComponent,
     EditProfileComponent,
+    CommentsComponent,
+    CommentsComponent,
     ExplorersComponent,
     FooterComponent,
     PostComponent,
@@ -55,7 +61,6 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
     SurveyComponent,
     NewCreateComponent,
     LoginComponent,
-    CommentsComponent
   ],
   imports: [
     RouterModule,
@@ -71,9 +76,9 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
