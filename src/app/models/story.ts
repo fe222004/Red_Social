@@ -1,3 +1,8 @@
 export interface StoryI {
-    photo: string;
-}
+    id: number;
+    image: string;
+    userId: number;
+    username: string; 
+    userImage: string; 
+  }
+  

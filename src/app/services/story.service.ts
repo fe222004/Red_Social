@@ -1,25 +1,29 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable} from '@angular/core';
-import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { StoryI } from '../models/story';
 
-@Injectable({providedIn: 'root'})
+@Injectable({
+  providedIn: 'root'
+})
 export class StoryService {
-    private readonly httpClient = inject(HttpClient);
-    private API_URL_STORY = `${environment.API_URL}/stories`;
+  private apiUrl = 'http://localhost:3000'; // Cambia esto a la URL de tu backend
 
-    findStory():Observable<StoryI[]>{
-        return this.httpClient.get<StoryI[]>(this.API_URL_STORY);
-    }
+  constructor(private http: HttpClient) {}
 
-    updateStory(id: string, playload: StoryI):Observable<StoryI>{
-        return this.httpClient.put<StoryI>(`${this.API_URL_STORY}/${id}`, playload);    
-    }
+  createStory(formData: FormData): Observable<StoryI> {
+    return this.http.post<StoryI>(`${this.apiUrl}/stories`, formData);
+  }
 
-    findStoryOne(id:string):Observable<StoryI>{
-        return this.httpClient.get<StoryI>(`${this.API_URL_STORY}/${id}`);
-    }
+  getStories(): Observable<StoryI[]> {
+    return this.http.get<StoryI[]>(`${this.apiUrl}/stories`);
+  }
 
+  getStoriesForUser(userId: string): Observable<StoryI[]> {
+    return this.http.get<StoryI[]>(`${this.apiUrl}/stories/user/${userId}`);
+  }
 
+  getStoriesForUserAndFriends(userId: string): Observable<StoryI[]> {
+    return this.http.get<StoryI[]>(`${this.apiUrl}/stories/user/${userId}/friends`);
+  }
 }
