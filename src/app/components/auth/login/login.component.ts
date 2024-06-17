@@ -31,6 +31,7 @@ export class LoginComponent {
     navigateToDashboard() {
         this.router.navigate(['/pages/form']);
     }
+    
   onSubmit() {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;

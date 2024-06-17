@@ -40,29 +40,27 @@ const routes: Routes = [
     loadChildren: () => import('./inspector/inspector.module').then(m => m.InspectorModule)
   },
   {
-    path:'customer',
+    path: 'customer',
     loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule)
   },
   {
-    path:'user',
+    path: 'user',
     loadChildren: () => import('./user/user-routing.module').then(m => m.UserRoutingModule)
   },
   {
     path: 'create',
     loadChildren: () => import('./create/create.module').then(m => m.CreateModule)
   },
-       loadChildren: () => import('./user/user.module').then(m => m.UserModule)
-  },
   {
     path: 'coments',
     component: CommentsComponent
-     },
-  
-   {
+  },
+
+  {
     path: 'post',
     component: PostComponent
-     },
-     
+  },
+
 
   {
     path: 'customer-create',
