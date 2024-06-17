@@ -10,7 +10,7 @@ import { ComplaintComponent } from './pages/inspector/complaint/complaint.compon
 import { ExplorersComponent } from './pages/contents/explorers/explorers.component';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
-import { CustomerSupportService } from './services/customer-support.service';
+import { SurveyComponent } from './pages/components/survey/survey.component';
 
 
 const routes: Routes = [
@@ -26,7 +26,13 @@ const routes: Routes = [
   {
     path: 'pages',
     loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule),
-   // canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
+  },
+  //Ruta encuesta
+  {
+    path: 'survery',
+    component: SurveyComponent
+
   },
   {
     path: 'error',
@@ -45,12 +51,11 @@ const routes: Routes = [
     path: '**',
     redirectTo: '/notfound'
   },
-  
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [CustomerSupportService]
 })
 export class AppRoutingModule { }
