@@ -19,8 +19,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { PagesModule } from './pages/pages.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { ComplaintComponent } from './pages/inspector/complaint/complaint.component';
+import { InspectorModule } from './pages/inspector/inspector.module';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
 
 import { PostComponent } from './pages/components/post/post.component';
@@ -49,6 +49,9 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
     CustomerCreateComponent,
     StoriesComponent,
     FormSuscriptorComponent,
+  ComplaintComponent,
+  ExplorersComponent,
+   
     ProfileComponent,
     EditProfileComponent,
     CommentsComponent,
@@ -72,7 +75,6 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
     MenubarModule,
     PasswordModule,
     CheckboxModule,
-    PagesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,

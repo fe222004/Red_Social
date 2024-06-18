@@ -17,7 +17,7 @@ import { PageCreatorModule } from './contentCreator/page-creator.module';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    InspectorModule,
+    
     RouterModule,
     ReactiveFormsModule,
     PageCreatorModule 
