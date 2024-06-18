@@ -1,10 +1,8 @@
-<form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" style="max-width: 800px; margin: 0 auto;">  
   <h3 class="text-center">Crear Publicación</h3>
   <div class="header">
     <div class="profile-image">
       <img src="" alt="Profile Picture">
-
     </div>
     <div class="user">
       <h6>Joss Balarezo</h6>
@@ -13,30 +11,22 @@
       </p>
     </div>
   </div>
-  <div class="input-group mb-3">
-    <div class="input-container">
-      <input type="text" class="form-control" id="exampleInputText" placeholder="Escribe tu publicación" formControlName="text">
-      <input type="text" class="form-control" id="exampleInputTag" placeholder="Escribe una etiqueta" formControlName="tag">
-    </div>
-    <div class="buttons">
-      <div class="button">
-        <button type="submit" class="btn btn-primary btn-submit" (click)="crearPost">Postear</button>
-      </div>
-    </div>
-    
 
-    <div *ngIf="imageUrl" class="image-preview-container card">
-      <img [src]="imageUrl" alt="Selected Image" class="img-fluid rounded" />
-      <button type="button" class="btn btn-danger btn-sm position-absolute close-btn" (click)="removeImage()">X</button>
-    </div>
-  
-    <!--Crea el post con imagen-->
-    <div class="input-group mb-3" [ngClass]="{'mt-5': imageUrl}">
-      <button type="button" class="btn btn-transparent" style="background: transparent; border: none; padding: 0;"
-        (click)="fileInput.click()">
-        <i class="bi bi-image" style="color: rgb(53, 122, 241); font-size: 1.5em;"></i>
-      </button>
-      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
-    </div>
+  <div class="input-group mb-3">
+      <input type="text" class="form-control" id="exampleInputText" placeholder="¿Qué está pensando?" formControlName="text">
+      <!--<input type="text" class="form-control" id="exampleInputTag" placeholder="Escribe una etiqueta" formControlName="tag">-->
+  </div>
+
+  <div *ngIf="imageUrl" class="image-preview-container card">
+    <img [src]="imageUrl" alt="Selected Image" class="img-fluid rounded" />
+    <button type="button" class="btn btn-danger btn-sm position-absolute close-btn" (click)="removeImage()">X</button>
+  </div>
+
+  <div class="icon-and-button">
+    <button type="button" class="btn btn-transparent" style="background: transparent; border: none; padding: 0;" (click)="fileInput.click()">
+      <i class="bi bi-image" style="color: rgb(53, 122, 241); font-size: 1.5em;"></i>
+    </button>
+    <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+    <button type="submit" class="btn btn-primary btn-submit" (click)="crearPost()">Postear</button>
   </div>
 </form>
