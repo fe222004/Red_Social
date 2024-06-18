@@ -1,8 +1,10 @@
+
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +12,6 @@ import { Observable, throwError } from 'rxjs';
 export class UserService {
   private readonly apiUrl: string = 'http://localhost:3000/users';
   private readonly apiImage: string = 'http://localhost:3000';
-
 
   constructor(private httpClient: HttpClient) {}
 
