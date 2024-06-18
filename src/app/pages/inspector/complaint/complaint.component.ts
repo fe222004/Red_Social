@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Complaint } from '../../../models/Complaint';
 import { RevisorService } from '../../../services/revisor.service';
+import { PostService } from '../../../services/post.service';
 
 @Component({
   selector: 'app-complaint',
@@ -9,7 +10,8 @@ import { RevisorService } from '../../../services/revisor.service';
   styleUrl: './complaint.component.scss'
 })
 export class ComplaintComponent {
-  loginError: string='';
+  @ViewChild('closeModalButton') closeModalButton!: ElementRef;
+  
   logForm=this.formBuilder.group({
     name_offender:['',[Validators.required]],
      problem:['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
@@ -17,7 +19,7 @@ export class ComplaintComponent {
      problem_hour: ['',[Validators.required]],
      severity:['',[Validators.required]]
    })
-   constructor(private formBuilder:FormBuilder, private readonly revisorService: RevisorService ){}
+   constructor(private formBuilder:FormBuilder, private readonly revisorService: RevisorService, private readonly postService: PostService ){}
 
    reset() {
     this.logForm.reset();
@@ -38,7 +40,9 @@ export class ComplaintComponent {
        this.revisorService.createForm(complaint).subscribe(response => {
         console.log(response);
       });
-       this.logForm.reset
+      this.logForm.reset();
+      this.closeModalButton.nativeElement.click();
+       
           } else{
             alert('no valido')
          this.logForm.markAllAsTouched();
