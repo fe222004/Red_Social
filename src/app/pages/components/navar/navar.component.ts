@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { UserService } from '../../../services/user.service';
+import { User } from '../../../models/user';
 
 @Component({
   selector: 'app-navar',
@@ -8,9 +10,31 @@ import { AuthService } from '../../../services/auth.service';
   styleUrl: './navar.component.scss',
 })
 export class NavarComponent {
+
   private readonly authService: AuthService = inject(AuthService);
 
-  constructor(private router: Router) {
+  user: User = {
+    id: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    image: '',
+    description: '',
+    countryId: 0,
+  };
+
+  constructor(private router: Router,private activatedRoute: ActivatedRoute,
+    private userService: UserService) {
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const userId = params.get('id');
+      if (userId) {
+        this.userService.getUser(userId).subscribe((response: User) => {
+          console.log('this is the get user', response);
+          this.user = response;
+        });
+      }
+    });
   }
 
   navigateToProfile() {
@@ -20,4 +44,6 @@ export class NavarComponent {
     } else {
     }
   }
+
+
 }

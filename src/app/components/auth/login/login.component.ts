@@ -34,7 +34,10 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe(
         response => {
-          this.router.navigate(['/pages/dashboard']); // Redirigir a la página de dashboard después del login exitoso
+          const userId = this.authService.getUserId(); // Obtiene ID user del AuthService
+          if (userId) {
+            this.router.navigate(['/pages/dashboard', userId]); // Redirigir a la página de dashboard después del login exitoso  
+          }
         },
         error => {
           alert('Login failed'); // Mostrar un mensaje de error al usuario en caso de fallo

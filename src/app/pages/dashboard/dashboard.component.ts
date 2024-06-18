@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { PostI } from '../../models/post.interface';
 import { PostService } from '../../services/post.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { User } from '../../models/user';
 
 
 @Component({
@@ -15,8 +17,30 @@ export class DashboardComponent {
   selectedImage: string | undefined = '';
   selectedUsername: string = '';
   selectedUserImage: string = '';
+  user: User = {
+    id: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    image: '',
+    description: '',
+    countryId: 0,
+  };
+  
 
-  constructor(private postService: PostService, private router: Router) {}
+  constructor(private postService: PostService, private router: Router, private activatedRoute: ActivatedRoute,
+    private userService: UserService) {
+    this.activatedRoute.paramMap.subscribe((params) => {
+      const userId = params.get('id');
+      if (userId) {
+        this.userService.getUser(userId).subscribe((response: User) => {
+          console.log('this is the get user', response);
+          this.user = response;
+        });
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.fetchPosts();

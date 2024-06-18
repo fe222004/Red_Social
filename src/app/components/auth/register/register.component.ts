@@ -78,7 +78,7 @@ export class RegisterComponent {
       image: [''],
       description: ['', [Validators.maxLength(200)]],
       countryId: [''],
-      rolId: [''],
+      rolId: ['6124023c-aa45-4fa8-aab7-62495585dc27'],
     });
   }
 

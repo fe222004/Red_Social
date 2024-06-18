@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../../services/post.service';
 import { AuthService } from '../../../services/auth.service';
 import { PostI } from '../../../models/post.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -17,7 +18,7 @@ export class PostComponent implements OnInit {
   form: FormGroup;
   imageSrc: string | ArrayBuffer | null = null;
 
-  constructor() {
+  constructor(private router: Router,) {
     this.form = this.buildForm();
   }
 
@@ -80,6 +81,7 @@ export class PostComponent implements OnInit {
     this.postService.createPost(formData).subscribe(
       (response: PostI) => {
         console.log('Post created successfully:', response);
+        this.router.navigate([this.router.url]); 
       },
       (error) => {
         console.error('Error creating post:', error);

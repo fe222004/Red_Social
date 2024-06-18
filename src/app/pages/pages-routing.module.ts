@@ -10,18 +10,13 @@ import { PostComponent } from './components/post/post.component';
 import { RegisterComponent } from '../components/auth/register/register.component';
 import { CustomerCreateComponent } from './customer-support/customer-create/customer-create.component';
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
-import { CreatorComponent } from './contentCreator/creator/creator.component';
 import { SurveyComponent } from './components/survey/survey.component';
 import { CommentsComponent } from './components/comments/comments.component';
 
 const routes: Routes = [
   {
-    path: 'dashboard',
+    path: 'dashboard/:id',
     component: DashboardComponent,
-  },
-  {
-    path:'creator',
-    component:CreatorComponent
   },
   {
     path: 'register',

@@ -91,6 +91,8 @@ export class CustomerCreateComponent {
     if (this.form.valid) {
       alert('Registrado');
       this.resolverService.createResolver(this.form.value).subscribe(() => {
+        this.ocultarFormulario();
+        this.navigateToCustomerList();
       });
     } else {
       alert('No registrado');
@@ -98,7 +100,7 @@ export class CustomerCreateComponent {
   }
 
   navigateToCustomerList() {
-    this.router.navigate(['/pages/customer-list']);
+    this.router.navigate(['/pages/customer/customer-list']);
   }
  
 

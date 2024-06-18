@@ -49,7 +49,6 @@ import { UserModule } from './pages/user/user.module';
     NavarComponent,
     CustomerCreateComponent,
     StoriesComponent,
-    FormSuscriptorComponent,
   ComplaintComponent,
   ExplorersComponent,
     ProfileComponent,
