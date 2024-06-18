@@ -71,7 +71,7 @@ export class PostComponent {
       const file = input.files[0];
       const reader = new FileReader();
       reader.onload = () => {
-        this.imageUrl = reader.result;
+       // this.imageUrl = reader.result;
       };
       reader.readAsDataURL(file);
       console.log(file);
@@ -79,17 +79,17 @@ export class PostComponent {
   }
 
 
-        crearPost() {
-          if (this.postForm.valid) {
-            alert('Registrado');
-            this.postService.createPost(this.postForm.value).subscribe(() => {
-            });
-            console.log("Entro", this.postForm.value)
-          } else {
-            alert('No registrado');
-          }
-          console.log("Ingreso aqui")
-        }   
+       // crearPost() {
+         // if (this.postForm.valid) {
+           // alert('Registrado');
+            //this.postService.createPost(this.postForm.value).subscribe(() => {
+            //});
+            //console.log("Entro", this.postForm.value)
+          //} else {
+            //alert('No registrado');
+         // }
+          //console.log("Ingreso aqui")
+        //}   
         
         updatePost(id: string): void {
           console.log(this.postForm.value);

@@ -28,12 +28,6 @@ export class LoginComponent {
     });
   }
 
-  get email(): AbstractControl {
-    return this.loginForm.controls['email'];
-  }
-  get password(): AbstractControl {
-    return this.loginForm.controls['password'];
-  }
 
   onSubmit() {
     if (this.loginForm.valid) {
