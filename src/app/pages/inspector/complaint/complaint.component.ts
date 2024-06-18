@@ -12,6 +12,9 @@ import { PostI } from '../../../models/post.interface';
 })
 export class ComplaintComponent {
   @ViewChild('closeModalButton') closeModalButton!: ElementRef;
+
+  post: PostI[] = [];
+
   protected posts: PostI[] =[];
   logForm=this.formBuilder.group({
     name_offender:['',[Validators.required]],
@@ -41,12 +44,7 @@ export class ComplaintComponent {
    reset() {
     this.logForm.reset();
   }
-  fetchPosts(){
-    this.postService.findPosts().subscribe(response =>{
-     console.log(response);
-     this.posts = response
-    })
-     }
+ 
 
      createForm() {
       if (this.logForm.valid) {
@@ -70,6 +68,18 @@ export class ComplaintComponent {
             alert('no valido')
          this.logForm.markAllAsTouched();
          } 
+    }
+
+    fetchPosts(): void {
+      this.postService.findPosts().subscribe(
+        (post: PostI[]) => {
+          this.post = post;
+          console.log(post);
+        },
+        (error) => {
+          console.error('Error fetching posts:', error);
+        }
+      );
     }
 }
 
