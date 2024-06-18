@@ -41,26 +41,26 @@
                   <div class="modal-body">
                     <form [formGroup]="logForm">
                       <div class="mb-3 form-floating">
-                        <input type="text" formControlName="infractor" class="form-control" id="infractor" name="infractor" placeholder=" ">
-                        @if (logForm.controls['infractor'].hasError('required') &&(logForm.controls.infractor.dirty || logForm.controls.infractor.touched)) {<small style="color:red"> Campo requerido</small>}
+                        <input type="text" formControlName="name_offender" class="form-control" id="infractor" name="infractor" placeholder=" ">
+                        @if (logForm.controls['name_offender'].hasError('required') &&(logForm.controls.name_offender.dirty || logForm.controls.name_offender.touched)) {<small style="color:red"> Campo requerido</small>}
                         <label for="infractor">Infractor <i class="bi bi-person-fill"></i></label>
                       </div>
                       <div class="mb-3 form-floating">
                         <textarea class="form-control" formControlName="problem" id="problema" name="problema" rows="3" placeholder=" "></textarea>
                         @if (logForm.controls['problem'].hasError('required') &&(logForm.controls.problem.dirty || logForm.controls.problem.touched)) {<small style="color:red"> Campo requerido</small>}
-                        <div *ngIf="logForm.controls.infractor.errors?.['pattern']">
+                        <div *ngIf="logForm.controls.problem.errors?.['pattern']">
                           <small style="color:red"> Solo espacios y letras</small>
                           </div>
                         <label for="problema">Problema <i class="bi bi-chat-left-text-fill"></i></label>
                       </div>
                       <div class="mb-3 form-floating">
-                        <input type="date" class="form-control" formControlName="complaint_date" id="fecha" name="fecha" placeholder=" ">
-                        @if (logForm.controls['complaint_date'].hasError('required') &&(logForm.controls.complaint_date.dirty || logForm.controls.complaint_date.touched)) {<small style="color:red"> Campo requerido</small>}
+                        <input type="date" class="form-control" formControlName="problem_date" id="fecha" name="fecha" placeholder=" ">
+                        @if (logForm.controls['problem_date'].hasError('required') &&(logForm.controls.problem_date.dirty || logForm.controls.problem_date.touched)) {<small style="color:red"> Campo requerido</small>}
                         <label for="fecha">Fecha de queja <i class="bi bi-calendar-date-fill"></i></label>
                       </div>
                       <div class="mb-3 form-floating"> 
-                        <input type="time" class="form-control" formControlName="time" id="hora" name="hora" placeholder=" ">
-                        @if (logForm.controls['time'].hasError('required') &&(logForm.controls.time.dirty || logForm.controls.time.touched)) {<small style="color:red"> Campo requerido</small>}
+                        <input type="time" class="form-control" formControlName="problem_hour" id="hora" name="hora" placeholder=" ">
+                        @if (logForm.controls['problem_hour'].hasError('required') &&(logForm.controls.problem_hour.dirty || logForm.controls.problem_hour.touched)) {<small style="color:red"> Campo requerido</small>}
                         <label for="hora">Hora <i class="bi bi-clock-fill"></i></label>
                       </div>
                       <div class="mb-3 form-floating">

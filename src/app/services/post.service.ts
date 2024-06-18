@@ -12,7 +12,7 @@ export class PostService {
   
   findPost():Observable<PostI[]> {
     return this.httpClient.get<[]>(this.apiUrl);
-  }
+  } 
 
   createPost(payload: PostI) {
     return this.httpClient.post(this.apiUrl, payload);

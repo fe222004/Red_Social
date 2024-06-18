@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ResolverService } from '../../../services/resolver.service';
+import { RevisorService } from '../../../services/revisor.service';
+import { Complaint } from '../../../models/Complaint';
 declare var bootstrap: any;
 
 @Component({
@@ -15,11 +17,12 @@ export class CustomerCreateComponent {
 
   private formBuilder = inject(FormBuilder);
   private readonly resolverService: ResolverService = inject(ResolverService);
-
+ private readonly revisorService = inject (RevisorService);
   protected form: FormGroup;
-
+ protected problem:Complaint[] =[];
   constructor(private router: Router) {
     this.form = this.buildForm;
+    this.getAll();
 
   }
 
@@ -103,5 +106,12 @@ export class CustomerCreateComponent {
     this.router.navigate(['/pages/customer-list']);
   }
   
+  getAll(){
+    this.revisorService.getAll().subscribe(response => {
+       console.log(response);
+       this.problem = response
+    });
 
+  }
+ 
 }

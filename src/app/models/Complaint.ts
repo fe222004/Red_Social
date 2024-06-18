@@ -1,9 +1,9 @@
 
 
 export interface Complaint{
-    infractor: string;
+    name_offender: string;
     problem: string;
-    date_complaint: Date,
-    time: string,
+    problem_date: Date,
+    problem_hour: string,
     severity: boolean,
 }

@@ -11,10 +11,10 @@ import { RevisorService } from '../../../services/revisor.service';
 export class ComplaintComponent {
   loginError: string='';
   logForm=this.formBuilder.group({
-    infractor:['',[Validators.required]],
+    name_offender:['',[Validators.required]],
      problem:['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
-    complaint_date: ['',[Validators.required]],
-     time: ['',[Validators.required]],
+     problem_date: ['',[Validators.required]],
+     problem_hour: ['',[Validators.required]],
      severity:['',[Validators.required]]
    })
    constructor(private formBuilder:FormBuilder, private readonly revisorService: RevisorService ){}
@@ -26,13 +26,13 @@ export class ComplaintComponent {
      createForm() {
       if (this.logForm.valid) {
         alert('Valido',);
-        const complaintDateValue = this.logForm.value.complaint_date;
-        const date_complaint: Date = complaintDateValue ? new Date(complaintDateValue) : new Date();
+        const complaintDateValue = this.logForm.value.problem_date;
+        const problem_date: Date = complaintDateValue ? new Date(complaintDateValue) : new Date();
         const complaint: Complaint = {
-        infractor: this.logForm.value.infractor || '',
+       name_offender: this.logForm.value.name_offender || '',
         problem: this.logForm.value.problem || '',
-        date_complaint: date_complaint,
-        time: this.logForm.value.time || '',
+        problem_date: problem_date,
+        problem_hour: this.logForm.value.problem_hour || '',
         severity: this.logForm.value.severity === 'grave'
       };
        this.revisorService.createForm(complaint).subscribe(response => {
