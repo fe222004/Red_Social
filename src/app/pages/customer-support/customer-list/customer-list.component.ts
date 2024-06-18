@@ -42,7 +42,6 @@ export class CustomerListComponent {
   getResolvers(){
     console.log("Entro al resolvers")
     this.resolverService.findResolver().subscribe(response => {
-      console.log(response)
       this.resolvers = response
     });
   }
@@ -52,7 +51,6 @@ export class CustomerListComponent {
     console.log("Entro a actualizar", payload);
     this.resolverService.updateResolver(id, payload).subscribe(
       (response) => {
-        console.log('Actualización exitosa:', response);
         this.getResolvers(); // Refresca la lista después de actualizar
         this.closeEditModal(); // Cerrar el modal después de actualizar
       },
@@ -78,7 +76,6 @@ export class CustomerListComponent {
   }
 
   onSubmit(): void {
-    console.log("Entro");
     const id = this.resolver.id || ''; // Asegúrate de que el resolver tiene un ID válido
     if (id) {
       const payload = this.form.value;

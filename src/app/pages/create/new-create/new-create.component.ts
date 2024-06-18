@@ -64,7 +64,6 @@ export class NewCreateComponent {
   }
 
   onSubmit() {
-    console.log('Se ha hecho clic en el botón de envío.');
     if (this.form.invalid) {
       console.log('El formulario no es válido.');
       return;
@@ -83,7 +82,6 @@ export class NewCreateComponent {
 
     this.storyService.createStory(formData).subscribe(
       (response: StoryI) => {
-        console.log('Story created successfully:', response);
         this.closeModal(); 
       },
       (error) => {

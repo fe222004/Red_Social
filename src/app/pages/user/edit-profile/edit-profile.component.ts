@@ -127,14 +127,12 @@ export class EditProfileComponent {
 
   getCountries() {
     this.countryService.findCountries().subscribe((response) => {
-      console.log(response);
       this.countries = response;
     });
   }
 
   getRol() {
     this.rolService.findRol().subscribe((response) => {
-      console.log(response);
       this.roles = response;
     });
   }
@@ -142,7 +140,6 @@ export class EditProfileComponent {
   onSubmit(): void {
     console.log('Se ha hecho clic en el botón de envío.');
     if (this.editForm.invalid) {
-      console.log('El formulario no es válido.');
       return;
     }
 
@@ -160,17 +157,14 @@ export class EditProfileComponent {
 
     this.userService.updateUser(this.user.id, formData).subscribe(
       (response: User) => {
-        console.log('User updated successfully:', response);
-        const userId = this.authService.getUserId(); // Get user ID from AuthService
-        console.log(userId);
+        const userId = this.authService.getUserId(); // Obtiene ID user del AuthService
         if (userId) {
-          this.router.navigate(['/pages/user/profile', userId]); // Pass user ID as a route parameter
-        } else {
+          this.router.navigate(['/pages/user/profile', userId]); // Pasar ID de usuario como parámetro de ruta
+
         }
       },
       (error) => {
-        console.error('Error updating user:', error);
-        this.errorMessage = error; // Display error message
+        this.errorMessage = error; // Mostrar mensaje de error
       }
     );
   }
@@ -185,14 +179,12 @@ export class EditProfileComponent {
   }
 
   clearImage() {
-    console.log('Se ha hecho clic en el botón de limpiar imagen.');
     this.imageSrc = null;
     this.files = [];
     this.editForm.get('image')?.setValue(null);
   }
 
   onDrop(event: DragEvent) {
-    console.log('Se ha soltado un archivo.');
     event.preventDefault();
     event.stopPropagation();
     if (event.dataTransfer?.files && event.dataTransfer.files.length > 0) {

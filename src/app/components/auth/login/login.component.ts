@@ -34,11 +34,9 @@ export class LoginComponent {
       const { email, password } = this.loginForm.value;
       this.authService.login(email, password).subscribe(
         response => {
-          console.log('Login successful:', response);
           this.router.navigate(['/pages/dashboard']); // Redirigir a la página de dashboard después del login exitoso
         },
         error => {
-          console.error('Login failed:', error);
           alert('Login failed'); // Mostrar un mensaje de error al usuario en caso de fallo
         }
       );
