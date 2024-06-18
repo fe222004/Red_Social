@@ -11,22 +11,25 @@
     </div>
       <app-stories></app-stories>
       <div class="table-data">
-        <div class="order">
-          <app-post></app-post>
-        </div>
-      </div>
+      <app-post></app-post>
+    </div>
       <div class="table-data">
-        <div class="order">
+        <div class="order" *ngFor="let post of posts">
           <p class="text-body-secondary" style="margin-top: 5px; margin-left: 5px;">
-            <img src="https://i.pinimg.com/564x/40/76/79/407679d20088c659aba7a760c69dd7c3.jpg" class="rounded-circle" alt="..." style="width: 40px; height: 40px; margin-right: 10px;">
-            Fernanda Andrade fe_2004
+            <img [src]="post.user?.image || 'assets/default-profile.png'" 
+                 class="rounded-circle" alt="Profile Image" 
+                 style="width: 40px; height: 40px; margin-right: 10px;">
+            {{ post.user?.firstname }} {{ post.user?.lastname }}
             <br>
-            <br>
+            {{ post.user?.email }}
+            <br><br>
             <p class="text" style="margin-left: 5px;">
-              "¿Amante de la cocina? ¡No te pierdas nuestra receta exclusiva de la semana! Desde platos tradicionales hasta sabores innovadores, ¡tenemos algo para todos los paladares!"
+              {{ post.text }}
             </p>
-            <img src="https://i.pinimg.com/564x/bd/7c/69/bd7c6963cd2ea6e7b06d7895c1a145f0.jpg" class="card-img-top" alt="..." style="width: 400px; height: 400px; margin-left: 50px;">
-         
+            <img *ngIf="post.image" [src]="post.image" 
+                 class="card-img-top" alt="Post Image" 
+                 style="width: 400px; height: 400px; margin-left: 50px;">
+            <p *ngIf="!post.image" class="text-body-secondary">No hay imagen disponible para este post.</p>
         </div>
       </div>
     </main>

@@ -7,14 +7,12 @@ import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
-    ComplaintComponent,
    
   ],
   imports: [
     CommonModule,
     InspectorRoutingModule,
-    DialogModule,
-    ButtonModule
+ 
   ],
 
 })

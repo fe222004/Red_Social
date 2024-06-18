@@ -18,8 +18,8 @@ import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+import { ComplaintComponent } from './pages/inspector/complaint/complaint.component';
+import { InspectorModule } from './pages/inspector/inspector.module';
 import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
 
 import { PostComponent } from './pages/components/post/post.component';
@@ -49,6 +49,9 @@ import { UserModule } from './pages/user/user.module';
     NavarComponent,
     CustomerCreateComponent,
     StoriesComponent,
+    FormSuscriptorComponent,
+  ComplaintComponent,
+  ExplorersComponent,
     ProfileComponent,
     EditProfileComponent,
     CommentsComponent,
@@ -71,7 +74,6 @@ import { UserModule } from './pages/user/user.module';
     MenubarModule,
     PasswordModule,
     CheckboxModule,
-    PagesModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,

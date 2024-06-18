@@ -124,7 +124,7 @@ protected users : User[] = [];
 
   //Post
   findPost() {
-    this.postService.findPost().subscribe((response) => {
+    this.postService.findPosts().subscribe((response) => {
       this.posts = response;
     });
   }

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { ResolverI } from '../../../models/resolver';
 import { ResolverService } from '../../../services/resolver.service';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { response } from 'express';
 
 
 @Component({
@@ -48,7 +47,6 @@ export class CustomerListComponent {
   }
 
   //ACTUALIZA
-  
   updateResolver(id: string, payload: ResolverI): void {
     console.log("Entro a actualizar", payload);
     this.resolverService.updateResolver(id, payload).subscribe(
