@@ -1,216 +1,27 @@
 <section id="stories">
-    <nav class="nav-stories">
-
-        <div id="carouselExample"  class="carousel slide" style="margin-left: -12px;">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="stories">
-                        <!--CARRUSEL STORIES FUNCIONANDO-->
-                        <!--Stories 1 -->
-                        <div class="stories-img" (click)="setLargeImageStory2()">
-                            <img src="https://i.pinimg.com/564x/b0/50/eb/b050ebfa7e02e3db59358b5042722463.jpg"
-                                alt="Story 2">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img [src]="selectedImage" alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                    <img [src]="selectedUserImage" alt="Avatar">
-                                    <span class="username">{{selectedUsername}}</span>
-                                  </div>
-                            </div>
-                        </div>
-                        <!--Stories 2-->
-                        <div class="stories-img" (click)="setLargeImageStory3()">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 3">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img [src]="selectedImage" alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                    <img [src]="selectedUserImage" alt="Avatar">
-                                    <span class="username">{{selectedUsername}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Stories 3-->
-                        <div class="stories-img" (click)="setLargeImageStory4()">
-                            <img src="https://i.pinimg.com/736x/00/59/ee/0059ee7f0882598f4d8c26a7f69fa8d0.jpg"
-                                alt="Story 4">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img [src]="selectedImage" alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                    <img [src]="selectedUserImage" alt="Avatar">
-                                    <span class="username">{{selectedUsername}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Stories 4-->
-                        <div class="stories-img" (click)="setLargeImageStory5()">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 5">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img [src]="selectedImage" alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                    <img [src]="selectedUserImage" alt="Avatar">
-                                    <span class="username">{{selectedUsername}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Stories 5-->
-                        <div class="stories-img" (click)="setLargeImageStory6()">
-                            <img src="https://i.pinimg.com/736x/10/1e/cb/101ecb3e017f22f5514a8227c299e1a2.jpg"
-                                alt="Story 6">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img [src]="selectedImage" alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                    <img [src]="selectedUserImage" alt="Avatar">
-                                    <span class="username">{{selectedUsername}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Stories 6-->
-                        <div class="stories-img" (click)="setLargeImageStory7()">
-                            <img src="https://i.pinimg.com/564x/e3/37/cc/e337cc1a5c3043ba9c73f4440aba8979.jpg"
-                                alt="Story 7">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img [src]="selectedImage" alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                    <img [src]="selectedUserImage" alt="Avatar">
-                                    <span class="username">{{selectedUsername}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Stories 7-->
-                        <div class="stories-img" (click)="setLargeImageStory8()">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 8">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img [src]="selectedImage" alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                    <img [src]="selectedUserImage" alt="Avatar">
-                                    <span class="username">{{selectedUsername}}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Stories 8-->
-                        <div class="stories-img" (click)="setLargeImageStory9()">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 8">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img [src]="selectedImage" alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                    <img [src]="selectedUserImage" alt="Avatar">
-                                    <span class="username">{{selectedUsername}}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--SEGUNDO CARRUSEL - COPIAR EL PRIMERO-->
-                <div class="carousel-item">
-                    <div class="stories">
-                        <!--Stories 2-->
-                        <div class="stories-img" (click)="showLargeImage = !showLargeImage">
-                            <img src="https://i.pinimg.com/564x/b0/50/eb/b050ebfa7e02e3db59358b5042722463.jpg"
-                                alt="Story 2">
-                        </div>
-                        <div *ngIf="showLargeImage" class="large-image-container">
-                            <div class="large-image">
-                                <!-- imagen grande stories -->
-                                <img src="https://i.pinimg.com/564x/c0/a8/13/c0a813bedbd6cbf466614e535246b3f1.jpg"
-                                    alt="Imagen Grande">
-                                <div class="white-line"></div>
-                                <button class="select-button" (click)="toggleShowLargeImage()">X</button>
-                                <div class="profile">
-                                      <img src="https://i.pinimg.com/736x/14/8b/16/148b16b1c0e7ada651c7a67a7c2140b0.jpg" alt="Avatar">
-                                      <span class="username">Juan_100</span>
-                                  </div>
-                            </div>
-                        </div>
-                        <!--Stories 3-->
-                        <div class="stories-img">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 3">
-                        </div>
-                        <!--Stories 4-->
-                        <div class="stories-img">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 4">
-                        </div>
-                        <!--Stories 5-->
-                        <div class="stories-img">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 5">
-                        </div>
-                        <!--Stories 6-->
-                        <div class="stories-img">
-                            <img src="https://i.pinimg.com/736x/10/1e/cb/101ecb3e017f22f5514a8227c299e1a2.jpg"
-                                alt="Story 6">
-                        </div>
-                        <!--Stories 7-->
-                        <div class="stories-img">
-                            <img src="https://i.pinimg.com/564x/e3/37/cc/e337cc1a5c3043ba9c73f4440aba8979.jpg"
-                                alt="Story 7">
-                        </div>
-                        <!--Stories 8-->
-                        <div class="stories-img">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 8">
-                        </div>
-                        <!--Stories 9-->
-                        <div class="stories-img">
-                            <img src="https://static.vecteezy.com/system/resources/previews/004/607/791/non_2x/man-face-emotive-icon-smiling-male-character-in-blue-shirt-flat-illustration-isolated-on-white-happy-human-psychological-portrait-positive-emotions-user-avatar-for-app-web-design-vector.jpg"
-                                alt="Story 8">
-                        </div>
-                    </div>
-                </div>
+  <nav class="nav-stories">
+    <div id="carouselExample" class="carousel slide" style="margin-left: -12px;">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="stories">
+            <div *ngFor="let story of stories" class="stories-img" (click)="setLargeImage(story)">
+              <img [src]="story.image" [alt]="story.id.toString()"> <!-- Muestra la imagen de la historia -->
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+          </div>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
+
+  <div *ngIf="showLargeImage" class="large-image-container">
+    <div class="large-image">
+      <img [src]="selectedImage" alt="Imagen Grande">
+      <div class="white-line"></div>
+      <button class="select-button" (click)="toggleShowLargeImage()">X</button>
+      <div class="profile">
+        <img [src]="selectedUserImage" alt="Avatar"> <!-- Muestra la imagen del usuario -->
+        <span class="username">{{selectedUsername}}</span> <!-- Muestra el nombre de usuario -->
+      </div>
+    </div>
+  </div>
 </section>

@@ -13,24 +13,23 @@
           <div class="card" style="width: 700px;">
             <div class="card-body" style="display: flex;">
               <div class="profile-image">
-                <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg" class="card-img-top1"
-                  alt="...">
+                <img [src]="user.image" class="card-img-top1"
+                  alt={{user.firstname}}>
 
               </div>
-              <div class="usuario" style="margin-left: 20px;">
+              <div class="user" style="margin-left: 20px;">
                 <div class="header" style="display: flex;">
-                  <h3>Joss Balarezo</h3>
+                  <h3>{{user.firstname}} {{user.lastname}}</h3>
                   <div class="option" style="margin-left: 160px;">
-                    <button type="submit" class="btn btn-outline-info">
-                      <a class="edit" routerLink='/user/edit' style="color: black; text-decoration: none;">
+                    <button type="submit" class="btn btn-outline-info" (click)="navigateToEditUser()">
+                      <a class="edit"  style="color: black; text-decoration: none;">
                         Editar Perfil
                       </a>
                     </button>
                   </div>
                 </div>
-                <p class="card-text"><small class="text-body-secondary">jossy.balarezo21</small></p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima nemo.</p>
-                <p class="card-text"><small class="text-body-secondary">Comenzaste en 2013</small></p>
+                <p class="card-text"><small class="text-body-secondary">{{user.email}}</small></p>
+                <p>{{user.description}}</p>
                 <div class="detalles" style="display: flex;">
                   <!--Seguidores-->
                   <p style="margin-top: 20px;">220</p>
@@ -56,9 +55,9 @@
                                   style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
                               </div>
                               <div class="user" style="margin-left: 20px;">
-                                <h6>Joss Balarezo</h6>
+                                <h6>{{user.firstname}} {{user.lastname}}</h6>
                                 <p class="card-text" style="font-size: 15px;">
-                                  <small class="text-body-secondary">jossy.balarezo21</small>
+                                  <small class="text-body-secondary">{{user.email}}</small>
                                 </p>
                               </div>
                               <div class="follow" style="margin-left: 90px;">
@@ -114,12 +113,14 @@
               </div>
             </div>
           </div>
-          <!-- POstear -->
+
           <div class="postear">
             <app-post></app-post>
           </div>
           <!-- Post -->
           <h3 style="margin-top: 40px; margin-bottom: 20px;">Publicaciones</h3>
+          <!-- POSTS -->
+          @for(post of posts; track post.id){
           <div class="post">
             <div class="card" style="width: 700px;">
               <div class="card-header" style="display: flex;">
@@ -133,52 +134,58 @@
                       class="text-body-secondary">jossy.balarezo21</small>
                   </p>
                 </div>
-                <div class="edit" style="margin-left: 350px;">
-                  <button type="submit" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;" (click)="navigatePost">Editar
-                    Post</button>
+                <div class="edit" style="margin-left: 300px;">
+                  <button type="submit" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;"
+                  *ngIf="post.id !== undefined" (click)="updatePost(post.id)">Editar</button>
+                </div>
+                <div class="edit" style="margin-left: 10px;">
+                  <button type="submit" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;"
+                    >Eliminar</button>
                 </div>
 
               </div>
               <div class="card-body">
                 <blockquote class="blockquote mb-0">
-                  <p></p>
-                  <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite>
+                  <p>{{post.text}}</p>
+                  <footer class="blockquote-footer">{{post.tag}}
                   </footer>
                 </blockquote>
               </div>
               <div class="card-footer">
-                <div class="option" style="display: flex; margin-left: 140px;">
-                  <div class="like" style="display: flex; font-size: 20px;">
+                <div class="option">
+                  <div class="coment">
                     <i class="bi bi-heart"></i>
-                    <p style="margin-left: 10px;">Like</p>
+                    <button>Like</button>
                   </div>
-                  <div class="coment" style="display: flex; font-size: 20px; margin-left: 80px;">
+                  <div class="coment">
                     <i class="bi bi-chat"></i>
-                    <p style="margin-left: 10px;">Comentarios</p>
+                    <button (click)="openModalComents()">Comentarios</button>
+                      <app-comments>
+                        <p>Comentarios</p>
+                      </app-comments>
                   </div>
                 </div>
               </div>
               <div class="card-footer">
-                <div class="coment" style="display: flex;">
+                <div class="coment1">
                   <div class="photo">
-                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                      style="width: 40px; height: 40px; border-radius: 50%; margin-top: 10px;" alt="...">
+                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg" alt="...">
                   </div>
-                  <form [formGroup]="comentForm" (ngSubmit)="onSubmit()">
-                    <div class="mb-3" style="margin-left: 20px; margin-top: 10px; width: 430px;">
-                      <input type="text" class="form-control" id="coment" placeholder="Agrega un comentario"
-                        style="height: 45px;" formControlName="comment">
+                  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" style="display: flex;">
+                    <div class="mb-3">
+                      <input type="text" class="form-control" id="coment" placeholder="Agrega un comentario" formControlName="comment">
                     </div>
-                    <div class="comentsave" style="margin-left: 10px;">
-                      <button type="submit" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;"
-                        >Comentar</button>
+                    <div class="comentsave">
+                      <button type="submit" class="btn btn-outline-info" (click)="createComent()">Comentar</button>
                     </div>
                   </form>
                 </div>
               </div>
             </div>
           </div>
+          }
+
+          <!-- SUGERENCIAS -->
         </section>
 
         <section style="margin-left: 30px;">
@@ -239,9 +246,9 @@
                     style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
                 </div>
                 <div class="user" style="margin-left: 20px;">
-                  <h6>Joss Balarezo</h6>
+                  <h6>{{user.firstname}} {{user.lastname}}</h6>
                   <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">jossy.balarezo21</small>
+                      class="text-body-secondary">{{user.email}}</small>
                   </p>
                 </div>
                 <div class="follow" style="margin-left: 80px;">
@@ -273,8 +280,6 @@
               <h5 class="card-title">Tendencias</h5>
               <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
               <p class="card-text">Some quick example text to build on the card </p>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
-              <p class="card-text">Some quick example text to build on the card</p>
             </div>
           </div>
         </section>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,7 +19,7 @@ export class MenuComponent{
   private searchForm!: HTMLFormElement | null;
   private switchMode!: HTMLInputElement | null;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a') as NodeListOf<HTMLAnchorElement>;
@@ -95,5 +97,10 @@ export class MenuComponent{
         document.body.classList.remove('dark');
       }
     });
+  }
+
+  logout(): void {
+    this.authService.logout(); // Llama al método logout del AuthService para eliminar el token y otros datos de sesión
+    this.router.navigate(['/login']); // Redirige al usuario a la página de inicio de sesión u otra página según tu aplicación
   }
 }

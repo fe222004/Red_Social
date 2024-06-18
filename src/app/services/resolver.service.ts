@@ -6,6 +6,8 @@ import { ResolverI } from '../models/resolver';
 
 @Injectable({providedIn: 'root'})
 export class ResolverService {
+    private apiUrl = 'http://localhost:3000/resolvers';
+
     private readonly httpClient = inject(HttpClient);
     private API_URL_RESOLVER = `${environment.API_URL}/resolvers`;
 
@@ -20,11 +22,12 @@ export class ResolverService {
 
     }
 
+    //ACTUALIZAR
+    updateResolver(id: string, payload: ResolverI): Observable<ResolverI> {
+        return this.httpClient.put<ResolverI>(`${this.apiUrl}/${id}`, payload);
+      }
+      
     findResolverOne(id: string):Observable<ResolverI>{
         return this.httpClient.get<ResolverI>(`${this.API_URL_RESOLVER}/${id}`)
     }
-
-
-
-
 }
