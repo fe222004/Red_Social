@@ -49,6 +49,7 @@ form {
 
 }
 
+
 .image-preview-container {
   position: relative;
   display: flex;
@@ -92,5 +93,29 @@ form {
 
 .mt-5 {
   margin-top: 3rem !important;
+}
+
+.input-container {
+  width: 100%; /* Ajusta el ancho del contenedor al 100% */
+  display: flex;
+  justify-content: space-between; /* Alinea los elementos de manera equitativa */
+}
+
+.input-container input {
+  flex-grow: 1; /* Hace que los inputs ocupen todo el espacio restante */
+  margin-right: 10px; /* Espacio entre los inputs */
+}
+
+.buttons {
+  margin-top: 10px; /* Espacio entre el contenedor de inputs y los botones */
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+}
+
+.btn-submit {
+  width: auto; /* Ancho automático para el botón */
 }
 

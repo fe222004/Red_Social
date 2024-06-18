@@ -16,6 +16,7 @@ export class PostComponent {
   private readonly postService = inject(PostService)
   protected posts: PostI[] = [];
   protected post: PostI = {};
+  imageUrl: string | ArrayBuffer | null = null;
 
   protected editingMode!: boolean;
 
@@ -71,11 +72,15 @@ export class PostComponent {
       const file = input.files[0];
       const reader = new FileReader();
       reader.onload = () => {
-       // this.imageUrl = reader.result;
+        this.imageUrl = reader.result;
       };
       reader.readAsDataURL(file);
       console.log(file);
     }
+  }
+  
+  removeImage(): void {
+    this.imageUrl = null;
   }
 
 

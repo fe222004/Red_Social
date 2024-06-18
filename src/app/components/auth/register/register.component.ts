@@ -1,9 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {
-  AbstractControl,
-  FormBuilder,
-  FormGroup,
-  Validators,
+import {AbstractControl,FormBuilder,FormGroup,Validators,
 } from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
@@ -28,7 +24,6 @@ export class RegisterComponent {
   public loginForm: FormGroup;
   public imageSrc: string | ArrayBuffer | null | undefined = null;
   public files: any[] = [];
-  public errorMessage: string | null = null;
 
   countries: Country[] = [];
   roles: Rol[] = [];
@@ -41,44 +36,6 @@ export class RegisterComponent {
 
   buildForm(): FormGroup {
     return this.formBuilder.group({
-      firstname: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(1),
-          Validators.maxLength(40),
-        ],
-      ],
-      lastname: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(1),
-          Validators.maxLength(40),
-        ],
-      ],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-          ),
-        ],
-      ],
-      password: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/
-          ),
-        ],
-      ],
-      image: [''],
-      description: ['', [Validators.maxLength(200)]],
-      countryId: [''],
-      rolId: [''],
     });
   }
 
@@ -180,13 +137,9 @@ export class RegisterComponent {
     this.userService.createUser(formData).subscribe(
       (response: User) => {
         console.log('User created successfully:', response);
-        this.errorMessage = null; // Clear error message
-        this.router.navigate(['']); // Redirigir a la página de perfil o cualquier otra página
-
       },
       (error) => {
         console.error('Error creating user:', error);
-        this.errorMessage = error; // Display error message
       }
     );
   }
