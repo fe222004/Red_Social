@@ -27,13 +27,7 @@ export class ResolverService {
         return this.httpClient.put<ResolverI>(`${this.apiUrl}/${id}`, payload);
       }
       
-      
-
     findResolverOne(id: string):Observable<ResolverI>{
         return this.httpClient.get<ResolverI>(`${this.API_URL_RESOLVER}/${id}`)
     }
-
-
-
-
 }
