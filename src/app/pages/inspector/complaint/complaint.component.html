@@ -1,105 +1,114 @@
 <div>
-  
+
 </div>
 <div class="container">
-    <div class="post-container">
-      <div class="post">
-        <div class="post-header">
-          <img src="https://jellyfishwarehouse.com/cdn/shop/products/BlueCannonball_1024x1024@2x.jpg?v=1654560467" alt="Profile Picture" class="profile-pic">
-          <div class="name">Alucard</div>
-          <div class="username">&#64;hellsing</div>
-        </div>
-        <img src="https://www.usatoday.com/gcdn/-mm-/e558d4a0a869ead14127d8fe44710954491d243f/c=1-0-936-528/local/-/media/2016/12/21/USATODAY/USATODAY/636179347804436829-JELLIES-MoonJellies.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp" alt="Post Image" class="post-img">
-       <div>❤️i looove jellyfish</div>
-        <div class="post-actions">
-            <button  class="bi bi-check-circle" style="color: green; background-color: rgb(144, 241, 142);width: 100px; height: 50px;" ></button>
-            <button  class="bi bi-x-circle" style="color: red; background-color: rgb(241, 142, 142); width: 100px; height: 50px;" (click)="showDialog()"></button>
-        </div>
-        
-        <p-dialog header="Registro del Infractor" [(visible)]="visible" [modal]="true" [responsive]="true" >
-          <form>
-            <div class="mb-3">
-              <label for="infractor" class="form-label">Infractor</label>
-              <input type="text" class="form-control" id="infractor" name="infractor" >
-            </div>
-            <div class="mb-3">
-              <label for="problema" class="form-label">Problema</label>
-              <textarea   class="form-control" id="problema" name="problema" rows="3" ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="fecha" class="form-label">Fecha de queja</label>
-              <input type="date" class="form-control"  id="fecha" name="fecha">
-            </div>
-            <div class="mb-3">
-              <label for="hora" class="form-label">Hora</label>
-              <input type="time" class="form-control" id="hora" name="hora">
-            </div>
-            <div class="mb-3">
-              <label for="estado" class="form-label">Estado</label>
-              <select class="form-select" id="estado" name="estado" >
-                <option value="leve">Leve</option>
-                <option value="grave">Grave</option>
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </form>
-        </p-dialog>
-        
-        
-  
-        </div>
-        
+  <div class="post-container">
+    <div class="post">
+      <div class="post-header">
+        <img src="https://jellyfishwarehouse.com/cdn/shop/products/BlueCannonball_1024x1024@2x.jpg?v=1654560467"
+          alt="Profile Picture" class="profile-pic">
+        <div class="name">Alucard</div>
+        <div class="username">&#64;hellsing</div>
       </div>
+      <img
+        src="https://www.usatoday.com/gcdn/-mm-/e558d4a0a869ead14127d8fe44710954491d243f/c=1-0-936-528/local/-/media/2016/12/21/USATODAY/USATODAY/636179347804436829-JELLIES-MoonJellies.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp"
+        alt="Post Image" class="post-img">
+      <div>❤️i looove jellyfish</div>
+      <div class="post-actions">
+        <button class="bi bi-check-circle"
+          style="color: green; background-color: rgb(144, 241, 142);width: 100px; height: 50px;"></button>
+        <button class="bi bi-x-circle"
+          style="color: red; background-color: rgb(241, 142, 142); width: 100px; height: 50px;"
+          (click)="showDialog()"></button>
+      </div>
+
+      <p-dialog header="Registro del Infractor" [(visible)]="visible" [modal]="true" [responsive]="true">
+        <form>
+          <div class="mb-3">
+            <label for="infractor" class="form-label">Infractor</label>
+            <input type="text" class="form-control" id="infractor" name="infractor">
+          </div>
+          <div class="mb-3">
+            <label for="problema" class="form-label">Problema</label>
+            <textarea class="form-control" id="problema" name="problema" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha de queja</label>
+            <input type="date" class="form-control" id="fecha" name="fecha">
+          </div>
+          <div class="mb-3">
+            <label for="hora" class="form-label">Hora</label>
+            <input type="time" class="form-control" id="hora" name="hora">
+          </div>
+          <div class="mb-3">
+            <label for="estado" class="form-label">Estado</label>
+            <select class="form-select" id="estado" name="estado">
+              <option value="leve">Leve</option>
+              <option value="grave">Grave</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </p-dialog>
+
+
+
     </div>
-  
-    <div class="container">
-      <div class="post-container">
-        <div class="post">
-          <div class="post-header">
-            <img src="https://jellyfishwarehouse.com/cdn/shop/products/BlueCannonball_1024x1024@2x.jpg?v=1654560467" alt="Profile Picture" class="profile-pic">
-            <div class="name">Alucard</div>
-            <div class="username">&#64;hellsing</div>
-          </div>
-          <img src="https://www.usatoday.com/gcdn/-mm-/e558d4a0a869ead14127d8fe44710954491d243f/c=1-0-936-528/local/-/media/2016/12/21/USATODAY/USATODAY/636179347804436829-JELLIES-MoonJellies.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp" alt="Post Image" class="post-img">
-         <div>❤️i looove jellyfish</div>
-          <div class="post-actions">
-              <button  class="bi bi-check-circle" style="color: green; background-color: rgb(144, 241, 142);width: 100px; height: 50px;" ></button>
-              <button  class="bi bi-x-circle" style="color: red; background-color: rgb(241, 142, 142); width: 100px; height: 50px;" (click)="showDialog()"></button>
-          </div>
-          
-          <p-dialog header="Registro del Infractor" [(visible)]="visible" [modal]="true" [responsive]="true" >
-            <form>
-              <div class="mb-3">
-                <label for="infractor" class="form-label">Infractor</label>
-                <input type="text" class="form-control" id="infractor" name="infractor" >
-              </div>
-              <div class="mb-3">
-                <label for="problema" class="form-label">Problema</label>
-                <textarea   class="form-control" id="problema" name="problema" rows="3" ></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="fecha" class="form-label">Fecha de queja</label>
-                <input type="date" class="form-control"  id="fecha" name="fecha">
-              </div>
-              <div class="mb-3">
-                <label for="hora" class="form-label">Hora</label>
-                <input type="time" class="form-control" id="hora" name="hora">
-              </div>
-              <div class="mb-3">
-                <label for="estado" class="form-label">Estado</label>
-                <select class="form-select" id="estado" name="estado" >
-                  <option value="leve">Leve</option>
-                  <option value="grave">Grave</option>
-                </select>
-              </div>
-              <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-          </p-dialog>
-          
-          
-    
-          </div>
-          
-        </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="post-container">
+    <div class="post">
+      <div class="post-header">
+        <img src="https://jellyfishwarehouse.com/cdn/shop/products/BlueCannonball_1024x1024@2x.jpg?v=1654560467"
+          alt="Profile Picture" class="profile-pic">
+        <div class="name">Alucard</div>
+        <div class="username">&#64;hellsing</div>
       </div>
-    
+      <img
+        src="https://www.usatoday.com/gcdn/-mm-/e558d4a0a869ead14127d8fe44710954491d243f/c=1-0-936-528/local/-/media/2016/12/21/USATODAY/USATODAY/636179347804436829-JELLIES-MoonJellies.jpg?width=660&height=373&fit=crop&format=pjpg&auto=webp"
+        alt="Post Image" class="post-img">
+      <div>❤️i looove jellyfish</div>
+      <div class="post-actions">
+        <button class="bi bi-check-circle"
+          style="color: green; background-color: rgb(144, 241, 142);width: 100px; height: 50px;"></button>
+        <button class="bi bi-x-circle"
+          style="color: red; background-color: rgb(241, 142, 142); width: 100px; height: 50px;"
+          (click)="showDialog()"></button>
+      </div>
+
+      <p-dialog header="Registro del Infractor" [(visible)]="visible" [modal]="true" [responsive]="true">
+        <form>
+          <div class="mb-3">
+            <label for="infractor" class="form-label">Infractor</label>
+            <input type="text" class="form-control" id="infractor" name="infractor">
+          </div>
+          <div class="mb-3">
+            <label for="problema" class="form-label">Problema</label>
+            <textarea class="form-control" id="problema" name="problema" rows="3"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha de queja</label>
+            <input type="date" class="form-control" id="fecha" name="fecha">
+          </div>
+          <div class="mb-3">
+            <label for="hora" class="form-label">Hora</label>
+            <input type="time" class="form-control" id="hora" name="hora">
+          </div>
+          <div class="mb-3">
+            <label for="estado" class="form-label">Estado</label>
+            <select class="form-select" id="estado" name="estado">
+              <option value="leve">Leve</option>
+              <option value="grave">Grave</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </p-dialog>
+
+    </div>
+
+  </div>
+</div>
