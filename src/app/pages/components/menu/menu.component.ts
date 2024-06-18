@@ -12,6 +12,7 @@ import { AuthService } from '../../../services/auth.service';
 export class MenuComponent{
 
   private allSideMenu!: NodeListOf<HTMLAnchorElement>;
+  userRole: string | null = null;
 
 
   constructor(private authService: AuthService, private router: Router) { }
@@ -19,6 +20,8 @@ export class MenuComponent{
   ngOnInit(): void {
     this.allSideMenu = document.querySelectorAll('#sidebar .side-menu.top li a') as NodeListOf<HTMLAnchorElement>;
     this.initializeMenu();
+    this.userRole = this.authService.getUserRol();
+    console.log(this.userRole);
   }
 
   private initializeMenu(): void {
@@ -49,4 +52,7 @@ export class MenuComponent{
     } else {
     }
   }
+
+ 
+
 }
