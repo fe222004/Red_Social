@@ -24,10 +24,20 @@
       <div class="button">
         <button type="submit" class="btn btn-primary btn-submit" (click)="crearPost">Postear</button>
       </div>
-      <!-- <div class="button">
-        <button type="button" class="btn btn-primary btn-submit">Editar</button>
-      </div> -->
+    </div>
+
+    <div *ngIf="imageUrl" class="image-preview-container card">
+      <img [src]="imageUrl" alt="Selected Image" class="img-fluid rounded" />
+      <button type="button" class="btn btn-danger btn-sm position-absolute close-btn" (click)="removeImage()">X</button>
+    </div>
+  
+    <!--Crea el post con imagen-->
+    <div class="input-group mb-3" [ngClass]="{'mt-5': imageUrl}">
+      <button type="button" class="btn btn-transparent" style="background: transparent; border: none; padding: 0;"
+        (click)="fileInput.click()">
+        <i class="bi bi-image" style="color: rgb(53, 122, 241); font-size: 1.5em;"></i>
+      </button>
+      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
     </div>
   </div>
-
 </form>
