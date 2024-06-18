@@ -70,4 +70,8 @@ export class UserService {
     }
     return throwError(errorMessage);
   }
+
+  findUsers():Observable<User[]> {
+    return this.httpClient.get<[]>(this.apiUrl);
+  }
 }

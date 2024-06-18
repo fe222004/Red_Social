@@ -21,16 +21,9 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'contenent',
-    loadChildren: () =>
-      import('./contents/contents.module').then((m) => m.ContentsModule),
-  },
-  {
-    path: 'c',
-    loadChildren: () =>
-      import('./contentCreator/page-creator.module').then(
-        (m) => m.PageCreatorModule
-      ),
+    path: 'post',
+    component: PostComponent
+
   },
   {
     path: 'content',
@@ -45,9 +38,7 @@ const routes: Routes = [
   {
     path: 'customer',
     loadChildren: () =>
-      import('./customer-support/customer-support.module').then(
-        (m) => m.CustomerSupportModule
-      ),
+      import('./customer-support/customer-support.module').then((m) => m.CustomerSupportModule),
   },
   {
     path: 'user',
@@ -58,12 +49,8 @@ const routes: Routes = [
     path: 'create',
     loadChildren: () =>
       import('./create/create.module').then((m) => m.CreateModule),
-  },
-  {
-    path: 'post',
-    component: PostComponent
-
   }
+  
 ];
 
 @NgModule({

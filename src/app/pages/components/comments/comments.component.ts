@@ -33,7 +33,6 @@ export class CommentsComponent{
   findComents() {
     this.comentService.findComentS().subscribe(response => {
       this.comments = response;
-      console.log(this.comments)
     })
   }
 }

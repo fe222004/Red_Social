@@ -40,6 +40,7 @@ body {
 	transition: .3s ease;
 	overflow-x: hidden;
 	scrollbar-width: none;
+	transition: width 0.3s;
 }
 #sidebar::--webkit-scrollbar {
 	display: none;

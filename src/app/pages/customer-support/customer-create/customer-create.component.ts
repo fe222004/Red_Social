@@ -70,9 +70,7 @@ export class CustomerCreateComponent {
     if (this.form.invalid){
       return;
     }
-    this.resolverService.createResolver(this.form.value).subscribe(() => {
-      console.log("Entro", this.form.value)
-    });
+    this.resolverService.createResolver(this.form.value).subscribe(() => {});
 
   }
 
@@ -90,12 +88,9 @@ export class CustomerCreateComponent {
       alert('Registrado');
       this.resolverService.createResolver(this.form.value).subscribe(() => {
       });
-      console.log("Entro", this.form.value)
-      //this.ocultarFormulario();
     } else {
       alert('No registrado');
     }
-    console.log("Ingreso aqui")
   }
 
   navigateToCustomerList() {

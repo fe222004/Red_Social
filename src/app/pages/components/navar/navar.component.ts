@@ -14,10 +14,9 @@ export class NavarComponent {
   }
 
   navigateToProfile() {
-    const userId = this.authService.getUserId(); // Get user ID from AuthService
-    console.log(userId);
+    const userId = this.authService.getUserId(); //Obtiene el userID del AuthService
     if (userId) {
-      this.router.navigate(['/pages/user/profile', userId]); // Pass user ID as a route parameter
+      this.router.navigate(['/pages/user/profile', userId]); // Pasar ID de usuario como parámetro de ruta
     } else {
     }
   }

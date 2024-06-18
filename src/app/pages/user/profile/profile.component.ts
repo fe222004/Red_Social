@@ -31,6 +31,8 @@ export class ProfileComponent {
   protected posts: PostI[] = [];
   protected post: PostI = {};
   private userId?: string;
+protected users : User[] = [];
+
   user: User = {
     id: '',
     firstname: '',
@@ -75,9 +77,8 @@ export class ProfileComponent {
 
   navigateToEditUser() {
     const userId = this.authService.getUserId();
-    console.log(userId);
     if (userId) {
-      this.router.navigate(['/edit', userId]); 
+      this.router.navigate(['/pages/user/edit', userId]); 
     } else {
     }
   }
@@ -90,21 +91,18 @@ export class ProfileComponent {
       return;
     }
     this.comentService.createComent(this.commentForm.value).subscribe(() => {
-      console.log('ENTRO', this.commentForm.value);
     });
   }
 
   createComent() {
     if (this.commentForm.valid) {
-      alert('Registrado');
       this.comentService
         .createComent(this.commentForm.value)
         .subscribe(() => {});
       console.log('Entro', this.commentForm.value);
-    } else {
-      alert('No registrado coments');
+    } else{
+      console.log('No se creo el comentario')
     }
-    console.log('Ingreso aqui');
   }
 
   updateComent(id: string) {
@@ -128,7 +126,6 @@ export class ProfileComponent {
   findPost() {
     this.postService.findPost().subscribe((response) => {
       this.posts = response;
-      console.log(this.posts);
     });
   }
 

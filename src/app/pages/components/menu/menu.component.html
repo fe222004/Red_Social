@@ -5,6 +5,7 @@
         <span class="text">Dream Catcher</span>
     </a>
     <ul class="side-menu top">
+        <!-- Dashboard -->
         <li>
             <a routerLink="/pages/dashboard">
                 <i class='bx bxs-dashboard'></i>
@@ -12,28 +13,9 @@
                 <span class="text">Inicio</span>
             </a>
         </li>
-        <li style="margin-top: 20px;">
-            <a routerLink="/pages/contenent/explorer">
-                <i class='bx bxs-cylinder'></i>
-                <i class="bi bi-globe-americas" style="margin-right: 10px;"></i>
-                <span class="text">Explorar</span>
-            </a>
-        </li>
-        <li style="margin-top: 20px;">
-            <a routerLink="/pages/c/creator">
-                <i class='bx bxs-group'></i>
-                <i class="bi bi-person-hearts" style="margin-right: 10px;"></i>
-                <span class="text">Creador</span>
-            </a>
-        </li>
-        <li style="margin-top: 20px;">
-            <a routerLink="/pages/comunidad">
-                <i class='bx bxs-group'></i>
-                <i class="bi bi-people" style="margin-right: 10px;"></i>
-                <span class="text">Comunidad</span>
-            </a>
-        </li>
-        <li style="margin-top: 20px;">
+        
+        <!-- Crear Historias -->
+        <li style="margin-top: 40px;">
             <a (click)="creator.openModal()" style="cursor:pointer;">
                 <i class='bx bxs-group'></i>
                 <i class="bi bi-plus-square" style="margin-right: 10px;"></i>
@@ -41,10 +23,8 @@
             </a>
         </li>
         <app-new-create #creator></app-new-create>
-        
-        
-
-        <li style="margin-top: 20px;">
+        <!-- Quejas -->
+        <li style="margin-top: 40px;">
 
             <a routerLink="/pages/customer/customer-create">
                 <i class='bx bxs-group'></i>
@@ -52,9 +32,26 @@
                 <span class="text">Administrador</span>
             </a>
         </li>
+        <!-- Revisor -->
+        <li style="margin-top: 40px;">
+            <a style="cursor:pointer;">
+                <i class='bx bxs-person'></i>
+                <i class="bi bi-person" style="margin-right: 10px;"></i>
+                <span class="text">Revisor</span>
+            </a>
+        </li>
+        <!-- Explorar -->
+        <li style="margin-top: 40px;">
+            <a routerLink="/pages/content/explorer">
+                <i class='bx bxs-cylinder'></i>
+                <i class="bi bi-globe-americas" style="margin-right: 10px;"></i>
+                <span class="text">Explorar</span>
+            </a>
+        </li>
     </ul>
+    <!-- Salir -->
     <ul class="side-menu">
-        <li>
+        <li style="margin-top: 120px;">
             <a (click)="logout()" style="cursor:pointer;">
               <i class='bx bx-log-out-circle'></i>
               <i class="bi bi-escape" style="margin-right: 10px; width:62; height: 62"></i>

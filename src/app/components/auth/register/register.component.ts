@@ -124,69 +124,46 @@ export class RegisterComponent {
 
   getCountries() {
     this.countryService.findCountries().subscribe((response) => {
-      console.log(response);
       this.countries = response;
     });
   }
 
   getRol() {
     this.rolService.findRol().subscribe((response) => {
-      console.log(response);
       this.roles = response;
     });
   }
 
   onSubmit() {
-    console.log('Se ha hecho clic en el botón de envío.');
     if (this.loginForm.invalid) {
-      console.log('El formulario no es válido.');
       return;
     }
 
     const formData = new FormData();
 
     formData.append('lastname', this.loginForm.value.lastname);
-    console.log('lastname:', this.loginForm.value.lastname);
-
     formData.append('firstname', this.loginForm.value.firstname);
-    console.log('firstname:', this.loginForm.value.firstname);
-
-    //this.userService.createUser(formData).subscribe((response) => {
-    //});
     formData.append('email', this.loginForm.value.email);
-    console.log('email:', this.loginForm.value.email);
-
     formData.append('password', this.loginForm.value.password);
-    console.log('password:', this.loginForm.value.password);
-
     formData.append('countryId', this.loginForm.value.countryId);
-    console.log('countryId:', this.loginForm.value.countryId);
-
     formData.append('rolId', this.loginForm.value.rolId);
-    console.log('rolId:', this.loginForm.value.rolId);
-
     formData.append('description', this.loginForm.value.description);
-    console.log('description:', this.loginForm.value.description);
+
 
     const file = this.files[0];
     formData.append('image', file, file.name);
-    console.log(file.name);
 
     // Verificar que formData contiene los datos correctos
-    formData.forEach((value, key) => {
-      console.log(key + ': ' + value);
-    });
+    formData.forEach((value, key) => {});
 
     this.userService.createUser(formData).subscribe(
       (response: User) => {
-        console.log('User created successfully:', response);
-        this.errorMessage = null; // Clear error message
+        this.errorMessage = null; // Borrar mensaje de error
         this.router.navigate(['']); // Redirigir a la página de perfil o cualquier otra página
 
       },
       (error) => {
-        console.error('Error creating user:', error);
-        this.errorMessage = error; // Display error message
+        this.errorMessage = error; // Mostrar mensaje de error
       }
     );
   }
@@ -201,14 +178,13 @@ export class RegisterComponent {
   }
 
   clearImage() {
-    console.log('Se ha hecho clic en el botón de limpiar imagen.');
     this.imageSrc = null;
     this.files = [];
     this.loginForm.get('image')?.setValue(null);
   }
 
+  // Arrastrar y soltar imagen
   onDrop(event: DragEvent) {
-    console.log('Se ha soltado un archivo.');
     event.preventDefault();
     event.stopPropagation();
     if (event.dataTransfer?.files && event.dataTransfer.files.length > 0) {
@@ -221,6 +197,7 @@ export class RegisterComponent {
     event.preventDefault();
   }
 
+  //Maneja el archivo
   private handleFile(file: File) {
     const reader = new FileReader();
     reader.onload = (e) => {

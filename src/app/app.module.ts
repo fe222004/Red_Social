@@ -16,8 +16,7 @@ import { MenuComponent } from './pages/components/menu/menu.component';
 import { StoriesComponent } from './pages/components/stories/stories.component';
 import { PasswordModule } from 'primeng/password';
 import { CheckboxModule } from 'primeng/checkbox';
-import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
-import { PagesModule } from './pages/pages.module';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -39,6 +38,8 @@ import { ProfileComponent } from './pages/user/profile/profile.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { combineLatest } from 'rxjs';
 import { CommentsComponent } from './pages/components/comments/comments.component';
+import { PagesModule } from './pages/pages.module';
+import { UserModule } from './pages/user/user.module';
 
 @NgModule({
   declarations: [
@@ -48,10 +49,8 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
     NavarComponent,
     CustomerCreateComponent,
     StoriesComponent,
-    FormSuscriptorComponent,
     ProfileComponent,
     EditProfileComponent,
-    CommentsComponent,
     CommentsComponent,
     ExplorersComponent,
     FooterComponent,
@@ -77,6 +76,7 @@ import { CommentsComponent } from './pages/components/comments/comments.componen
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    UserModule,
   ],
   providers: [provideClientHydration()],
   bootstrap: [AppComponent],
