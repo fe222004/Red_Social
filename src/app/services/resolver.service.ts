@@ -6,6 +6,7 @@ import { ResolverI } from '../models/resolver';
 
 @Injectable({providedIn: 'root'})
 export class ResolverService {
+    
     private apiUrl = 'http://localhost:3000/resolvers';
 
     private readonly httpClient = inject(HttpClient);

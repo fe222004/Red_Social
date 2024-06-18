@@ -63,7 +63,16 @@ const routes: Routes = [
     path: 'post',
     component: PostComponent
 
-  }
+  },
+  {
+    path: 'customer-create',
+    component: CustomerCreateComponent
+  },
+  {
+    path: 'customer-list',
+    component: CustomerListComponent
+  },
+
 ];
 
 @NgModule({
