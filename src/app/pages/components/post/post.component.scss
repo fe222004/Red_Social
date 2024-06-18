@@ -37,18 +37,12 @@ body {
   font-size: 16px;
 }
 
-.btn-submit {
-  margin-left: 10px;
-}
-
 form {
   background-color: #fefefe;
   margin-top: 40px;
   padding: 20px;
   border-radius: 10px;
-
 }
-
 
 .image-preview-container {
   position: relative;
@@ -56,14 +50,11 @@ form {
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(219, 219, 219, 0.5);
   border-radius: 10px;
-  /* Bordes redondeados para la tarjeta */
   padding: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
   max-width: 300px;
-  /*Establece el tamaño en imagenes*/
+  margin: 0 auto;
 }
 
 .image-preview-container img {
@@ -91,31 +82,15 @@ form {
   z-index: 1;
 }
 
-.mt-5 {
-  margin-top: 3rem !important;
-}
-
-.input-container {
-  width: 100%; /* Ajusta el ancho del contenedor al 100% */
+.icon-and-button {
   display: flex;
-  justify-content: space-between; /* Alinea los elementos de manera equitativa */
-}
-
-.input-container input {
-  flex-grow: 1; /* Hace que los inputs ocupen todo el espacio restante */
-  margin-right: 10px; /* Espacio entre los inputs */
-}
-
-.buttons {
-  margin-top: 10px; /* Espacio entre el contenedor de inputs y los botones */
-}
-
-.button {
-  display: flex;
-  justify-content: flex-end; /* Alinea los botones a la derecha */
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 20px;
 }
 
 .btn-submit {
-  width: auto; /* Ancho automático para el botón */
+  margin-left: 10px;
 }
 
