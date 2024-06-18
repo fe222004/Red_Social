@@ -1,126 +1,89 @@
-
-import { Component, inject } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../../services/post.service';
+import { AuthService } from '../../../services/auth.service';
 import { PostI } from '../../../models/post.interface';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrl: './post.component.scss'
+  styleUrls: ['./post.component.scss']
 })
-export class PostComponent {
-  private formBuilder: FormBuilder = inject(FormBuilder);
-  protected postForm: FormGroup;
-  private readonly postService = inject(PostService)
-  protected posts: PostI[] = [];
-  protected post: PostI = {};
-  imageUrl: string | ArrayBuffer | null = null;
+export class PostComponent implements OnInit {
+  private readonly formBuilder: FormBuilder = inject(FormBuilder);
+  private readonly postService: PostService = inject(PostService);
+  private readonly authService: AuthService = inject(AuthService);
 
-  protected editingMode!: boolean;
+  form: FormGroup;
+  imageSrc: string | ArrayBuffer | null = null;
 
-    constructor(private route: ActivatedRoute) {
-      this.postForm = this.buildForm
-    }
+  constructor() {
+    this.form = this.buildForm();
+  }
 
-  get buildForm(): FormGroup {
-    return (this.postForm = this.formBuilder.group({
+  ngOnInit(): void {
+    // This method is not currently implemented
+  }
+
+  buildForm(): FormGroup {
+    return this.formBuilder.group({
       text: ['', [Validators.required, Validators.minLength(2)]],
-      tag: ['', [Validators.minLength(2)]],
-
-    }));
-  }
-
-
-  get text(): AbstractControl {
-    return this.postForm.controls['text'];
-  }
-  get tag(): AbstractControl {
-    return this.postForm.controls['tag'];
-  }
-
-
-  onSubmit() {
-    console.log('Entro al sumbmit');
-    if (this.postForm.invalid) {
-      console.log('El formulario no es válido.');
-      return;
-    }
-
-    this.postService.createPost(this.postForm.value).subscribe(() => {
-      console.log("ENTRO", this.postForm.value)
+      tag: ['', Validators.required],
+      image: ['', Validators.required],
     });
   }
 
-  crearPost() {
-    if (this.postForm.valid) {
-      alert('Registrado');
-      this.postService.createPost(this.postForm.value).subscribe(() => {
-      });
-      console.log("Entro", this.postForm.value)
-    } else {
-      alert('No registrado');
-    }
-    console.log("Ingreso aqui")
+  chooseFile() {
+    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    fileInput.click();
   }
 
-  //Logica de la iamgen
-  onFileSelected(event: Event): void {
+  getFile(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
       const file = input.files[0];
       const reader = new FileReader();
-      reader.onload = () => {
-        this.imageUrl = reader.result;
+      reader.onload = (e) => {
+        const result = e.target?.result;
+        if (result) {
+          this.imageSrc = result;
+        }
       };
       reader.readAsDataURL(file);
-      console.log(file);
+      this.form.get('image')?.setValue(file);
     }
   }
-  
-  removeImage(): void {
-    this.imageUrl = null;
+
+  clearImage() {
+    this.imageSrc = null;
+    this.form.get('image')?.setValue(null);
   }
 
+  onSubmit() {
+    if (this.form.invalid) {
+      return;
+    }
 
-       // crearPost() {
-         // if (this.postForm.valid) {
-           // alert('Registrado');
-            //this.postService.createPost(this.postForm.value).subscribe(() => {
-            //});
-            //console.log("Entro", this.postForm.value)
-          //} else {
-            //alert('No registrado');
-         // }
-          //console.log("Ingreso aqui")
-        //}   
-        
-        updatePost(id: string): void {
-          console.log(this.postForm.value);
-      
-          if (this.postForm.valid) {
-            const payload: PostI = this.postForm.value;
-            this.postService.updatePost(id, payload).subscribe(
-              (response: PostI) => {
-                console.log('Solicitud PUT exitosa', response);
-                // Realizar acciones adicionales después de una respuesta exitosa si es necesario
-              },
-              (error: any) => {
-                console.error('Error al realizar la solicitud PUT', error);
-                // Manejar el error de manera adecuada, mostrar un mensaje al usuario, etc.
-              }
-            );
-          } else {
-            console.error('Formulario no válido');
-            // Realizar acciones si el formulario no es válido
-          }
-        }
+    const formData = new FormData();
+    const file = this.form.get('image')?.value;
+    const text = this.form.get('text')?.value;
+    const tag = this.form.get('tag')?.value;
+    const userId = this.authService.getUserId() || ''; // Obtener el ID del usuario logueado
 
-        resetForm() {
-          this.editingMode = false; // Cambiar al modo de edición falso
-          this.postForm.reset(); // Reiniciar el formulario
-        }
-      
+    if (file) {
+      formData.append('image', file);
+    }
+    formData.append('text', text);
+    formData.append('tag', tag);
+    formData.append('userId', userId);
 
+    this.postService.createPost(formData).subscribe(
+      (response: PostI) => {
+        console.log('Post created successfully:', response);
+      },
+      (error) => {
+        console.error('Error creating post:', error);
+      }
+    );
+  }
 }
