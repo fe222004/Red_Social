@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { Complaint } from '../../../models/Complaint';
+import { RevisorService } from '../../../services/revisor.service';
+import { PostService } from '../../../services/post.service';
+import { PostI } from '../../../models/post.interface';
 
 @Component({
   selector: 'app-complaint',
@@ -6,11 +11,65 @@ import { Component } from '@angular/core';
   styleUrl: './complaint.component.scss'
 })
 export class ComplaintComponent {
-  visible: boolean = false;
+  @ViewChild('closeModalButton') closeModalButton!: ElementRef;
+  protected posts: PostI[] =[];
+  logForm=this.formBuilder.group({
+    name_offender:['',[Validators.required]],
+     problem:['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+     problem_date: ['',[Validators.required]],
+     problem_hour: ['',[Validators.required]],
+     severity:['',[Validators.required]]
+   })
+   constructor(private formBuilder:FormBuilder, private readonly revisorService: RevisorService, private readonly postService: PostService ){
+    this.fetchPosts();
+   }
+   get name_offender(): AbstractControl {
+    return this.logForm.controls['name_offender'];
+  }
+  get problem(): AbstractControl {
+    return this.logForm.controls['problem'];
+  }
+  get problem_date(): AbstractControl {
+    return this.logForm.controls['problem_date'];
+  }
+  get problem_hour(): AbstractControl {
+    return this.logForm.controls['problem_hour'];
+  }
+  get severity(): AbstractControl {
+    return this.logForm.controls['severity'];
+  }
+   reset() {
+    this.logForm.reset();
+  }
+  fetchPosts(){
+    this.postService.findPosts().subscribe(response =>{
+     console.log(response);
+     this.posts = response
+    })
+     }
 
-    showDialog() {
-        this.visible = true;
+     createForm() {
+      if (this.logForm.valid) {
+        alert('Valido',);
+        const complaintDateValue = this.logForm.value.problem_date;
+        const problem_date: Date = complaintDateValue ? new Date(complaintDateValue) : new Date();
+        const complaint: Complaint = {
+       name_offender: this.logForm.value.name_offender || '',
+        problem: this.logForm.value.problem || '',
+        problem_date: problem_date,
+        problem_hour: this.logForm.value.problem_hour || '',
+        severity: this.logForm.value.severity === 'grave'
+      };
+       this.revisorService.createForm(complaint).subscribe(response => {
+        console.log(response);
+      });
+      this.logForm.reset();
+      this.closeModalButton.nativeElement.click();
+       
+          } else{
+            alert('no valido')
+         this.logForm.markAllAsTouched();
+         } 
     }
- 
 }
 
