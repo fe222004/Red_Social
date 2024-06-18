@@ -49,31 +49,57 @@ export class CustomerListComponent {
   }
 
   //ACTUALIZA
-  updateResolver(){
-    console.log("Actualiza")
-    this.resolverService.updateResolver('1', {}).subscribe(response => {
-      
-    })
+  
+  updateResolver(id: string, payload: ResolverI): void {
+    console.log("Entro a actualizar", payload);
+    this.resolverService.updateResolver(id, payload).subscribe(
+      (response) => {
+        console.log('Actualización exitosa:', response);
+        this.getResolvers(); // Refresca la lista después de actualizar
+        this.closeEditModal(); // Cerrar el modal después de actualizar
+      },
+      (error) => {
+        console.error('Error al actualizar:', error);
+      }
+    );
   }
 
-  openEditModal(){
+  openEditModal(resolver: ResolverI) {
+    this.resolver = resolver;
     this.mostrarFormularioModal = true;
-
+    // formulario con los valores actuales del resolver
+    this.form.patchValue({
+      suspended_account: resolver.suspended_account,
+      status: resolver.status,
+    });
   }
+
+  
   closeEditModal() {
     this.mostrarFormularioModal = false;
   }
 
   onSubmit(): void {
-    console.log("Entro")
-  
+    console.log("Entro");
+    const id = this.resolver.id || ''; // Asegúrate de que el resolver tiene un ID válido
+    if (id) {
+      const payload = this.form.value;
+      this.updateResolver(id, payload);
+      this.closeEditModal(); // Cerrar el modal después de actualizar
+    } else {
+      console.error('El ID del resolver no está definido');
+    }
   }
 
-  validataForm() {
-    if (this.form.valid) {
-      alert('Actualizado');
+  validataForm(): void {
+    console.log("Entro validata");
+    const id = this.resolver.id || ''; //  un ID válido
+    if (id) {
+      const payload = this.form.value;
+      this.updateResolver(id, payload);
+      this.closeEditModal(); // Cerrar el modal después de actualizar
     } else {
-      alert('No actualizado');
+      console.error('El ID del resolver no está definido');
     }
   }
 

@@ -11,6 +11,7 @@ import { ExplorersComponent } from './pages/contents/explorers/explorers.compone
 import { FormSuscriptorComponent } from './pages/components/form-suscriptor/form-suscriptor.component';
 import { CreatorComponent } from './pages/contentCreator/creator/creator.component';
 import { SurveyComponent } from './pages/components/survey/survey.component';
+import { EditProfileComponent } from './pages/user/edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path: 'survery',
     component: SurveyComponent
+
+  },
+  {
+    path: 'edit/:id',
+    component: EditProfileComponent
 
   },
   {

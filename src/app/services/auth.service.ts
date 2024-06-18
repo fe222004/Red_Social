@@ -18,7 +18,6 @@ export class AuthService {
           if (response && response.token) {
             localStorage.setItem('token', response.token);
             localStorage.setItem('email', response.email);
-            localStorage.setItem('role', response.role);
             localStorage.setItem('userId', response.userId); // Almacenar el ID del usuario
           }
           return response;

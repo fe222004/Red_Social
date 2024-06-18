@@ -1,5 +1,5 @@
 export interface StoryI {
-  id: number;
+  id: string;
   image: string;
   created_at: string;
   user: {

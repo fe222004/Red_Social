@@ -16,52 +16,80 @@ export class PostComponent {
   private readonly postService = inject(PostService)
   protected posts: PostI[] = [];
   protected post: PostI = {};
+
   protected editingMode!: boolean;
 
     constructor(private route: ActivatedRoute) {
       this.postForm = this.buildForm
     }
 
-    get buildForm(): FormGroup {
-      return (this.postForm = this.formBuilder.group({
-        text: ['', [Validators.required, Validators.minLength(2)]],
-        tag: ['', [Validators.minLength(2)]],
-        
-      }));
+  get buildForm(): FormGroup {
+    return (this.postForm = this.formBuilder.group({
+      text: ['', [Validators.required, Validators.minLength(2)]],
+      tag: ['', [Validators.minLength(2)]],
+
+    }));
+  }
+
+
+  get text(): AbstractControl {
+    return this.postForm.controls['text'];
+  }
+  get tag(): AbstractControl {
+    return this.postForm.controls['tag'];
+  }
+
+
+  onSubmit() {
+    console.log('Entro al sumbmit');
+    if (this.postForm.invalid) {
+      console.log('El formulario no es válido.');
+      return;
     }
 
-      
-        get text(): AbstractControl {
-          return this.postForm.controls['text'];
-        }
-        get tag(): AbstractControl {
-          return this.postForm.controls['tag'];
-        }
+    this.postService.createPost(this.postForm.value).subscribe(() => {
+      console.log("ENTRO", this.postForm.value)
+    });
+  }
+
+  crearPost() {
+    if (this.postForm.valid) {
+      alert('Registrado');
+      this.postService.createPost(this.postForm.value).subscribe(() => {
+      });
+      console.log("Entro", this.postForm.value)
+    } else {
+      alert('No registrado');
+    }
+    console.log("Ingreso aqui")
+  }
+
+  //Logica de la iamgen
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+      reader.onload = () => {
+       // this.imageUrl = reader.result;
+      };
+      reader.readAsDataURL(file);
+      console.log(file);
+    }
+  }
 
 
-        onSubmit() {
-          console.log('Entro al sumbmit');
-          if (this.postForm.invalid) {
-            console.log('El formulario no es válido.');
-            return;
-          }
-
-          this.postService.createPost(this.postForm.value).subscribe(() => {
-            console.log("ENTRO", this.postForm.value)
-          });
-        }
-
-        crearPost() {
-          if (this.postForm.valid) {
-            alert('Registrado');
-            this.postService.createPost(this.postForm.value).subscribe(() => {
-            });
-            console.log("Entro", this.postForm.value)
-          } else {
-            alert('No registrado');
-          }
-          console.log("Ingreso aqui")
-        }   
+       // crearPost() {
+         // if (this.postForm.valid) {
+           // alert('Registrado');
+            //this.postService.createPost(this.postForm.value).subscribe(() => {
+            //});
+            //console.log("Entro", this.postForm.value)
+          //} else {
+            //alert('No registrado');
+         // }
+          //console.log("Ingreso aqui")
+        //}   
         
         updatePost(id: string): void {
           console.log(this.postForm.value);
@@ -89,4 +117,5 @@ export class PostComponent {
           this.postForm.reset(); // Reiniciar el formulario
         }
       
+
 }
