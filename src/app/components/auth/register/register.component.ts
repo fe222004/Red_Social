@@ -1,11 +1,17 @@
 import { Component, inject } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/user';
 import { Country } from '../../../models/country';
 import { CountryService } from '../../../services/country.service';
 import { Rol } from '../../../models/rol';
 import { RolService } from '../../../services/rol.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -16,21 +22,18 @@ export class RegisterComponent {
   private readonly formBuilder: FormBuilder = inject(FormBuilder);
   private readonly userService: UserService = inject(UserService);
 
-  private readonly countryService: CountryService = inject(CountryService);  
-  private readonly rolService: RolService = inject(RolService);  
-
+  private readonly countryService: CountryService = inject(CountryService);
+  private readonly rolService: RolService = inject(RolService);
 
   public loginForm: FormGroup;
   public imageSrc: string | ArrayBuffer | null | undefined = null;
   public files: any[] = [];
   public errorMessage: string | null = null;
 
-  countries : Country[]=[];
-  roles : Rol [] =[];
+  countries: Country[] = [];
+  roles: Rol[] = [];
 
-  
-
-  constructor() {
+  constructor(private router: Router) {
     this.loginForm = this.buildForm();
     this.getCountries();
     this.getRol();
@@ -54,13 +57,28 @@ export class RegisterComponent {
           Validators.maxLength(40),
         ],
       ],
-    email: ['',[Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),],],
-      password: ['', [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+          ),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/
+          ),
+        ],
+      ],
       image: [''],
       description: ['', [Validators.maxLength(200)]],
       countryId: [''],
       rolId: [''],
-
     });
   }
 
@@ -91,9 +109,6 @@ export class RegisterComponent {
   get description(): AbstractControl {
     return this.loginForm.controls['description'];
   }
-  
-
-
 
   getFile(event: any): void {
     const file = event.target.files[0];
@@ -107,18 +122,19 @@ export class RegisterComponent {
     }
   }
 
-  getCountries(){
-    this.countryService.findCountries().subscribe(response => {
-      console.log(response)
-      this.countries = response
-    });  }
+  getCountries() {
+    this.countryService.findCountries().subscribe((response) => {
+      console.log(response);
+      this.countries = response;
+    });
+  }
 
-    getRol(){
-      this.rolService.findRol().subscribe(response => {
-        console.log(response)
-        this.roles = response
-      });  }
-
+  getRol() {
+    this.rolService.findRol().subscribe((response) => {
+      console.log(response);
+      this.roles = response;
+    });
+  }
 
   onSubmit() {
     console.log('Se ha hecho clic en el botón de envío.');
@@ -135,8 +151,8 @@ export class RegisterComponent {
     formData.append('firstname', this.loginForm.value.firstname);
     console.log('firstname:', this.loginForm.value.firstname);
 
-  //this.userService.createUser(formData).subscribe((response) => {
-  //});
+    //this.userService.createUser(formData).subscribe((response) => {
+    //});
     formData.append('email', this.loginForm.value.email);
     console.log('email:', this.loginForm.value.email);
 
@@ -165,6 +181,8 @@ export class RegisterComponent {
       (response: User) => {
         console.log('User created successfully:', response);
         this.errorMessage = null; // Clear error message
+        this.router.navigate(['']); // Redirigir a la página de perfil o cualquier otra página
+
       },
       (error) => {
         console.error('Error creating user:', error);
@@ -211,5 +229,4 @@ export class RegisterComponent {
     reader.readAsDataURL(file);
     this.files = [file];
   }
-  
 }

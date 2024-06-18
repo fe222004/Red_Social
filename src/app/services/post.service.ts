@@ -1,13 +1,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable, inject } from "@angular/core";
-import { environment } from "../../environments/environment";
-import { Observable } from "rxjs";
+
+import { Observable, catchError } from "rxjs";
 import { PostI } from "../models/post.interface";
+import { environment } from "../../environments/environment";
 
 @Injectable({providedIn: 'root'})
 export class PostService {
   private readonly httpClient = inject(HttpClient);
-  private readonly apiUrl: string = 'http://localhost:3000/post';
+
+  private readonly apiUrl: string = 'http://localhost:3000/posts';
 
   
   findPost():Observable<PostI[]> {
@@ -24,6 +26,7 @@ export class PostService {
 
   deletePost(id: string) {
     return this.httpClient.delete(`${this.apiUrl}/${id}`);
+
   }
 
 }

@@ -12,18 +12,13 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
-    console.log('Login request sent to:', `${this.apiUrl}/auth/login`);
-    console.log('Login credentials:', { email, password });
-
     return this.http.post<any>(`${this.apiUrl}/auth/login`, { email, password })
       .pipe(
         map(response => {
-          console.log('Login response:', response);
-
           if (response && response.token) {
             localStorage.setItem('token', response.token);
             localStorage.setItem('email', response.email);
-            localStorage.setItem('role', response.role);
+            localStorage.setItem('userId', response.userId); // Almacenar el ID del usuario
           }
           return response;
         })
@@ -31,15 +26,21 @@ export class AuthService {
   }
 
   logout(): void {
-    console.log('Logging out');
     localStorage.removeItem('token');
     localStorage.removeItem('email');
     localStorage.removeItem('role');
+    localStorage.removeItem('userId'); // Remover el ID del usuario
   }
 
   isLoggedIn(): boolean {
-    const loggedIn = !!localStorage.getItem('token');
-    console.log('Is logged in:', loggedIn);
-    return loggedIn;
+    return !!localStorage.getItem('token');
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  getUserId(): string | null {
+    return localStorage.getItem('userId'); // Obtener el ID del usuario
   }
 }

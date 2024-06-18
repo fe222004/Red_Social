@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../../services/post.service';
 import { PostI } from '../../../models/post.interface';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -15,12 +16,12 @@ export class PostComponent {
   private readonly postService = inject(PostService)
   protected posts: PostI[] = [];
   protected post: PostI = {};
-  imageUrl: string | ArrayBuffer | null = null;
 
+  protected editingMode!: boolean;
 
-  constructor() {
-    this.postForm = this.buildForm
-  }
+    constructor(private route: ActivatedRoute) {
+      this.postForm = this.buildForm
+    }
 
   get buildForm(): FormGroup {
     return (this.postForm = this.formBuilder.group({
@@ -70,14 +71,51 @@ export class PostComponent {
       const file = input.files[0];
       const reader = new FileReader();
       reader.onload = () => {
-        this.imageUrl = reader.result;
+       // this.imageUrl = reader.result;
       };
       reader.readAsDataURL(file);
       console.log(file);
     }
   }
 
-  removeImage(): void {
-    this.imageUrl = null;
-  }
+
+       // crearPost() {
+         // if (this.postForm.valid) {
+           // alert('Registrado');
+            //this.postService.createPost(this.postForm.value).subscribe(() => {
+            //});
+            //console.log("Entro", this.postForm.value)
+          //} else {
+            //alert('No registrado');
+         // }
+          //console.log("Ingreso aqui")
+        //}   
+        
+        updatePost(id: string): void {
+          console.log(this.postForm.value);
+      
+          if (this.postForm.valid) {
+            const payload: PostI = this.postForm.value;
+            this.postService.updatePost(id, payload).subscribe(
+              (response: PostI) => {
+                console.log('Solicitud PUT exitosa', response);
+                // Realizar acciones adicionales después de una respuesta exitosa si es necesario
+              },
+              (error: any) => {
+                console.error('Error al realizar la solicitud PUT', error);
+                // Manejar el error de manera adecuada, mostrar un mensaje al usuario, etc.
+              }
+            );
+          } else {
+            console.error('Formulario no válido');
+            // Realizar acciones si el formulario no es válido
+          }
+        }
+
+        resetForm() {
+          this.editingMode = false; // Cambiar al modo de edición falso
+          this.postForm.reset(); // Reiniciar el formulario
+        }
+      
+
 }
