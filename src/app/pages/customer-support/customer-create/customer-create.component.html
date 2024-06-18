@@ -35,28 +35,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Maria López Perez</td>
-                                <td>Desconfianza en los medios de comunicación</td>
-                                <td>2024-05-01</td>
-                                <td>12:00</td>
-                                <td>
-                                    <select class="status-select form-select">
-                                        <option value="" disabled selected></option>
-                                        <option value="pending">Pendiente</option>
-                                        <option value="process">En proceso</option>
-                                        <option value="resolved">Resuelto</option>
-                                    </select>
-                                </td>
-
+                            <tr *ngFor="let complaint of problem; let i = index ">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{complaint.name_offender}}</td>
+                                <td>{{complaint.problem}}</td>
+                                <td>{{complaint.problem_date }}</td>
+                                <td>{{complaint.problem_hour}}</td>
+                                <td>{{complaint.severity}}</td>
+                               
+                               
+   
                                 <!--FORMULARIO REGISTRO QUEJAS-->
                                 <td>
                                     <button type="button" class="btn btn-success me-2" (click)="mostrarFormulario()">
                                         <i class="bi bi-pencil-square icono-grande"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-warning me-2" (click)="mostrarAdvertencia()">
-                                        <i class="bi bi-exclamation-circle icono-grande" style="color: white;"></i>
                                     </button>
                                     <button type="button" class="btn btn-info me-2" (click)="navigateToCustomerList()">
                                         <i class="bi bi-card-checklist icono-grande" style="color: white;"></i>
@@ -67,9 +59,8 @@
                                                 Registrar Queja
                                             </h2>
                                             <br />
-                                            <form [formGroup]="form"
-                                                class="row shadow p-3 mb-5 bg-body-tertiary rounded"
-                                                (ngSubmit)="onSubmit()">
+                                            <form [formGroup]="form" (ngSubmit)="onSubmit()"
+                                                class="row shadow p-3 mb-5 bg-body-tertiary rounded">
                                                 <div class="row">
                                                     <div class="col-6 mb-3"
                                                         style="margin-top: 5px; padding-right: 15px">
@@ -161,6 +152,37 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="row">
+                                                    <div class="col-6 mb-3"
+                                                        style="margin-top: 5px; padding-right: 15px">
+                                                        <label for="responsible" class="form-label">Responsable</label>
+                                                        <input type="text" id="responsible" class="form-control"
+                                                            formControlName="responsible" />
+                                                        <div style="font-size: smaller; text-align: center">
+                                                            @if(responsible.errors){ @if(responsible.touched){
+                                                            @if(responsible.errors['required']){
+                                                            <span class="p-error">Este campo es requerido</span>
+                                                            } } }
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6 mb-3" style="margin-top: 5px; padding-left: 15px">
+                                                         <label for="estado" class="form-label">Estado de Cuenta</label>
+                                                    <select id="estado" class="form-control"
+                                                        formControlName="status">
+                                                        <option value="" disabled selected></option>
+                                                        <option value="En Proceso">En Proceso</option>
+                                                        <option value="Solucionado">Solucionado</option>
+                                                        <option value="Pendiente">Pendiente</option>
+                                                    </select>
+                                                        <div style="font-size: smaller; text-align: center">
+                                                            @if(status.errors){
+                                                            @if(status.touched){
+                                                            @if(status.errors['required']){
+                                                            <span class="p-error">Este campo es requerido</span>
+                                                            } } }
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div style="margin-top: 20px">
                                                     <label for="aceptado" class="form-label">Cuenta suspendida</label>
                                                     <select id="aceptado" class="form-control"
@@ -181,30 +203,9 @@
                                                     <button type="button" class="btn btn-outline-success" style="width: 22%;" (click)="validataForm()">Enviar</button>
                                                     <button type="button" class="btn btn-outline-danger" style="width: 22%;" (click)="ocultarFormulario()">Cerrar</button>
                                                 </div>
-                                                  
                                             </form>
                                         </div>
                                     </div>
-                                    
-                                    <!--ADVERTENCIAS-->
-                                    <div class="form-quejas-advertencia" [ngClass]="{ show: mostrarFormularioQuejasAdvertencia }">
-                                        <div class="form-container">
-                                          <h2 style="color: black; margin-top: -10px">Alerta de suspención</h2>
-                                          <br />
-                                          <form class="row shadow p-3 mb-5 bg-body-tertiary rounded" (ngSubmit)="enviarAdvertencia()">
-                                            <div class="row">
-                                              <div class="col-12 mb-3">
-                                                <label for="advertencia" class="form-label">Mensaje de suspención</label>
-                                                <textarea id="advertencia" class="form-control" [(ngModel)]="advertenciaMensaje" name="advertenciaMensaje" rows="4"></textarea>
-                                              </div>
-                                            </div>
-                                            <div class="col-12" style="margin-top: 30px; display: flex; justify-content:center; gap: 20px;">
-                                              <button type="button" class="btn btn-outline-danger" style="width: 22%;" (click)="ocultarAdvertencia()">Cerrar</button>
-                                              <button type="submit" class="btn btn-outline-success" style="width: 22%;">Enviar</button>
-                                            </div>
-                                          </form>
-                                        </div>
-                                      </div>
                                 </td>
                             </tr>
                             <!--Añadir más usuarios-->
@@ -213,7 +214,8 @@
                 </div>
             </div>
         </main>
-        <!-- MAIN -->
+    
+          
     </section>
     <!-- CONTENT -->
 

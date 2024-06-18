@@ -7,11 +7,11 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 const routes: Routes = [
   
   {
-    path:'profile',
+    path:'profile/:id',
     component: ProfileComponent
   },
   {
-    path:'edit',
+    path:'edit/:id',
     component: EditProfileComponent
   },
 ];

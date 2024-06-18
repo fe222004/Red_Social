@@ -551,3 +551,71 @@ body {
 	padding-left: 25px; /* Ajustar para mover más a la derecha */
 }
 
+.icono-grande {
+	font-size: 1.50rem;
+	padding: 11px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 120px;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 560px;
+    height: auto;
+    max-height: calc(100% - 100px);
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-header {
+    text-align: center; /* Centra el texto "Editar" */
+    margin-top: -20px; /* Ajusta el margen superior */
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.modal-content {
+    padding: 20px; /* Añade espacio interno al contenido */
+}
+
+.form-control {
+    margin: auto; /* Centra los campos */
+    max-width: 270px;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.btn-outline-danger {
+    margin-top: 20px;
+}
+
+.modal-header h2 {
+    color: black;
+    text-align: center;
+    margin-top: 30px; 
+}
+
+.form-control {
+    margin: auto;
+    max-width: 270px;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+.btn-outline-danger {
+    margin-top: 20px;
+}
+
+.modal-content {
+    padding: 20px; 
+}
+
+
+

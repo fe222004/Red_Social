@@ -8,7 +8,7 @@ import { InspectorModule } from './inspector/inspector.module';
 import { NavarComponent } from './components/navar/navar.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PageCreatorModule } from './contentCreator/page-creator.module'; 
+import { PageCreatorModule } from './contentCreator/page-creator.module';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import { PageCreatorModule } from './contentCreator/page-creator.module';
   imports: [
     CommonModule,
     PagesRoutingModule,
-    InspectorModule,
+    
     RouterModule,
     ReactiveFormsModule,
     PageCreatorModule 
