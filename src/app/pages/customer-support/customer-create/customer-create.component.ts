@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ResolverService } from '../../../services/resolver.service';
 import { RevisorService } from '../../../services/revisor.service';
 import { Complaint } from '../../../models/Complaint';
+
 declare var bootstrap: any;
 
 @Component({
@@ -13,7 +14,6 @@ declare var bootstrap: any;
 })
 export class CustomerCreateComponent {
   mostrarFormularioQuejas = false;
-  advertenciaMensaje: string = '';
 
   private formBuilder = inject(FormBuilder);
   private readonly resolverService: ResolverService = inject(ResolverService);
@@ -23,7 +23,7 @@ export class CustomerCreateComponent {
   constructor(private router: Router) {
     this.form = this.buildForm;
     this.getAll();
-
+    
   }
 
   get buildForm(): FormGroup {
@@ -34,7 +34,7 @@ export class CustomerCreateComponent {
       solution: ['', [Validators.required, Validators.minLength(2)]],
       date: ['', Validators.required],
       complaint_number: ['', [Validators.required, Validators.min(1)]],
-      suspended_account: [false, Validators.required],
+      suspended_account: ['', Validators.required],
       responsible: ['', [Validators.required, Validators.minLength(2)]],
       status: ['', Validators.required],
     }));
@@ -105,7 +105,8 @@ export class CustomerCreateComponent {
   navigateToCustomerList() {
     this.router.navigate(['/pages/customer-list']);
   }
-  
+ 
+
   getAll(){
     this.revisorService.getAll().subscribe(response => {
        console.log(response);

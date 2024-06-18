@@ -12,13 +12,12 @@ import { CustomerCreateComponent } from './customer-support/customer-create/cust
 import { CustomerListComponent } from './customer-support/customer-list/customer-list.component';
 import { CreatorComponent } from './contentCreator/creator/creator.component';
 import { SurveyComponent } from './components/survey/survey.component';
-
-
+import { CommentsComponent } from './components/comments/comments.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
   },
   {
     path:'creator',
@@ -26,15 +25,19 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: 'contenent',
-    loadChildren: () => import('./contents/contents.module').then(m => m.ContentsModule)
+    loadChildren: () =>
+      import('./contents/contents.module').then((m) => m.ContentsModule),
   },
   {
     path: 'c',
-    loadChildren: () => import('./contentCreator/page-creator.module').then(m => m.PageCreatorModule)
+    loadChildren: () =>
+      import('./contentCreator/page-creator.module').then(
+        (m) => m.PageCreatorModule
+      ),
   },
   {
     path: 'complaint',
@@ -47,23 +50,35 @@ const routes: Routes = [
   
   {
     path: 'content',
-    loadChildren: () => import('./contents/contents.module').then(m => m.ContentsModule)
+    loadChildren: () =>
+      import('./contents/contents.module').then((m) => m.ContentsModule),
   },
   {
     path: 'inspector',
-    loadChildren: () => import('./inspector/inspector.module').then(m => m.InspectorModule)
+    loadChildren: () =>
+      import('./inspector/inspector.module').then((m) => m.InspectorModule),
   },
   {
-    path:'customer',
-    loadChildren: () => import('./customer-support/customer-support.module').then(m => m.CustomerSupportModule)
+    path: 'customer',
+    loadChildren: () =>
+      import('./customer-support/customer-support.module').then(
+        (m) => m.CustomerSupportModule
+      ),
   },
   {
-    path:'user',
-    loadChildren: () => import('./user/user-routing.module').then(m => m.UserRoutingModule)
+    path: 'user',
+    loadChildren: () =>
+      import('./user/user-routing.module').then((m) => m.UserRoutingModule),
   },
   {
     path: 'create',
-    loadChildren: () => import('./create/create.module').then(m => m.CreateModule)
+    loadChildren: () =>
+      import('./create/create.module').then((m) => m.CreateModule),
+  },
+  {
+    path: 'post',
+    component: PostComponent
+
   },
   {
     path: 'customer-create',
@@ -73,16 +88,11 @@ const routes: Routes = [
     path: 'customer-list',
     component: CustomerListComponent
   },
-  {
-    path: 'form',
-    component: SurveyComponent
-  }
 
 ];
 
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PagesRoutingModule { }
+export class PagesRoutingModule {}

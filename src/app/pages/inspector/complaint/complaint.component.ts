@@ -1,8 +1,9 @@
 import { Component, ElementRef, ViewChild, inject } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { Complaint } from '../../../models/Complaint';
 import { RevisorService } from '../../../services/revisor.service';
 import { PostService } from '../../../services/post.service';
+import { PostI } from '../../../models/post.interface';
 
 @Component({
   selector: 'app-complaint',
@@ -11,7 +12,7 @@ import { PostService } from '../../../services/post.service';
 })
 export class ComplaintComponent {
   @ViewChild('closeModalButton') closeModalButton!: ElementRef;
-  
+  protected posts: PostI[] =[];
   logForm=this.formBuilder.group({
     name_offender:['',[Validators.required]],
      problem:['', [Validators.required,Validators.pattern('[a-zA-Z ]*')]],
@@ -19,12 +20,34 @@ export class ComplaintComponent {
      problem_hour: ['',[Validators.required]],
      severity:['',[Validators.required]]
    })
-   constructor(private formBuilder:FormBuilder, private readonly revisorService: RevisorService, private readonly postService: PostService ){}
-
+   constructor(private formBuilder:FormBuilder, private readonly revisorService: RevisorService, private readonly postService: PostService ){
+    this.fetchPosts();
+   }
+   get name_offender(): AbstractControl {
+    return this.logForm.controls['name_offender'];
+  }
+  get problem(): AbstractControl {
+    return this.logForm.controls['problem'];
+  }
+  get problem_date(): AbstractControl {
+    return this.logForm.controls['problem_date'];
+  }
+  get problem_hour(): AbstractControl {
+    return this.logForm.controls['problem_hour'];
+  }
+  get severity(): AbstractControl {
+    return this.logForm.controls['severity'];
+  }
    reset() {
     this.logForm.reset();
   }
-   
+  fetchPosts(){
+    this.postService.findPosts().subscribe(response =>{
+     console.log(response);
+     this.posts = response
+    })
+     }
+
      createForm() {
       if (this.logForm.valid) {
         alert('Valido',);

@@ -32,6 +32,8 @@
                                 <th scope="col" class="move-left">Estado de cuenta</th>
                                 <th scope="col" class="move-left">Responsable</th>
                                 <th scope="col" class="move-left">Estado de solución</th>
+                                <th scope="col" class="move-left">Editar</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -45,6 +47,11 @@
                                 <td>{{resolver.suspended_account}}</td>
                                 <td>{{resolver.responsible}}</td>
                                 <td>{{resolver.status}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-warning" (click)="openEditModal(resolver)">
+                                        <i class="bi bi-pencil-square icono-grande"></i>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -59,6 +66,57 @@
         <!-- MAIN -->
     </section>
     <!-- CONTENT -->
+
+    <div class="modal" tabindex="-1" role="dialog" [ngClass]="{ 'show': mostrarFormularioModal, 'd-block': mostrarFormularioModal }">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="background-color:rgba(174, 174, 174, 0.993);;">
+                <div class="modal-header">
+                    <h2 style="color: black; margin-left: 130px;">Editar Estados</h2>
+                </div>
+                <br>
+                <form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin-top: 20px;">
+                    <div class="row shadow p-3 mb-5 bg-body-tertiary ">
+                        <div class="col-12 mb-3 text-center">
+                            <label for="estado" class="form-label">Estado de Cuenta</label>
+                            <select id="estado" class="form-control" formControlName="status" onchange="this.style.textAlign='center';">
+                                <option value="" disabled selected></option>
+                                <option value="En Proceso">En Proceso</option>
+                                <option value="Solucionado">Solucionado</option>
+                                <option value="Pendiente">Pendiente</option>
+                            </select>
+                            <div style="font-size: smaller; text-align: center">
+                                @if(status.errors){
+                                @if(status.touched){
+                                @if(status.errors['required']){
+                                <span class="p-error">Este campo es requerido</span>
+                                } } }
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3 text-center">
+                            <label for="aceptado" class="form-label">Cuenta suspendida</label>
+                            <select id="aceptado" class="form-control" formControlName="suspended_account" onchange="this.style.textAlign='center';">
+                                <option value="" disabled selected></option>
+                                <option value="true">Sí</option>
+                                <option value="false">No</option>
+                            </select>
+                            <div style="font-size: smaller; text-align: center">
+                                @if(suspended_account.errors){
+                                @if(suspended_account.touched){
+                                @if(suspended_account.errors['required']){
+                                <span class="p-error">Este campo es requerido</span>
+                                } } }
+                            </div>
+                        </div>
+                       <div class="col-12" style="margin-top: 30px; display: flex; justify-content:center;">
+                        <button type="button" class="btn btn-outline-success" style="width: 100px; height: 40px; margin-right: 10px;" (click)="validataForm()">Enviar</button>
+                        <button type="button" class="btn btn-outline-danger" style="width: 100px; height: 40px; margin-left: 10px; margin-top: -1px;" (click)="closeEditModal()">Cerrar</button>
+                    </div>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+    
 
     <script src="script.js"></script>
 </body>

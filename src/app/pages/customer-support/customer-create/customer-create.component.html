@@ -170,9 +170,9 @@
                                                     <select id="estado" class="form-control"
                                                         formControlName="status">
                                                         <option value="" disabled selected></option>
-                                                        <option value="true">En Proceso</option>
-                                                        <option value="false">Solucionado</option>
-                                                        <option value="false">Pendiente</option>
+                                                        <option value="En Proceso">En Proceso</option>
+                                                        <option value="Solucionado">Solucionado</option>
+                                                        <option value="Pendiente">Pendiente</option>
                                                     </select>
                                                         <div style="font-size: smaller; text-align: center">
                                                             @if(status.errors){
@@ -203,7 +203,6 @@
                                                     <button type="button" class="btn btn-outline-success" style="width: 22%;" (click)="validataForm()">Enviar</button>
                                                     <button type="button" class="btn btn-outline-danger" style="width: 22%;" (click)="ocultarFormulario()">Cerrar</button>
                                                 </div>
-                                                  
                                             </form>
                                         </div>
                                     </div>
