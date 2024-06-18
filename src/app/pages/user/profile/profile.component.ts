@@ -126,7 +126,7 @@ export class ProfileComponent {
 
   //Post
   findPost() {
-    this.postService.findPost().subscribe((response) => {
+    this.postService.findPosts().subscribe((response) => {
       this.posts = response;
       console.log(this.posts);
     });
