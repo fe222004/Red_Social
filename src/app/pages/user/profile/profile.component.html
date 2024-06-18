@@ -125,13 +125,13 @@
             <div class="card" style="width: 700px;">
               <div class="card-header" style="display: flex;">
                 <div class="profile-image">
-                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
+                  <img [src]="post.user?.image" 
                     style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
                 </div>
                 <div class="user" style="margin-left: 20px;">
-                  <h6>Joss Balarezo</h6>
+                  <h6>{{post.user?.firstname}}{{post.user?.lastname}}</h6>
                   <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">jossy.balarezo21</small>
+                      class="text-body-secondary">{{post.user?.email}}</small>
                   </p>
                 </div>
                 <div class="edit" style="margin-left: 300px;">
@@ -169,7 +169,7 @@
               <div class="card-footer">
                 <div class="coment1">
                   <div class="photo">
-                    <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg" alt="...">
+                    <img [src]="post.user?.image"  alt="...">
                   </div>
                   <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" style="display: flex;">
                     <div class="mb-3">
@@ -185,103 +185,6 @@
           </div>
           }
 
-          <!-- SUGERENCIAS -->
-        </section>
-
-        <section style="margin-left: 30px;">
-          <div class="card" style="width: 370px; position: fixed;">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Sugerencias</li>
-              <li class="list-group-item" style="display: flex;">
-                <div class="profile-image">
-                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>Joss Balarezo</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">jossy.balarezo21</small>
-                  </p>
-                </div>
-                <div class="follow" style="margin-left: 80px;">
-                  <button type="button" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-                </div>
-              </li>
-              <li class="list-group-item" style="display: flex;">
-                <div class="profile-image">
-                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>Joss Balarezo</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">jossy.balarezo21</small>
-                  </p>
-                </div>
-                <div class="follow" style="margin-left: 80px;">
-                  <button type="button" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-                </div>
-              </li>
-              <li class="list-group-item" style="display: flex;">
-                <div class="profile-image">
-                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>Joss Balarezo</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">jossy.balarezo21</small>
-                  </p>
-                </div>
-                <div class="follow" style="margin-left: 80px;">
-                  <button type="button" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-                </div>
-              </li>
-              <li class="list-group-item" style="display: flex;">
-                <div class="profile-image">
-                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>{{user.firstname}} {{user.lastname}}</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">{{user.email}}</small>
-                  </p>
-                </div>
-                <div class="follow" style="margin-left: 80px;">
-                  <button type="button" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-                </div>
-              </li>
-              <li class="list-group-item" style="display: flex;">
-                <div class="profile-image">
-                  <img src="https://i.pinimg.com/736x/c1/6d/f9/c16df990b7b69365a9eb58bef67cafc9.jpg"
-                    style="width: 50px; height: 50px; border-radius: 50%;" alt="...">
-                </div>
-                <div class="user" style="margin-left: 20px;">
-                  <h6>Joss Balarezo</h6>
-                  <p class="card-text" style="font-size: 15px;"><small
-                      class="text-body-secondary">jossy.balarezo21</small>
-                  </p>
-                </div>
-                <div class="follow" style="margin-left: 80px;">
-                  <button type="button" class="btn btn-outline-info"
-                    style=" border-radius: 50px; margin-top: 10px;">Follow</button>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-          <div class="card" style="width: 370px; margin-top: 400px; position: fixed; height: auto;">
-            <div class="card-body">
-              <h5 class="card-title">Tendencias</h5>
-              <h6 class="card-subtitle mb-2 text-body-secondary">Trending</h6>
-              <p class="card-text">Some quick example text to build on the card </p>
-            </div>
-          </div>
         </section>
       </main>
     </section>

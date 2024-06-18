@@ -37,16 +37,11 @@ body {
   font-size: 16px;
 }
 
-.btn-submit {
-  margin-left: 10px;
-}
-
 form {
   background-color: #fefefe;
   margin-top: 40px;
   padding: 20px;
   border-radius: 10px;
-
 }
 
 .image-preview-container {
@@ -55,14 +50,11 @@ form {
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(219, 219, 219, 0.5);
   border-radius: 10px;
-  /* Bordes redondeados para la tarjeta */
   padding: 1rem;
-  max-width: 500px;
-  margin: 0 auto;
   max-width: 300px;
-  /*Establece el tamaño en imagenes*/
+  margin: 0 auto;
 }
 
 .image-preview-container img {
@@ -90,7 +82,15 @@ form {
   z-index: 1;
 }
 
-.mt-5 {
-  margin-top: 3rem !important;
+.icon-and-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 20px;
+}
+
+.btn-submit {
+  margin-left: 10px;
 }
 

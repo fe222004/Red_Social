@@ -35,21 +35,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Maria López Perez</td>
-                                <td>Desconfianza en los medios de comunicación</td>
-                                <td>2024-05-01</td>
-                                <td>12:00</td>
-                                <td>
-                                    <select class="status-select form-select">
-                                        <option value="" disabled selected></option>
-                                        <option value="pending">Pendiente</option>
-                                        <option value="process">En proceso</option>
-                                        <option value="resolved">Resuelto</option>
-                                    </select>
-                                </td>
-
+                            <tr *ngFor="let complaint of problem; let i = index ">
+                                <td>{{ i + 1 }}</td>
+                                <td>{{complaint.name_offender}}</td>
+                                <td>{{complaint.problem}}</td>
+                                <td>{{complaint.problem_date }}</td>
+                                <td>{{complaint.problem_hour}}</td>
+                                <td>{{complaint.severity}}</td>
+                               
+                               
+   
                                 <!--FORMULARIO REGISTRO QUEJAS-->
                                 <td>
                                     <button type="button" class="btn btn-success me-2" (click)="mostrarFormulario()">
@@ -219,7 +214,8 @@
                 </div>
             </div>
         </main>
-        <!-- MAIN -->
+    
+          
     </section>
     <!-- CONTENT -->
 
