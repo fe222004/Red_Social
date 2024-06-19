@@ -6,7 +6,7 @@
     </a>
     <ul class="side-menu top">
         <li>
-            <a routerLink="/pages/dashboard">
+            <a routerLink="/pages/dashboard" >
                 <i class='bx bxs-dashboard'></i>
                 <i class="bi bi-house-door-fill" style="margin-right: 10px;"></i>
                 <span class="text">Inicio</span>
@@ -20,20 +20,6 @@
             </a>
         </li>
         <li style="margin-top: 20px;">
-            <a routerLink="/pages/c/creator">
-                <i class='bx bxs-group'></i>
-                <i class="bi bi-person-hearts" style="margin-right: 10px;"></i>
-                <span class="text">Creador</span>
-            </a>
-        </li>
-        <li style="margin-top: 20px;">
-            <a routerLink="/pages/comunidad">
-                <i class='bx bxs-group'></i>
-                <i class="bi bi-people" style="margin-right: 10px;"></i>
-                <span class="text">Comunidad</span>
-            </a>
-        </li>
-        <li style="margin-top: 20px;">
             <a (click)="creator.openModal()" style="cursor:pointer;">
                 <i class='bx bxs-group'></i>
                 <i class="bi bi-plus-square" style="margin-right: 10px;"></i>
@@ -41,9 +27,6 @@
             </a>
         </li>
         <app-new-create #creator></app-new-create>
-        
-        
-
         <li style="margin-top: 20px;">
 
             <a routerLink="/pages/customer/customer-create">

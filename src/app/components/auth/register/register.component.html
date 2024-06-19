@@ -35,9 +35,9 @@
                         <div style="font-size: smaller; text-align: center">
                             @if(lastname.errors){ @if(lastname.touched){
                             @if(lastname.errors['required']){
-                            <span class="p-error">Este campo es requerido</span>
+                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                             } @if(lastname.errors['minlength']){
-                            <span class="p-error">El campo debe contener al menos 5
+                            <span class="p-error" style="color: red;">El campo debe contener al menos 5
                                 caracteres</span>
                             } } }
                         </div>
@@ -48,9 +48,9 @@
                         <div style="font-size: smaller; text-align: center">
                             @if(firstname.errors){ @if(firstname.touched){
                             @if(firstname.errors['required']){
-                            <span class="p-error">Este campo es requerido</span>
+                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                             } @if(firstname.errors['minlength']){
-                            <span class="p-error">El campo debe contener al menos 5
+                            <span class="p-error" style="color: red;">El campo debe contener al menos 5
                                 caracteres</span>
                             } } }
                         </div>
@@ -61,9 +61,9 @@
                         <div style="font-size: smaller; text-align: center">
                             @if(email.errors){ @if(email.touched){
                             @if(email.errors['required']){
-                            <span class="p-error">Este campo es requerido</span>
+                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                             } @if(email.errors['pattern']){
-                            <span class="p-error">Ingrese un correo electrónico
+                            <span class="p-error" style="color: red;">Ingrese un correo electrónico
                                 válido</span>
                             } } }
                         </div>
@@ -74,9 +74,9 @@
                         <div style="font-size: smaller; text-align: center">
                             @if(password.errors){ @if(password.touched){
                             @if(password.errors['required']){
-                            <span class="p-error">Este campo es requerido</span>
+                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                             } @if(password.errors['pattern']) {
-                                <span class="p-error">
+                                <span class="p-error" style="color: red;">
                                     Por favor, asegúrate de que tu contraseña cumpla con los siguientes criterios:
                                     <ul>
                                         <li>Al menos una letra minúscula.</li>
@@ -97,7 +97,7 @@
                             @if(countryId.errors){
                             @if(countryId.touched){
                             @if(countryId.errors['required']){
-                            <span class="p-error">Este campo es requerido</span>
+                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                             } } }
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                             @if(rolId.errors){
                             @if(rolId.touched){
                             @if(rolId.errors['required']){
-                            <span class="p-error">Este campo es requerido</span>
+                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                             } } }
                         </div>
                     </div>
@@ -120,9 +120,9 @@
                         <div style="font-size: smaller; text-align: center">
                             @if(description.errors){ @if(description.touched){
                             @if(description.errors['required']){
-                            <span class="p-error">Este campo es requerido</span>
+                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                             } @if(description.errors['minlength']){
-                            <span class="p-error">El campo debe contener al menos 5
+                            <span class="p-error" style="color: red;">El campo debe contener al menos 5
                                 caracteres</span>
                             } } }
                         </div>

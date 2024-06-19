@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
@@ -22,10 +22,17 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required,Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/)]],
+      email: ['',[Validators.required,Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/),],],
+      password: ['', [Validators.required]],
       rememberMe: [false]
     });
+  }
+
+  get email(): AbstractControl {
+    return this.loginForm.controls['email'];
+  }
+  get password(): AbstractControl {
+    return this.loginForm.controls['password'];
   }
 
 
@@ -45,5 +52,10 @@ export class LoginComponent {
     } else {
       console.log('Formulario no válido');
     }
+  }
+
+
+  navigate(){
+    this.router.navigate(['/pages/register']); 
   }
 }

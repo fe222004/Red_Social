@@ -114,11 +114,11 @@
             </div>
           </div>
 
-          <div class="postear">
+          <div class="postear" style="margin-left: 200px;">
             <app-post></app-post>
           </div>
           <!-- Post -->
-          <h3 style="margin-top: 40px; margin-bottom: 20px;">Publicaciones</h3>
+          <h3 style="margin-top: 40px; margin-bottom: 20px; margin-left: 200px;">Publicaciones</h3>
           <!-- POSTS -->
           @for(post of posts; track post.id){
           <div class="post">
@@ -134,15 +134,6 @@
                       class="text-body-secondary">{{post.user?.email}}</small>
                   </p>
                 </div>
-                <div class="edit" style="margin-left: 300px;">
-                  <button type="submit" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;"
-                  *ngIf="post.id !== undefined" (click)="updatePost(post.id)">Editar</button>
-                </div>
-                <div class="edit" style="margin-left: 10px;">
-                  <button type="submit" class="btn btn-outline-info" style=" border-radius: 50px; margin-top: 10px;"
-                    >Eliminar</button>
-                </div>
-
               </div>
               <div class="card-body">
                 <blockquote class="blockquote mb-0">
@@ -150,6 +141,12 @@
                   <footer class="blockquote-footer">{{post.tag}}
                   </footer>
                 </blockquote>
+                <div class="imagen">
+                  <img *ngIf="post.image" [src]="post.image" 
+                  class="card-img-top" alt="Post Image" 
+                  style="width: 400px; height: 400px; margin-left: 50px;">
+             <p *ngIf="!post.image" class="text-body-secondary">No hay imagen disponible para este post.</p>
+                </div>
               </div>
               <div class="card-footer">
                 <div class="option">

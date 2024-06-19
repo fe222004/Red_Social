@@ -70,9 +70,9 @@
                                                         <div style="font-size: smaller; text-align: center">
                                                             @if(name.errors){ @if(name.touched){
                                                             @if(name.errors['required']){
-                                                            <span class="p-error">Este campo es requerido</span>
+                                                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                             } @if(name.errors['minlength']){
-                                                            <span class="p-error">El campo debe contener al menos 5
+                                                            <span class="p-error" style="color: red;">El campo debe contener al menos 5
                                                                 caracteres</span>
                                                             } } }
                                                         </div>
@@ -84,9 +84,9 @@
                                                         <div style="font-size: smaller; text-align: center">
                                                             @if(lastname.errors){ @if(lastname.touched){
                                                             @if(lastname.errors['required']){
-                                                            <span class="p-error">Este campo es requerido</span>
+                                                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                             } @if(lastname.errors['minlength']){
-                                                            <span class="p-error">El campo apellido debe contener al
+                                                            <span class="p-error" style="color: red;">El campo apellido debe contener al
                                                                 menos 5
                                                                 caracteres</span>
                                                             } } }
@@ -102,9 +102,9 @@
                                                         <div style="font-size: smaller; text-align: center">
                                                             @if(email.errors){ @if(email.touched){
                                                             @if(email.errors['required']){
-                                                            <span class="p-error">Este campo es requerido</span>
+                                                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                             } @if(email.errors['pattern']){
-                                                            <span class="p-error">Ingrese un correo electrónico
+                                                            <span class="p-error" style="color: red;">Ingrese un correo electrónico
                                                                 válido</span>
                                                             } } }
                                                         </div>
@@ -116,9 +116,9 @@
                                                         <div style="font-size: smaller; text-align: center">
                                                             @if(solution.errors){ @if(solution.touched){
                                                             @if(solution.errors['required']){
-                                                            <span class="p-error">Este campo es requerido</span>
+                                                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                             } @if(solution.errors['minlength']){
-                                                            <span class="p-error">Ingrese una solución</span>
+                                                            <span class="p-error" style="color: red;">Ingrese una solución</span>
                                                             } } }
                                                         </div>
                                                     </div>
@@ -132,7 +132,7 @@
                                                         <div style="font-size: smaller; text-align: center">
                                                             @if(date.errors){ @if(date.touched){
                                                             @if(date.errors['required']){
-                                                            <span class="p-error">Este campo es requerido</span>
+                                                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                             } } }
                                                         </div>
                                                     </div>
@@ -145,9 +145,9 @@
                                                             @if(complaint_number.errors){
                                                             @if(complaint_number.touched){
                                                             @if(complaint_number.errors['required']){
-                                                            <span class="p-error">Este campo es requerido</span>
+                                                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                             } @if(complaint_number.errors['min']){
-                                                            <span class="p-error">Ingrese un número válido</span>
+                                                            <span class="p-error" style="color: red;">Ingrese un número válido</span>
                                                             } } }
                                                         </div>
                                                     </div>
@@ -161,7 +161,7 @@
                                                         <div style="font-size: smaller; text-align: center">
                                                             @if(responsible.errors){ @if(responsible.touched){
                                                             @if(responsible.errors['required']){
-                                                            <span class="p-error">Este campo es requerido</span>
+                                                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                             } } }
                                                         </div>
                                                     </div>
@@ -178,7 +178,7 @@
                                                             @if(status.errors){
                                                             @if(status.touched){
                                                             @if(status.errors['required']){
-                                                            <span class="p-error">Este campo es requerido</span>
+                                                            <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                             } } }
                                                         </div>
                                                     </div>
@@ -196,7 +196,7 @@
                                                     @if(suspended_account.errors){
                                                     @if(suspended_account.touched){
                                                     @if(suspended_account.errors['required']){
-                                                    <span class="p-error">Este campo es requerido</span>
+                                                    <span class="p-error" style="color: red;">Este campo es requerido</span>
                                                     } } }
                                                 </div>
                                                 <div class="col-12" style="margin-top: 30px; display: flex; justify-content:center; gap: 20px;">

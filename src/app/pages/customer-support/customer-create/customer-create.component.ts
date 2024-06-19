@@ -95,7 +95,7 @@ export class CustomerCreateComponent {
       this.resolverService.createResolver(this.form.value).subscribe(() => {
       });
       console.log("Entro", this.form.value)
-      //this.ocultarFormulario();
+      this.ocultarFormulario();
     } else {
       alert('No registrado');
     }
